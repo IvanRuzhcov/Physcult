@@ -1,11 +1,14 @@
 import React from 'react';
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import OnboardingPage from '../Login/OnboardingPage';
 
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<OnboardingPage />} />
+      </Routes>
+    </>
   );
 }
 
