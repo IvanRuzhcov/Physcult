@@ -1,0 +1,34 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 18px;
+  gap: 32px;
+  border-radius: 20px;
+  background: radial-gradient(
+    676.55% 313.39% at 50% 50%,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  backdrop-filter: blur(7px);
+  margin-bottom: 21px;
+  position: fixed;
+  bottom: 21px;
+  width: calc(
+    100% - 10px
+  ); /* Ширина экрана минус 10px маргина (5px с каждой стороны) */
+  margin: 0 5px; /* Маргины по краям */
+  max-width: calc(
+    100vw - 10px
+  ); /* Не дает навбару превысить ширину экрана с учетом маргинов */
+  box-sizing: border-box;
+}
+
+.icons {
+  width: 32px;
+  height: 32px;
+}
+.icons_play {
+  width: 34.2px;
+  height: 36px;
+}
