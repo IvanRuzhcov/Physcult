@@ -1,0 +1,205 @@
+body {
+  background: #fff;
+}
+.history_feed {
+  margin-top: 94px;
+  margin-left: 18px;
+  display: flex;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.history_feed::-webkit-scrollbar {
+  display: none;
+}
+
+.history {
+  display: block;
+}
+.history:not(:first-child) {
+  margin-left: 16px;
+}
+
+.history img {
+  width: 85px;
+  height: 85px;
+  border-radius: 50px;
+  border: 3px solid #db1d1d;
+}
+.history_name span {
+  color: rgba(0, 0, 0, 0.6);
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%; /* 12px */
+  letter-spacing: -0.12px;
+}
+
+.posts_feed {
+  justify-content: center;
+  display: block;
+}
+.posts {
+  width: 360px;
+  height: 100%;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.082);
+  background-color: #fff;
+  border-radius: 8%;
+  margin-top: 20px;
+  margin-left: 5px;
+  margin-right: 15px;
+  padding: 17px 10px 2px 10px;
+}
+.post_header {
+  display: flex;
+  align-items: center;
+}
+.post_header img {
+  width: 50px;
+  height: 50px;
+}
+.post_name {
+  margin-left: 12px;
+  text-align: left;
+}
+.post_name span {
+  color: var(--black, #000);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%; /* 16px */
+  letter-spacing: -0.16px;
+}
+.post_name div {
+  margin-top: 4px;
+  color: rgba(0, 0, 0, 0.5);
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%; /* 12px */
+  letter-spacing: -0.12px;
+}
+.post_result {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.results {
+  margin-top: 15px;
+  text-align: left;
+  padding: 5px;
+  margin-left: 10px;
+}
+.results span {
+  color: rgba(0, 0, 0, 0.5);
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 15px */
+  letter-spacing: -0.1px;
+}
+.results div {
+  margin-top: 5px;
+  font-weight: 400;
+}
+.post_medals {
+  margin-top: 15px;
+  text-align: left;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+.post_medals span {
+  color: rgba(0, 0, 0, 0.5);
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 15px */
+  letter-spacing: -0.1px;
+}
+.post_medals div img {
+  width: 15px;
+  height: 18px;
+  margin-top: 4px;
+}
+.post_medals div img:not(:first-child) {
+  margin-left: 2px;
+}
+.line {
+  height: 20px;
+  margin-top: 15px;
+  border-left: 1px solid rgba(0, 0, 0, 0.5);
+}
+.post_achievements {
+  display: flex;
+  align-items: center;
+}
+.quantity_medals {
+  margin-left: 2px;
+}
+.post_photos {
+  display: flex;
+  overflow-x: auto;
+  margin-top: 10px;
+}
+.post_photos::-webkit-scrollbar {
+  display: none;
+}
+.post_photo img {
+  width: 230px;
+  height: 196px;
+  border-radius: 15px;
+  flex-shrink: 0;
+  margin-left: 10px;
+}
+
+.style.post_photo img:first-child {
+  margin-left: 0; /* Устанавливаем отрицательный отступ для первой картинки */
+}
+.post_description {
+  margin-top: 7px;
+  margin-right: 20px;
+  margin-left: 12px;
+  text-align: left;
+}
+.post_description span {
+  color: var(--black, #000);
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 150%; /* 15px */
+  letter-spacing: -0.1px;
+}
+.post_feedback {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 9px;
+  margin-top: 8px;
+}
+.post_feedback img {
+  /* margin-left: 14px; */
+}
+.post_feedback_box {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-right: 14px;
+  margin-bottom: 2px;
+}
+.post_feedback_box span {
+  margin-left: 3px;
+  color: rgba(0, 0, 0, 0.5);
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%; /* 12px */
+  letter-spacing: -0.12px;
+  height: 100%;
+}
