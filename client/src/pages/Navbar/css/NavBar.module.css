@@ -1,4 +1,7 @@
 .navbar {
+}
+
+.navbar_feed {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,18 +20,66 @@
   width: calc(
     100% - 10px
   ); /* Ширина экрана минус 10px маргина (5px с каждой стороны) */
-  margin: 0 5px; /* Маргины по краям */
+  margin: 0 5px;
   max-width: calc(
     100vw - 10px
   ); /* Не дает навбару превысить ширину экрана с учетом маргинов */
   box-sizing: border-box;
 }
 
+.logo {
+  display: none;
+}
 .icons {
   width: 32px;
   height: 32px;
 }
+.icons span {
+  display: none;
+}
 .icons_play {
   width: 34.2px;
   height: 36px;
+}
+
+@media only screen and (min-width: 1025px) {
+  .navbar {
+    display: block;
+    background: radial-gradient(
+      676.55% 313.39% at 50% 50%,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+  .navbar_feed {
+    display: block;
+    top: 0;
+    height: 100%;
+    width: 80px;
+  }
+  .logo {
+    display: inline;
+  }
+  .logo span {
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+  }
+  .icons {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .icons span {
+    display: none;
+    margin-left: 10px;
+  }
+}
+@media only screen and (min-width: 1264px) {
+  .icons span {
+    display: inline;
+    margin-left: 10px;
+  }
 }

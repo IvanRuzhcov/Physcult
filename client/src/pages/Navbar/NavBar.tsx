@@ -14,7 +14,7 @@ import { useNavigate } from 'react-router-dom';
 
 function NavBar() {
   const navigate = useNavigate();
-  const [activePage, setActivePage] = useState('home');
+  const [activePage, setActivePage] = useState('fire');
 
   const handleWews = () => {
     navigate('/news');
@@ -23,30 +23,40 @@ function NavBar() {
 
   return (
     <div className={style.navbar}>
-      <div className={style.icons} onClick={handleWews}>
-        <img src={activePage === 'fire' ? Fire : offFire} alt="" />
+      <div className={style.navbar_feed}>
+      <div className={style.logo}>
+        <span>Logo</span>
       </div>
+        <div className={style.icons} onClick={handleWews}>
+          <img src={activePage === 'fire' ? Fire : offFire} alt="" />
+          <span>Новости</span>
+        </div>
 
-      <div className={style.icons} onClick={() => setActivePage('earth')}>
-        <img src={activePage === 'earth' ? earth : offEarth} alt="" />
-      </div>
+        <div className={style.icons} onClick={() => setActivePage('earth')}>
+          <img src={activePage === 'earth' ? earth : offEarth} alt="" />
+          <span>Поиск</span>
+        </div>
 
-      <div
-        className={`${style.icons} ${style.icons_play}`}
-        onClick={() => setActivePage('play')}
-      >
-        <img src={activePage === 'play' ? play : offPlay} alt="" />
-      </div>
+        <div
+          className={`${style.icons} ${style.icons_play}`}
+          onClick={() => setActivePage('play')}
+        >
+          <img src={activePage === 'play' ? play : offPlay} alt="" />
+          <span>Тренеровка</span>
+        </div>
 
-      <div className={style.icons} onClick={() => setActivePage('chat')}>
-        <img src={activePage === 'chat' ? chat : offChat} alt="" />
-      </div>
+        <div className={style.icons} onClick={() => setActivePage('chat')}>
+          <img src={activePage === 'chat' ? chat : offChat} alt="" />
+          <span>Сообщения </span>
+        </div>
 
-      <div className={style.icons} onClick={() => setActivePage('user')}>
-        <img
-          src={activePage === 'user' ? userRounded : offUserRounded}
-          alt=""
-        />
+        <div className={style.icons} onClick={() => setActivePage('user')}>
+          <img
+            src={activePage === 'user' ? userRounded : offUserRounded}
+            alt=""
+          />
+          <span>Профиль</span>
+        </div>
       </div>
     </div>
   );

@@ -53,7 +53,7 @@ function NewsFeed() {
   ];
 
   return (
-    <div>
+    <div className={style.container}>
       <History />
       <div className={style.posts_feed}>
         {posts.map((el) => (
