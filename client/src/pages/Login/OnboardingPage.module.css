@@ -1,46 +1,40 @@
-.conteiner {
-    display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.image_conteiner {
+.image_container {
     position: relative;
-}
+    height: 100vh; /* 100% высоты окна просмотра */
+    background-image: url('../../assets/onboardingimage2.jpeg');
+    background-size: cover; /* Изображение занимает всю доступную область */
+    background-position: center; /* Центрирование изображения */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-img {
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-}
+  }
+  
+  .content {
+    z-index: 1;
+    text-align: center;
+    color: white;
+    margin-top: 600px;
+  }
 
-.btn {
-    position: absolute;
-    top: 90%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  .btn {
     width: 343px;
     height: 50px;
-    color: #000000;
     font-size: 18px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 100%; /* 18px */
-    letter-spacing: -0.18px;
+    color: #000;
+    background: hsl(0, 2%, 84%);
     border-radius: 10px;
     border: none;
-    background: linear-gradient(120deg,#7D8D96,#B8BAC5);
-    cursor: pointer;
-}
-
-.btn:hover {
-    background: rgba( 114, 104, 104, 0.25 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 18px );
-    -webkit-backdrop-filter: blur( 18px );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-    
+    font-weight: 500;
+    letter-spacing: -0.18px;
   }
+
+
 

@@ -1,14 +1,22 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import styles from './OnboardingPage.module.css';
-import heroImage from './onboardingimage2.jpeg';
 
 export default function OnboardingPage():JSX.Element {
+  const navigate = useNavigate();
+
+  const handleRedirect = () => {
+    navigate('/auth');
+  };
+
   return (
-    <div className={styles.conteiner}>
-      <div className={styles.image_conteiner}>
-        <img src={heroImage} alt="" />
-        <button className={styles.btn}>Авторизация</button> 
-      </div>
+    <div className={styles.image_container}>
+    <div className={styles.overlay}></div>
+    <div className={styles.content}>
+      <button onClick={handleRedirect} className={styles.btn}>
+        Авторизация
+      </button>
     </div>
+  </div>
   )
 }
