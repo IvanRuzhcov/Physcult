@@ -6,8 +6,10 @@ import malyshko from '../../../assets/malyshko.png';
 import photo_malishko from '../../../assets/post_malichko.png';
 import map from '../../../assets/map_malishko.jpeg';
 import style from '../css/PersonalPage.module.css';
+import { useNavigate } from 'react-router-dom';
 
 function UserProfile() {
+  const naviget = useNavigate()
   const mal = {
     id: 1,
     name: 'Дмитрий Малышко',
@@ -29,6 +31,10 @@ function UserProfile() {
     subscriptions: 8,
     subscribers: 8,
   };
+
+   const hendleRedirectToSettings = () =>{
+      naviget('/settings')
+   }
   return (
     <>
       <div className={style.personal_info}>
@@ -36,7 +42,7 @@ function UserProfile() {
           <div className={style.profile_span}>
             <span>Профиль</span>
           </div>
-          <div className={style.profile_iсons}>
+          <div className={style.profile_iсons} onClick={()=> hendleRedirectToSettings()} >
             <img src={Settings} alt="" />
           </div>
           <div className={style.profile_iсons}>
