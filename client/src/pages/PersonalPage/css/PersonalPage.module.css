@@ -1,0 +1,333 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.profile_feed {
+  margin: 44px 0px 0px 0px;
+  padding: 0 0 100px 0;
+}
+.personal_info {
+  width: 100%;
+  padding: 16px 16px 24px 16px;
+  flex-direction: column;
+  border-radius: 0px 0px 30px 30px;
+  background: #fff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.082);
+}
+.header_personal_info {
+  display: flex;
+  padding: 1px 0px;
+  align-items: center;
+}
+
+.header_personal_info div span {
+  color: var(--Label-Color-Light-Primary, var(--black, #000));
+  text-align: center;
+  font-family: Inter;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px; /* 129.412% */
+  letter-spacing: -0.5px;
+}
+.profile_span {
+  margin-right: auto;
+}
+
+.profile_iсons {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: 10px;
+  margin-left: 8px;
+}
+.profile_photo {
+  margin-top: 46px;
+  text-align: center;
+}
+.user_photo img {
+  width: 87px;
+  height: 87px;
+}
+.user_name {
+  margin-top: 16px;
+  color: var(--black, #000);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px; /* 87.5% */
+  letter-spacing: -0.5px;
+}
+.user_nick {
+  margin-top: 12px;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px; /* 100% */
+  letter-spacing: -0.5px;
+}
+.community {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 53px;
+}
+.statistics {
+  width: 100%;
+  height: auto;
+  padding: 12px 8px;
+  text-align: center;
+  border-radius: 15px;
+  background: #f6f6f6;
+}
+.statistics span {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px; /* 100% */
+  letter-spacing: -0.5px;
+}
+.statistics div {
+  color: var(--black, #000);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px; /* 87.5% */
+  letter-spacing: -0.5px;
+}
+.statistics:not(:last-child) {
+  margin-right: 4px;
+}
+.results_container {
+  display: flex;
+  text-align: center;
+  margin-top: 4px;
+}
+.result {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  background: rgba(246, 246, 246, 0.3);
+  margin: 0 auto;
+  padding: 12px 8px;
+}
+.result:not(:last-child) {
+  margin-right: 4px;
+}
+.result span {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px; /* 100% */
+  letter-spacing: -0.5px;
+}
+.result div {
+  color: var(--black, #000);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px; /* 87.5% */
+  letter-spacing: -0.5px;
+}
+.user_navbar {
+  display: flex;
+  justify-content: center;
+  margin-top: 17px;
+}
+.publications_box:not(:last-child) {
+  margin-right: 52px;
+}
+.on_publications .on_progress {
+  color: var(--black, #000);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.on_publications,
+.on_progress {
+  color: var(--black, #000);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.off_publications,
+.off_progress {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.active_line {
+  margin: 12px auto 0px;
+  width: 88px;
+  height: 5px;
+  border-radius: 2px;
+  background: var(--red, #ff0606);
+}
+.posts_feed {
+  display: block;
+  text-align: center;
+}
+.achievement_container{
+  max-width: 380px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.award_container {
+  margin-top: 20px;
+  align-self: stretch;
+
+}
+.award_container span {
+  color: var(--Label-Color-Light-Primary, var(--black, #000));
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px; /* 129.412% */
+  letter-spacing: -0.5px;
+}
+.awards_slider {
+  display: flex;
+  align-items: center;
+  max-height: 100%;
+  overflow-y: auto;
+}
+.awards_slider::-webkit-scrollbar {
+  display: none;
+}
+.award_box {
+  width: 100px;
+  height: auto;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.award_box:not(:last-child) {
+  margin-right: 8px;
+}
+.award_img {
+  margin: 0 auto;
+  width: 64px;
+  height: 64px;
+  padding: 7px 7px;
+}
+
+.award_text {
+  text-align: center;
+  width: 100px;
+  color: var(--black, #000);
+  text-align: center;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+}
+.performance_section {
+  margin-top: 20px;
+}
+.performance_section span {
+  color: var(--Label-Color-Light-Primary, var(--black, #000));
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px; /* 129.412% */
+  letter-spacing: -0.5px;
+}
+
+.indicators_container {
+  margin-top: 4px;
+  display: flex;
+  gap: 4px 4px;
+  justify-content: center;
+}
+.indicators_container:not(:last-child) {
+  margin-top: 16px;
+  
+}
+
+
+.indicators_box {
+  display: flex;
+  background: #ececec;
+  width: 100%;
+  height: 145px;
+  border-radius: 15px;
+  padding: 10px;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: space-between;
+  align-content: center;
+}
+.indicators_box img {
+  width: 32px;
+  height: 32px;
+}
+.indicators_box_text {
+  display: flex;
+  width: 92px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: 123px;
+  color: rgba(0, 0, 0, 0.5);
+  font-feature-settings: 'case' on;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%; /* 14px */
+  letter-spacing: -0.5px;
+}
+.indicators_box_text_bottom {
+  color: rgba(0, 0, 0, 0.5);
+  font-feature-settings: 'case' on;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%; /* 12px */
+  letter-spacing: -0.5px;
+}
+.indicators_box_results_up {
+  color: #2d2a2a;
+  font-family: Inter;
+  font-size: 38px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%; /* 38px */
+  letter-spacing: -0.5px;
+}
+.indicators_box_results_bottom {
+  color: #2d2a2a;
+  font-family: Inter;
+  font-size: 38px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%; /* 38px */
+  letter-spacing: -0.5px;
+}
+.lol{
+  margin-bottom: 10px;
+}
+.frequent_training img {
+  width: 42px;
+  height: 42px;
+}
+.nested_indicators {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}

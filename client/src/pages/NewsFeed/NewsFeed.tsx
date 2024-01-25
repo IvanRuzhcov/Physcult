@@ -3,8 +3,6 @@ import style from './css/NewsFeed.module.css';
 import History from './components/History';
 import malyshko from '../../assets/malyshko.png';
 import lekarev from '../../assets/lekarev.png';
-import tsekulin from '../../assets/tsekulin.png';
-import blanin from '../../assets/blanin.png';
 import photo_malishko from '../../assets/post_malichko.png';
 import map from '../../assets/map_malishko.jpeg';
 import lecarev_map from '../../assets/mapLecarev.jpeg';
