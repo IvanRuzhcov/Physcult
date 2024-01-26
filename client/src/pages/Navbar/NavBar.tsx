@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import style from './css/NavBar.module.css';
 import offFire from '../../assets/icons/offFire.png';
 import Fire from '../../assets/icons/Fire.png';
@@ -11,24 +11,40 @@ import chat from '../../assets/icons/chat.png';
 import offUserRounded from '../../assets/icons/offUserRounded.png';
 import userRounded from '../../assets/icons/userRounded.png';
 import logo from '../../assets/logo.png';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function NavBar() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [activePage, setActivePage] = useState('fire');
 
-  const handleWews = () => {
+  useEffect(() => {
+    const path = location.pathname;
+
+    if (path === '/news') {
+      setActivePage('fire');
+    } else if (path === '/profile') {
+      setActivePage('user');
+    } else {
+      // Добавьте обработку других страниц при необходимости
+    }
+  }, [location.pathname]);
+
+  const handleNews = () => {
     navigate('/news');
-    setActivePage('fire');
   };
 
+  const handleProfile = () => {
+    navigate('/profile');
+  };
+  
   return (
     <div className={style.navbar}>
       <div className={style.navbar_feed}>
       <div className={style.logo}>
         <img src={logo} alt="" />
       </div>
-        <div className={style.icons} onClick={handleWews}>
+        <div className={style.icons} onClick={handleNews}>
           <img src={activePage === 'fire' ? Fire : offFire} alt="" />
           <span>Новости</span>
         </div>
@@ -51,7 +67,7 @@ function NavBar() {
           <span>Сообщения </span>
         </div>
 
-        <div className={style.icons} onClick={() => setActivePage('user')}>
+        <div className={style.icons} onClick={handleProfile}>
           <img
             src={activePage === 'user' ? userRounded : offUserRounded}
             alt=""
