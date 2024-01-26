@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .image_container {
     position: relative;
     height: 100vh; /* 100% высоты окна просмотра */
