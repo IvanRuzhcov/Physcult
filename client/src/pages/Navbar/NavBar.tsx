@@ -10,6 +10,7 @@ import offChat from '../../assets/icons/offChat.png';
 import chat from '../../assets/icons/chat.png';
 import offUserRounded from '../../assets/icons/offUserRounded.png';
 import userRounded from '../../assets/icons/userRounded.png';
+import logo from '../../assets/logo.png';
 import { useNavigate } from 'react-router-dom';
 
 function NavBar() {
@@ -25,7 +26,7 @@ function NavBar() {
     <div className={style.navbar}>
       <div className={style.navbar_feed}>
       <div className={style.logo}>
-        <span>Logo</span>
+        <img src={logo} alt="" />
       </div>
         <div className={style.icons} onClick={handleWews}>
           <img src={activePage === 'fire' ? Fire : offFire} alt="" />
@@ -34,7 +35,7 @@ function NavBar() {
 
         <div className={style.icons} onClick={() => setActivePage('earth')}>
           <img src={activePage === 'earth' ? earth : offEarth} alt="" />
-          <span>Поиск</span>
+          <span>Главная</span>
         </div>
 
         <div
@@ -42,7 +43,7 @@ function NavBar() {
           onClick={() => setActivePage('play')}
         >
           <img src={activePage === 'play' ? play : offPlay} alt="" />
-          <span>Тренеровка</span>
+          <span>Тренировка</span>
         </div>
 
         <div className={style.icons} onClick={() => setActivePage('chat')}>
