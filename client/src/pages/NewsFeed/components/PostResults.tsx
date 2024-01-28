@@ -1,4 +1,3 @@
-// PostResults.jsx
 import React from 'react';
 import style from '../css/NewsFeed.module.css';
 import goldMedal from '../../../assets/goldMedal.png';

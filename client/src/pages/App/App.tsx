@@ -7,6 +7,7 @@ import AuthorizationPage from '../Login/AuthorizationPage';
 import RegistrationPage from '../Login/RegistrationPage';
 import PersonalPage from '../PersonalPage/PersonalPage';
 import UserProfileSettings from '../UserProfileSettings/UserProfileSettings';
+import PersonalDataSettings from '../PersonalDataSettings/PersonalDataSettings';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/news" element={<NewsFeed />} />
         <Route path="/profile" element={<PersonalPage />} />
         <Route path="/settings" element={<UserProfileSettings />} />
+        <Route path="/settings/personal" element={<PersonalDataSettings />} />
       </Routes>
       <NavBar />
     </>

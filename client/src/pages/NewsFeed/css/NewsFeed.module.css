@@ -1,7 +1,12 @@
 body {
   background: #fff;
 }
-.container{
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
   padding: 0 0 100px 0;
 }
 .history_feed {
@@ -93,12 +98,12 @@ body {
   display: flex;
   align-items: center;
   flex-direction: row;
+  width: 100%;
 }
 .results {
   margin-top: 15px;
   text-align: left;
-  padding: 5px;
-  margin-left: 10px;
+  margin-left: 7px;
   flex-grow: 2;
 }
 
@@ -113,7 +118,7 @@ body {
 }
 .results div {
   margin-top: 5px;
-  font-weight: 400;
+  font-weight: 300;
 }
 .post_medals {
   margin-top: 15px;
@@ -178,12 +183,12 @@ body {
   text-align: left;
 }
 .post_description span {
-  color: rgba(0, 0, 0, 0.50);
-font-size: 10px;
-font-style: normal;
-font-weight: 300;
-line-height: 150%; /* 15px */
-letter-spacing: -0.1px;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 150%; /* 15px */
+  letter-spacing: -0.1px;
 }
 .post_feedback {
   display: flex;
@@ -250,33 +255,33 @@ letter-spacing: -0.1px;
 @media only screen and (min-width: 1025px) {
   .history_feed {
     padding-top: 20px;
-  display: flex;
-  justify-content: center;
-  max-height: 200px;
-  overflow-y: auto;
-  margin: 0 auto;
-}
-.posts_feed {
-  margin: 0 auto;
-  max-width: 490px;
-  width: 100%;
-}
-.posts {
-  width: 100%;
-}
-.post_photo img {
-  width: 345px;
-  height: 294px;
-  object-fit: cover;
-  border-radius: 15px;
-  image-rendering: optimizeQuality;
-  margin-left: 10px;
-}
-.results {
-  flex-grow: 2;
-}
-.line {
-  flex-grow: 2;
-  height: 30px;
-}
+    display: flex;
+    justify-content: center;
+    max-height: 200px;
+    overflow-y: auto;
+    margin: 0 auto;
+  }
+  .posts_feed {
+    margin: 0 auto;
+    max-width: 490px;
+    width: 100%;
+  }
+  .posts {
+    width: 100%;
+  }
+  .post_photo img {
+    width: 345px;
+    height: 294px;
+    object-fit: cover;
+    border-radius: 15px;
+    image-rendering: optimizeQuality;
+    margin-left: 10px;
+  }
+  .results {
+    flex-grow: 2;
+  }
+  .line {
+    flex-grow: 2;
+    height: 30px;
+  }
 }

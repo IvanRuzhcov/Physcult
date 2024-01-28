@@ -34,11 +34,11 @@
   border-radius: 15px;
   background: #f3f3f3;
 }
-.userPhoto {
+.user_photo {
   width: 87px;
   height: 87px;
 }
-.userPhoto img {
+.user_photo img {
   width: 87px;
   height: 87px;
   border-radius: 50%;
