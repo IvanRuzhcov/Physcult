@@ -8,7 +8,7 @@ function DevicePage() {
 const navigate = useNavigate()
     return (
         <div className={style.device_container}>
-            <div className={style.header_settings}>
+            <div className={style.header_device}>
         <div className={style.left_arrow} onClick={() => navigate(-1)}>
           <img src={leftArrow} alt="" />
         </div>

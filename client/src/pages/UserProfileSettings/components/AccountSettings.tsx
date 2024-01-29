@@ -19,7 +19,7 @@ function AccountSettings() {
             <img src={rightArrow} alt="" />
           </div>
         </div>
-        <div className={style.settings}>
+        <div className={style.settings} onClick={()=> navigate('/settings/interface')}>
           <span>Интерфейс</span>
           <div>
             <img src={rightArrow} alt="" />
@@ -31,7 +31,7 @@ function AccountSettings() {
             <img src={rightArrow} alt="" />
           </div>
         </div>
-        <div className={style.settings}>
+        <div className={style.settings} onClick={()=> navigate('/settings/app information')}>
           <span>О приложении</span>
           <div>
             <img src={rightArrow} alt="" />
