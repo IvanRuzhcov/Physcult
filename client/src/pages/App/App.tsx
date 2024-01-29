@@ -9,6 +9,10 @@ import MainPage from '../MainPage/MainPage';
 
 import PersonalPage from '../PersonalPage/PersonalPage';
 import UserProfileSettings from '../UserProfileSettings/UserProfileSettings';
+import PersonalDataSettings from '../PersonalDataSettings/PersonalDataSettings';
+import DevicePage from '../DevicePage/DevicePage';
+import InterfacePage from '../InterfacePage/InterfacePage';
+import AppInfoPage from '../AppInfoPage/AboutAppPage';
 
 function App() {
   return (
@@ -21,8 +25,12 @@ function App() {
         <Route path="/news" element={<NewsFeed />} />
         <Route path="/profile" element={<PersonalPage />} />
         <Route path="/settings" element={<UserProfileSettings />} />
+        <Route path="/settings/personal" element={<PersonalDataSettings />} />
+        <Route path="/settings/device" element={<DevicePage />} />
+        <Route path="/settings/interface" element={<InterfacePage />} />
+        <Route path="/settings/app information" element={<AppInfoPage />} />
       </Routes>
-      <NavBar />
+      
     </>
   );
 }

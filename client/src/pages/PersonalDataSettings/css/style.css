@@ -1,0 +1,5 @@
+.react-calendar__tile.react-calendar__tile--future,
+.react-calendar__year-view .react-calendar__tile--future,
+.react-calendar__decade-view .react-calendar__tile--future {
+  display: none !important;
+}

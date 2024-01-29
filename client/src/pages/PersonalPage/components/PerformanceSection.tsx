@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import fire from '../../../assets/icons/Fire.png';
 import watch from '../../../assets/icons/Clock_Circle.png';
 import dumbbells from '../../../assets/icons/Dumbbells.png';
@@ -73,4 +73,4 @@ function PerformanceSection() {
     );
 }
 
-export default PerformanceSection;
+export default memo(PerformanceSection);

@@ -1,5 +1,5 @@
 // PostHeader.jsx
-import React from 'react';
+import React, { memo } from 'react';
 import style from '../css/NewsFeed.module.css';
 import { Posts } from '../types/Posts';
 
@@ -15,4 +15,4 @@ function PostHeader({ photo, name, date, time_post }:Posts) {
   );
 }
 
-export default PostHeader;
+export default memo(PostHeader);

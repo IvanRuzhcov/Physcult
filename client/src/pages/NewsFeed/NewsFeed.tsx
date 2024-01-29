@@ -8,6 +8,7 @@ import map from '../../assets/map_malishko.jpeg';
 import lecarev_map from '../../assets/mapLecarev.jpeg';
 import lecarevPhoto from '../../assets/lecarev.jpeg';
 import Post from './components/Post';
+import NavBar from '../Navbar/NavBar';
 
 function NewsFeed() {
     
@@ -51,6 +52,7 @@ function NewsFeed() {
   ];
 
   return (
+    <>
     <div className={style.container}>
       <History />
       <div className={style.posts_feed}>
@@ -59,6 +61,8 @@ function NewsFeed() {
         ))}
       </div>
     </div>
+    <NavBar />
+    </>
   );
 }
 

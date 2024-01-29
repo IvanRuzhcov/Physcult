@@ -1,5 +1,4 @@
-// PostResults.jsx
-import React from 'react';
+import React, { memo } from 'react';
 import style from '../css/NewsFeed.module.css';
 import goldMedal from '../../../assets/goldMedal.png';
 import silverMedal from '../../../assets/silverMedal.png';
@@ -47,4 +46,4 @@ function PostResults({
   );
 }
 
-export default PostResults;
+export default memo(PostResults);
