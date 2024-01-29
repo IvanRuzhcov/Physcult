@@ -2,7 +2,7 @@ import React from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import style from '../css/PersonalDataSettings.module.css';
-import './style.css';
+import '../css/style.css';
 
 interface DataInputProps {
   date: Date | null;

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import leftArrow from '../../assets/SquareAltArrowLeft.png';
-import malyshko from '../../assets/malyshko.png';
 import style from './css/PersonalDataSettings.module.css';
 import 'react-calendar/dist/Calendar.css';
 import { useNavigate } from 'react-router-dom';
 import DataInput from './components/DataInput';
 import DropDown from './components/DropDown';
+import UserInformationPage from './components/UserInformationPage';
 
 function PersonalDataSettings() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,18 +17,10 @@ function PersonalDataSettings() {
   const [date, setDate] = useState<Date | null>(null);
   const [showCalendar, setShowCalendar] = useState(false);
   const navigate = useNavigate();
-  console.log(date)
+  console.log(date);
   const onChange = (newDate: Date) => {
     setDate(newDate);
     setShowCalendar(false); // Закрывает календарь после выбора даты
-  };
-
-  const User = {
-    id: 1,
-    name: 'Дмитрий Малышко',
-    photo: malyshko,
-    nick: '@malyshko',
-    telephone: '+7(912)566-70-07',
   };
 
   const toggleDropdown = () => {
@@ -55,15 +47,7 @@ function PersonalDataSettings() {
           Готово
         </div>
       </div>
-      <div className={style.user_information}>
-        <div className={style.user_photo}>
-          <img src={User.photo} alt="" />
-        </div>
-        <div className={style.personal_information}>
-          <div className={style.user_name}>{User.name}</div>
-          <div className={style.user_nikc}>{User.nick}</div>
-        </div>
-      </div>
+      <UserInformationPage />
       <div className={style.input_container}>
         <div className={style.input_box}>
           <input type="name" value={surName} />

@@ -2,8 +2,10 @@ import React from 'react';
 import ToggleSwitch from '../../../components/ToggleSwitch/ToggleSwitch';
 import rightArrow from '../../../assets/rightArrow.png';
 import style from '../css/UserProfileSettings.module.css'
+import { useNavigate } from 'react-router-dom';
 
 function AccountSettings() {
+  const navigate = useNavigate()
     return (
        <>
        <div className={style.accountSettings}>
@@ -11,7 +13,7 @@ function AccountSettings() {
           <span>Уведомления</span>
           <ToggleSwitch/>
         </div>
-        <div className={style.settings}>
+        <div className={style.settings} onClick={()=> navigate('/settings/device')}>
           <span>Устройства</span>
           <div>
             <img src={rightArrow} alt="" />
