@@ -1,9 +1,9 @@
-import React, { MouseEventHandler } from 'react';
+import React, { MouseEventHandler, memo } from 'react';
 import style from '../css/PersonalDataSettings.module.css';
 import downArrow from '../../../assets/downArrow.png';
 
 
-type DropDown ={
+type DropDownType ={
     isOpen:boolean,
     toggleDropdown:MouseEventHandler<HTMLDivElement> | undefined
     gender:string
@@ -12,7 +12,7 @@ type DropDown ={
 }
 
 
-function DropDown({ isOpen, toggleDropdown, gender, handleMen, handleWomen }:DropDown) {
+function DropDown({ isOpen, toggleDropdown, gender, handleMen, handleWomen }:DropDownType) {
   return (
     <>
       <div
@@ -41,4 +41,4 @@ function DropDown({ isOpen, toggleDropdown, gender, handleMen, handleWomen }:Dro
   );
 }
 
-export default DropDown;
+export default memo(DropDown);

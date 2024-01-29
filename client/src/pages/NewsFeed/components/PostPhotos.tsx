@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import style from '../css/NewsFeed.module.css';
 import { Posts } from '../types/Posts';
 
@@ -15,4 +15,4 @@ const PostPhotos = ({ photo_post }:Posts) => {
   );
 }
 
-export default PostPhotos;
+export default memo(PostPhotos);

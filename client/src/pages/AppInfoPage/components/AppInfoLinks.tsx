@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import style from '../css/AppInfoPage.module.css'
 import rightArrow from '../../../assets/rightArrow.png';
 
@@ -29,4 +29,4 @@ function AppInfoLinks() {
     );
 }
 
-export default AppInfoLinks;
+export default memo(AppInfoLinks);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import style from '../css/PersonalDataSettings.module.css'
 import malyshko from '../../../assets/malyshko.png';
 
@@ -26,4 +26,4 @@ function UserInformationPage() {
     );
 }
 
-export default UserInformationPage;
+export default memo(UserInformationPage);

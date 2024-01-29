@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import style from '../css/NewsFeed.module.css'
 import malyshko from '../../../assets/malyshko.png';
 import lekarev from '../../../assets/lekarev.png';
@@ -81,4 +81,4 @@ function History() {
     );
 }
 
-export default History;
+export default memo(History);

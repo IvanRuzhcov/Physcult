@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import malyshko from '../../../assets/malyshko.png';
 import rightArrow from '../../../assets/rightArrow.png';
 import style from '../css/UserProfileSettings.module.css'
@@ -36,4 +36,4 @@ const navigate = useNavigate()
     );
 }
 
-export default UserSettings;
+export default memo(UserSettings);

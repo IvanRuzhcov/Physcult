@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import awards1 from '../../../assets/awards/awards1.png';
 import awards2 from '../../../assets/awards/awards2.png';
 import style from '../css/PersonalPage.module.css';
@@ -64,4 +64,4 @@ function AwardsContainer() {
     );
 }
 
-export default AwardsContainer;
+export default memo(AwardsContainer);

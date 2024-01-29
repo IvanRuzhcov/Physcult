@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import style from '../css/PersonalDataSettings.module.css';
@@ -36,4 +36,4 @@ const DataInput: React.FC<DataInputProps> = ({
   );
 };
 
-export default DataInput;
+export default memo(DataInput);

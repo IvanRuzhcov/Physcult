@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import style from '../css/AppInfoPage.module.css'
 import vk from '../../../assets/vk.png';
 
@@ -23,4 +23,4 @@ function SocialNetworkList() {
     );
 }
 
-export default SocialNetworkList;
+export default memo(SocialNetworkList);
