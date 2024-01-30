@@ -1,6 +1,6 @@
 import React from 'react'
-import heroImage from '../../assets/onboardingimage2.jpeg';
-import styles from './RegistrationPage.module.css';
+import heroImage from '../../../assets/onboardingimage2.jpeg';
+import styles from './css/RegistrationPage.module.css';
 
 export default function RegistrationPage():JSX.Element {
   return (

@@ -5,13 +5,9 @@
   align-items: center;
   padding: 8px 18px;
   gap: 32px;
-  background: rgba( 193, 186, 186, 0.25 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 4px );
-  -webkit-backdrop-filter: blur( 4px );
-  border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  background: radial-gradient(676.55% 313.39% at 50% 50%, rgba(255, 255, 255, 0.90) 0%, rgba(255, 255, 255, 0.00) 100%);
   position: fixed;
+  border-radius: 20px;
   bottom: 21px;
   width: calc(
     100% - 10px

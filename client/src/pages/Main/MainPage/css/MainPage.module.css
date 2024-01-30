@@ -103,13 +103,15 @@ main {
   width: 350px;
   height: 164px;
   margin-top: 30px;
-  background: rgba( 221, 213, 213, 0.25 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 4px );
-  -webkit-backdrop-filter: blur( 4px );
+  box-shadow: 0px 155px 62px rgba(0, 0, 0, 0.01), 0px 87px 52px rgba(0, 0, 0, 0.05), 0px 39px 39px rgba(0, 0, 0, 0.09), 0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.8s cubic-bezier(0.15, 0.83, 0.66, 1);
   border-radius: 10px;
   border: 1px solid rgba( 255, 255, 255, 0.18 );
   cursor: pointer;
+}
+
+.img_market:hover {
+  transform: scale(1.03);
 }
 
 .compilations {
@@ -153,13 +155,16 @@ main {
 .elem {
   width: 214px;
   height: 155px;
-  background: rgba( 131, 130, 130, 0.25 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 7px );
-  -webkit-backdrop-filter: blur( 7px );
+  background: linear-gradient(258deg, #DDD 2.57%, #909090 100%);
+  box-shadow: 0px 155px 62px rgba(0, 0, 0, 0.01), 0px 87px 52px rgba(0, 0, 0, 0.05), 0px 39px 39px rgba(0, 0, 0, 0.09), 0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.8s cubic-bezier(0.15, 0.83, 0.66, 1);
   border-radius: 10px;
   border: 1px solid rgba( 255, 255, 255, 0.18 );
   cursor: pointer;
+}
+
+.elem:hover {
+  transform: scale(1.03);
 }
 
 .elem .photo {
@@ -198,12 +203,15 @@ main {
   align-items: flex-start;
   gap: 12px;
   background: rgba( 131, 130, 130, 0.25 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 7px );
-  -webkit-backdrop-filter: blur( 7px );
-  border-radius: 10px;
+  box-shadow: 0px 155px 62px rgba(0, 0, 0, 0.01), 0px 87px 52px rgba(0, 0, 0, 0.05), 0px 39px 39px rgba(0, 0, 0, 0.09), 0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.8s cubic-bezier(0.15, 0.83, 0.66, 1);
+  border-radius: 15px;
   border: 1px solid rgba( 255, 255, 255, 0.18 );
   cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.03);
 }
 
 .card .head {
@@ -239,13 +247,16 @@ main {
   height: 168px; 
   margin: 10px;
   background: rgba( 131, 130, 130, 0.25 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 7px );
-  -webkit-backdrop-filter: blur( 7px );
-  border-radius: 10px;
+  box-shadow: 0px 155px 62px rgba(0, 0, 0, 0.01), 0px 87px 52px rgba(0, 0, 0, 0.05), 0px 39px 39px rgba(0, 0, 0, 0.09), 0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.8s cubic-bezier(0.15, 0.83, 0.66, 1);
+  border-radius: 15px;
   border: 1px solid rgba( 255, 255, 255, 0.18 );
   cursor: pointer; 
   
+}
+
+.child:hover {
+  transform: scale(1.03);
 }
 
 .child .card_image {
@@ -272,4 +283,8 @@ main {
   line-height: 110%; 
   letter-spacing: -0.5px;
   margin-left: 8px;
+}
+
+.imgs {
+  margin-left: 10px;
 }

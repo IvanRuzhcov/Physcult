@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
-import styles from './MainPage.module.css';
-import star from '../../assets/icons/Star.png';
-import alert from '../../assets/icons/NotificationAlert.png';
-import market from '../../assets/PhyscultMARKET.png';
-import latypov from '../../assets/latypov.png';
-import frame1 from '../../assets/Frame1.png';
-import istomin from '../../assets/istomin.png';
-import kulikova from '../../assets/kulikova.png';
-import sorin from '../../assets/sorin.png';
-import orlova from '../../assets/orlova.png';
-import stepanova from '../../assets/stepanova.png';
-import sokolov from '../../assets/sokolov.png';
+import styles from './css/MainPage.module.css';
+import star from '../../../assets/icons/Star.png';
+import alert from '../../../assets/icons/NotificationAlert.png';
+import market from '../../../assets/PhyscultMARKET.png';
+import latypov from '../../../assets/latypov.png';
+import frame1 from '../../../assets/Frame1.png';
+import istomin from '../../../assets/istomin.png';
+import kulikova from '../../../assets/kulikova.png';
+import sorin from '../../../assets/sorin.png';
+import orlova from '../../../assets/orlova.png';
+import stepanova from '../../../assets/stepanova.png';
+import sokolov from '../../../assets/sokolov.png';
 
 
 export default function MainPage():JSX.Element {
@@ -161,7 +161,7 @@ export default function MainPage():JSX.Element {
 
           <div className={styles.child}>
           <div className={styles.card_image}>
-               <img src={sokolov} alt="" />
+               <img className={styles.imgs} src={sokolov} alt="" />
              </div>
              <div>
                <p className={styles.head}>Соколов А.</p>

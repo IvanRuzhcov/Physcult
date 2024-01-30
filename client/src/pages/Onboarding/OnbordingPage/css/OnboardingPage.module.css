@@ -7,7 +7,7 @@
 .image_container {
     position: relative;
     height: 100vh; /* 100% высоты окна просмотра */
-    background-image: url('../../assets/onboardingimage2.jpeg');
+    background-image: url('../../../../assets/onboardingimage2.jpeg');
     background-size: cover; /* Изображение занимает всю доступную область */
     background-position: center; /* Центрирование изображения */
     display: flex;
