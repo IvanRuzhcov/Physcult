@@ -37,19 +37,22 @@ export default function RegistrationPage():JSX.Element {
 
         <form className={styles.form}>
            <h3 className={styles.form_title}>Регистрация</h3>
+
            <div className={styles.input_container}>
              <input className={styles.input} type="email" placeholder="E-mail"/>
              <span></span>
            </div>
+
            <div className={styles.input_container}>
              <input className={styles.input} type="password" placeholder="Пароль"/>
            </div>
+
            <div className={styles.input_container}>
              <input className={styles.input} type="password" placeholder="Повторите пароль"/>
            </div>
 
            <div className={styles.recomendation}>
-           <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+               <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                <path d="M6 8.5L7.5 10L10 6.5M14 8C14 8.78793 13.8448 9.56815 13.5433 10.2961C13.2417 11.0241 12.7998 11.6855 12.2426 12.2426C11.6855 12.7998 11.0241 13.2417 10.2961 13.5433C9.56815 13.8448 8.78793 14 8 14C7.21207 14 6.43185 13.8448 5.7039 13.5433C4.97595 13.2417 4.31451 12.7998 3.75736 12.2426C3.20021 11.6855 2.75825 11.0241 2.45672 10.2961C2.15519 9.56815 2 8.78793 2 8C2 6.4087 2.63214 4.88258 3.75736 3.75736C4.88258 2.63214 6.4087 2 8 2C9.5913 2 11.1174 2.63214 12.2426 3.75736C13.3679 4.88258 14 6.4087 14 8Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
                </svg>Не менее 6-ти знаков</p>
                <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -58,13 +61,19 @@ export default function RegistrationPage():JSX.Element {
                <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                <path d="M6 8.5L7.5 10L10 6.5M14 8C14 8.78793 13.8448 9.56815 13.5433 10.2961C13.2417 11.0241 12.7998 11.6855 12.2426 12.2426C11.6855 12.7998 11.0241 13.2417 10.2961 13.5433C9.56815 13.8448 8.78793 14 8 14C7.21207 14 6.43185 13.8448 5.7039 13.5433C4.97595 13.2417 4.31451 12.7998 3.75736 12.2426C3.20021 11.6855 2.75825 11.0241 2.45672 10.2961C2.15519 9.56815 2 8.78793 2 8C2 6.4087 2.63214 4.88258 3.75736 3.75736C4.88258 2.63214 6.4087 2 8 2C9.5913 2 11.1174 2.63214 12.2426 3.75736C13.3679 4.88258 14 6.4087 14 8Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
                </svg>Содержит спецсимволы</p>
-               <p className={styles.agreement}>Продолжая, вы соглашаетесь с условиями<br/> наших юридических документов.</p>
+
+               <div className={styles.agr}>
+               <p className={styles.agreement}>Продолжая, вы соглашаетесь с условиями наших <ins>юридических документов</ins>.</p>
+               </div>
+
            </div>
   
            <button type="submit" className={styles.submit}>
            Зарегистрироваться
            </button>
+
            </form>
+
         </div>
   )
 }
