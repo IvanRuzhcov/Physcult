@@ -1,5 +1,5 @@
 // Post.jsx
-import React from 'react';
+import React, { memo } from 'react';
 import PostHeader from './PostHeader';
 import PostResults from './PostResults';
 import PostPhotos from './PostPhotos';
@@ -20,5 +20,5 @@ function Post({ el }:{el:Posts}) {
   );
 }
 
-export default Post;
+export default memo(Post);
 

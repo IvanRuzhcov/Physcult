@@ -9,6 +9,7 @@ import UserProfile from './components/UserProfile';
 import UserNavbar from './components/UserNavbar';
 import AwardsContainer from './components/AwardsContainer';
 import PerformanceSection from './components/PerformanceSection';
+import NavBar from '../Navbar/NavBar';
 
 function PersonalPage() {
   const [activeBtn, setActiveBtn] = useState('progress');
@@ -42,6 +43,7 @@ function PersonalPage() {
   };
 
   return (
+    <>
     <div className={style.profile}>
       <div className={style.profile_feed}>
         <UserProfile />
@@ -65,6 +67,8 @@ function PersonalPage() {
         )}
       </div>
     </div>
+      <NavBar />
+    </>
   );
 }
 

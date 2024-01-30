@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from 'react';
+import React, { MouseEventHandler, memo } from 'react';
 import style from '../css/PersonalPage.module.css';
 
 function UserNavbar({
@@ -48,4 +48,4 @@ function UserNavbar({
   );
 }
 
-export default UserNavbar;
+export default memo(UserNavbar);

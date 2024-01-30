@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import CalendarMinimalistic from '../../../assets/CalendarMinimalistic.png';
 import NotificationAlert from '../../../assets/NotificationAlert.png';
 import Settings from '../../../assets/Settings.png';
@@ -94,4 +94,4 @@ function UserProfile() {
   );
 }
 
-export default UserProfile;
+export default memo(UserProfile);
