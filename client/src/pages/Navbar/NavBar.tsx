@@ -25,8 +25,8 @@ function NavBar() {
       setActivePage('fire');
     } else if (path === '/profile') {
       setActivePage('user');
-    } else {
-      // Добавьте обработку других страниц при необходимости
+    } else if (path === '/main') {
+      setActivePage('main');
     }
   }, [location.pathname]);
 
@@ -36,6 +36,9 @@ function NavBar() {
 
   const handleProfile = () => {
     navigate('/profile');
+  };
+  const handleMain = () => {
+    navigate('/main');
   };
   
   return (
@@ -49,8 +52,8 @@ function NavBar() {
           <span>Новости</span>
         </div>
 
-        <div className={style.icons} onClick={() => setActivePage('earth')}>
-          <img src={activePage === 'earth' ? earth : offEarth} alt="" />
+        <div className={style.icons} onClick={handleMain}>
+          <img src={activePage === 'main' ? earth : offEarth} alt="" />
           <span>Главная</span>
         </div>
 

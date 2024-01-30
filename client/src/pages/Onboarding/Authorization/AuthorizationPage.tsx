@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import heroImage from '../../assets/onboardingimage2.jpeg';
-import styles from './AuthorizationPage.module.css';
+import heroImage from '../../../assets/onboardingimage2.jpeg';
+import styles from './css/AuthorizationPage.module.css';
 
 export default function AuthorizationPage():JSX.Element {
 const navigate = useNavigate();

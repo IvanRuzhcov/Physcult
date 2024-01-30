@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import styles from './OnboardingPage.module.css';
+import styles from './css/OnboardingPage.module.css';
 
 export default function OnboardingPage():JSX.Element {
   const navigate = useNavigate();

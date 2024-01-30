@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  main {
+    background-color: #fff;
+  }
+
+  .head {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+      margin-bottom: 24px;
+  }
+
+  .head .headline {
+    color: #000;  
+    text-align: center;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22px; 
+    letter-spacing: -0.5px;
+  }
+
+  .user_navbar {
+    display: flex;
+    justify-content: center;
+    margin-top: 17px;
+  }
+
+  .publications_box:not(:last-child) {
+    margin-right: 52px;
+  }
+
+  .progress_box:not(:last-child) {
+    margin-right: 52px;
+  }
+
+  .on_publications .on_progress .on_friend {
+    color: var(--black, #000);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .on_publications,
+  .on_progress,
+  .on_friend {
+    color: var(--black, #000);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .off_publications,
+  .off_progress,
+  .off_friend {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .active_line {
+    margin: 12px auto 0px;
+    width: 88px;
+    height: 5px;
+    border-radius: 2px;
+    background: var(--red, #ff0606);
+  }
+
+  .btn_group {
+    display: flex;
+    padding: 6px 14px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    margin-top: 22px;
+    margin-bottom: 16px;
+    overflow-y: auto;
+  }
+
+  .btn {
+      border-radius: 15px;
+      background: #F2F2F2;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-feature-settings: 'case' on;
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 22px;
+      letter-spacing: -0.5px;
+      padding: 6px 14px;
+      cursor: pointer;
+  }
+
+  .btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .test_conteiner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .test_target {
+      width: 343px;
+      height: 120px;
+      border-radius: 15px;
+      background: linear-gradient(258deg, #DDD 2.57%, #909090 100%);
+      position: relative;
+      cursor: pointer;
+      box-shadow: 0px 155px 62px rgba(0, 0, 0, 0.01), 0px 87px 52px rgba(0, 0, 0, 0.05), 0px 39px 39px rgba(0, 0, 0, 0.09), 0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+      transition: all 0.8s cubic-bezier(0.15, 0.83, 0.66, 1);
+  }
+
+  .test_target:hover {
+    transform: scale(1.03);
+  }
+
+  .test_name {
+      display: flex;
+      justify-content: space-between;
+      margin: 12px;
+  }
+
+  .photo1 {
+    position: absolute;
+    left: 64%;
+    bottom: 1%;
+  }
+
+  .photo2 {
+    position: absolute;
+    left: 24%;
+    bottom: 1%;
+  }
+
+  .photo3 {
+    position: absolute;
+    left: 60%;
+    bottom: 1%;
+  }
+
+  .photo4 {
+    position: absolute;
+    left: 37%;
+    bottom: 1%;
+  }
+
+  .photo5 {
+    position: absolute;
+    left: 68%;
+    bottom: 1%;  
+  }
+
+  .photo6 {
+     position: absolute;
+     left: 60%;
+     bottom: 1%;
+  }
+
+  .test_name img {
+      width: 15.2px;
+      height: 15.2px;
+  }
+
+  .test_name span {
+    color: #000;
+    font-feature-settings: 'case' on;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%;
+    letter-spacing: -0.5px;
+    
+  }
+
+  .task {
+      width: 75px;
+      height: 19px;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.40);
+      backdrop-filter: blur(3.5px);
+      display: flex;
+      padding: 6px 12px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      position: absolute;
+      top: 78%;
+      left: 2%;
+  }
+
+  .task span {
+    color: #fff;  
+    text-align: center;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%;
+    letter-spacing: -0.5px;
+  }
+
+  @media only screen and (min-width: 1925px) {
+      .btn_group {
+          justify-content: start;
+      }
+  }
