@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styles from './css/FriendsPage.module.css';
 import stepanova from '../../../assets/stepan.png';
 import malyshko from '../../../assets/malyshk.png';
@@ -13,7 +13,17 @@ import gerbulova from '../../../assets/gerbulova.png';
 
 
 export default function FriendsPage():JSX.Element {
-  
+  const [activeBtn, setActiveBtn] = useState('main');
+
+  const handleMain = () => {
+    setActiveBtn('main');
+  };
+  const handleTests = () => {
+    setActiveBtn('test');
+  };
+  const handleFriends = () => {
+    setActiveBtn('friend');
+  };
 
   return (
     <main className={styles.conteiner}>
@@ -22,13 +32,56 @@ export default function FriendsPage():JSX.Element {
         <span className={styles.headline}>Сообщество</span>
       </div>
       
-      <nav className={styles.navigation}>
-          <div className={styles.menu}>
-            <div className={styles.link}>Главная</div>
-            <div className={styles.link}>Сообщество</div>
-            <div className={styles.link}>Друзья</div>
-          </div>      
-      </nav> 
+      <div className={styles.user_navbar}>
+          <div className={styles.publications_box} onClick={handleMain}>
+            <div
+              className={
+                activeBtn === 'main'
+                  ? styles.on_publications
+                  : styles.off_publications
+              }
+            >
+              Главная
+            </div>
+            <div
+              className={
+                activeBtn === 'main' ? styles.active_line : styles.line
+              }
+            ></div>
+          </div>
+          <div className={styles.progress_box} onClick={handleTests}>
+            <div
+              className={
+                activeBtn === 'test'
+                  ? styles.on_progress
+                  : styles.off_progress
+              }
+            >
+              Испытания
+            </div>
+            <div
+              className={
+                activeBtn === 'test' ? styles.active_line : styles.line
+              }
+            ></div>
+          </div>
+          <div className={styles.friend_box} onClick={handleFriends}>
+            <div
+              className={
+                activeBtn === 'friend'
+                  ? styles.on_friend
+                  : styles.off_friend
+              }
+            >
+              Друзья
+            </div>
+            <div
+              className={
+                activeBtn === 'friend' ? styles.active_line : styles.line
+              }
+            ></div>
+          </div>
+        </div> 
       
 
       <div className={styles.input_conteiner}>

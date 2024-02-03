@@ -27,34 +27,55 @@
     letter-spacing: -0.5px;
   }
 
-  .menu {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
+  .user_navbar {
+    display: flex;
+    justify-content: center;
+    margin-top: 17px;
   }
 
-  .link {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 88px;
-      height: 34px;
-      color: rgba(0, 0, 0, 0.50);
-      font-size: 14px;
-      font-style: normal;
-      font-weight: 600;
-      line-height: normal;
+  .publications_box:not(:last-child) {
+    margin-right: 52px;
   }
 
-  .link:hover {
-      text-decoration: underline solid #ff0606;
-      text-underline-offset: 10px;
-      text-decoration-thickness: 5px;
-      transition: .3s;
-      border-radius: 5px;
+  .progress_box:not(:last-child) {
+    margin-right: 52px;
   }
 
+  .on_publications .on_progress .on_friend {
+    color: var(--black, #000);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .on_publications,
+  .on_progress,
+  .on_friend {
+    color: var(--black, #000);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .off_publications,
+  .off_progress,
+  .off_friend {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .active_line {
+    margin: 12px auto 0px;
+    width: 88px;
+    height: 5px;
+    border-radius: 2px;
+    background: var(--red, #ff0606);
+  }
   
   .input_conteiner {
       display: flex;
@@ -71,13 +92,13 @@
     width: 343px;
    }
    
-   .input {
+  .input {
     width: 100%;
     height: 54px;
     line-height: 28px;
     padding: 0 1rem;
     padding-left: 2.5rem;
-    border: 2px solid transparent;
+    border: 1px solid transparent;
     border-radius: 8px;
     outline: none;
     background-color: #f3f3f4;
