@@ -2,17 +2,15 @@ require('dotenv').config();
 const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
-const nodemailer = require('nodemailer');
+const serverConfig = require('./config/serverConfig');
 
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
 
 const indexRouter = require('./routes/views/index.routes');
-const getUser = require('./middlewares/getUser');
-app.use(express.json());
 
-app.use(express.urlencoded({ extended: true }));
+serverConfig(app);
 
 // Добавление WebSocket-сервера к вашему Express-приложению
 app.io = io;

@@ -1,5 +1,5 @@
-type RegisterData = {
+export interface RegisterData {
   email: string;
   password: string;
+  repeatPassword: string;
 };
-export default RegisterData;

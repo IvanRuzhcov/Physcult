@@ -12,7 +12,7 @@ import PerformanceSection from './components/PerformanceSection';
 import NavBar from '../Navbar/NavBar';
 
 function PersonalPage() {
-  const [activeBtn, setActiveBtn] = useState('progress');
+  const [activeBtn, setActiveBtn] = useState('publications');
 
   const posts = [
     {

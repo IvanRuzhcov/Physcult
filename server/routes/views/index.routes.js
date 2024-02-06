@@ -1,6 +1,6 @@
 const routes = require('express').Router();
 
-const registrationRoutes = require('../socet/registration.routes')
+const registrationRoutes = require('../api/registration.routes')
 
 routes.use('/register', registrationRoutes)
 
