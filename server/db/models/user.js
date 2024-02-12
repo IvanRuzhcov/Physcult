@@ -20,6 +20,9 @@ module.exports = (sequelize, DataTypes) => {
       name: {
         type: DataTypes.TEXT,
       },
+      surname:{
+        type: DataTypes.TEXT,
+      },
       nick: {
         type: DataTypes.TEXT,
         unique: true,

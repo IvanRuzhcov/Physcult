@@ -19,17 +19,19 @@ import { useSelector } from 'react-redux';
 
 function App() {
   const dispatch = useAppDispatch()
+  const user = useSelector((store:RootState)=> store.auth.user)
 
 
   useEffect(() => {
     dispatch(verification());
   }, [dispatch]);
 
+
   
   return (
     <>
       <Routes>
-        <Route path="/" element={<OnboardingPage />} />
+      <Route path="/" element={<OnboardingPage />} />
         <Route path="/auth" element={<AuthorizationPage />} />
         <Route path="/reg" element={<RegistrationPage />} />
         <Route path="/main" element={<MainPage />} />

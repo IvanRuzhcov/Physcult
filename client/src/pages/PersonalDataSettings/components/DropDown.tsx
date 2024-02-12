@@ -1,18 +1,26 @@
-import React, { MouseEventHandler, memo } from 'react';
+import React, { MouseEventHandler, memo, useState } from 'react';
 import style from '../css/PersonalDataSettings.module.css';
 import downArrow from '../../../assets/downArrow.png';
 
+type DropDownType = {
+  gender: string | undefined;
+  setGender: React.Dispatch<React.SetStateAction<string>>;
+};
 
-type DropDownType ={
-    isOpen:boolean,
-    toggleDropdown:MouseEventHandler<HTMLDivElement> | undefined
-    gender:string
-    handleMen:MouseEventHandler<HTMLDivElement> | undefined
-    handleWomen:MouseEventHandler<HTMLDivElement> | undefined
-}
+function DropDown({ gender, setGender }: DropDownType) {
+  const [isOpen, setIsOpen] = useState(false);
 
-
-function DropDown({ isOpen, toggleDropdown, gender, handleMen, handleWomen }:DropDownType) {
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+  const handleMen = () => {
+    setGender('Мужской');
+    setIsOpen(false);
+  };
+  const handleWomen = () => {
+    setGender('Женский');
+    setIsOpen(false);
+  };
   return (
     <>
       <div

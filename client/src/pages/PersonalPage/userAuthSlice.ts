@@ -4,6 +4,7 @@ import AuthData from './types/AuthData';
 import { RegisterData } from './types/RegisterData';
 import UserAuthState from './types/UserAuthState';
 import { Сonfirmation } from './types/Сonfirmation';
+import User from './types/User';
 
 const initialState: UserAuthState = {
   user: undefined,
@@ -64,6 +65,11 @@ export const logoutUser = createAsyncThunk(
   api.logoutFetch
 );
 
+export const updataUser = createAsyncThunk(
+  'update/updatUserPersonalDataFetch',
+  (action: User) => api.updatUserPersonalDataFetch(action)
+);
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -88,7 +94,21 @@ const authSlice = createSlice({
       })
       .addCase(logoutUser.fulfilled, (state, action) => {
         state.user = undefined;
+      }).addCase(updataUser.fulfilled, (state, action) => {
+        state.user = {
+          ...state.user,
+          name: action.payload.name,
+          surname: action.payload.surname,
+          nick:action.payload.nick,
+          email: action.payload.email,
+          gender: action.payload.gender,
+          telephone: action.payload.telephone,
+          date_of_birth:action.payload.date_of_birth,
+          // avatar_img:action.payload.avatar_img
+
+        };
       })
+
   },
 });
 export default authSlice.reducer;

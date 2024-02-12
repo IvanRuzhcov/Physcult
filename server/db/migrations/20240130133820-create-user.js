@@ -19,6 +19,9 @@ module.exports = {
       name: {
         type: Sequelize.TEXT,
       },
+      surname:{
+        type: Sequelize.TEXT,
+      },
       nick: {
         type: Sequelize.TEXT,
         unique: true,

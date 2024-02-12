@@ -1,15 +1,22 @@
 import React, { memo } from 'react';
 import CalendarMinimalistic from '../../../assets/CalendarMinimalistic.png';
 import NotificationAlert from '../../../assets/NotificationAlert.png';
+import no_photo from '../../../assets/no_avatar.png'
 import Settings from '../../../assets/Settings.png';
 import malyshko from '../../../assets/malyshko.png';
 import photo_malishko from '../../../assets/post_malichko.png';
 import map from '../../../assets/map_malishko.jpeg';
 import style from '../css/PersonalPage.module.css';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store';
 
 function UserProfile() {
-  const naviget = useNavigate()
+  const user = useSelector((store: RootState) => store.auth.user);
+  console.log(user);
+
+  const naviget = useNavigate();
+  
   const mal = {
     id: 1,
     name: 'Дмитрий Малышко',
@@ -32,9 +39,9 @@ function UserProfile() {
     subscribers: 8,
   };
 
-   const hendleRedirectToSettings = () =>{
-      naviget('/settings')
-   }
+  const hendleRedirectToSettings = () => {
+    naviget('/settings');
+  };
   return (
     <>
       <div className={style.personal_info}>
@@ -42,7 +49,10 @@ function UserProfile() {
           <div className={style.profile_span}>
             <span>Профиль</span>
           </div>
-          <div className={style.profile_iсons} onClick={()=> hendleRedirectToSettings()} >
+          <div
+            className={style.profile_iсons}
+            onClick={() => hendleRedirectToSettings()}
+          >
             <img src={Settings} alt="" />
           </div>
           <div className={style.profile_iсons}>
@@ -54,13 +64,13 @@ function UserProfile() {
         </div>
         <div className={style.profile_photo}>
           <div className={style.user_photo}>
-            <img src={mal.photo} alt="" />
+            <img src={user?.avatar_img ? user.avatar_img : no_photo} alt="" />
           </div>
           <div className={style.user_name}>
-            <span>{mal.name}</span>
+            <span>{user?.name}</span>
           </div>
           <div className={style.user_nick}>
-            <span>{mal.nick}</span>
+            <span>{user?.nick}</span>
           </div>
         </div>
         <div className={style.community_box}>
