@@ -11,6 +11,7 @@ import sorin from '../../../assets/sorin.png';
 import orlova from '../../../assets/orlova.png';
 import stepanova from '../../../assets/stepanova.png';
 import sokolov from '../../../assets/sokolov.png';
+import NavBar from '../../Navbar/NavBar';
 
 
 export default function MainPage():JSX.Element {
@@ -27,6 +28,7 @@ export default function MainPage():JSX.Element {
   };
 
   return (
+    <>
     <main className={styles.container}>
 
       <div className={styles.header_personal_info}>
@@ -220,7 +222,8 @@ export default function MainPage():JSX.Element {
           </div>
 
         </div>
-
     </main>
+        <NavBar />
+        </>
   )
 }
