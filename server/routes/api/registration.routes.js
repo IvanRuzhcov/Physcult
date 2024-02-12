@@ -56,7 +56,7 @@ registrationRoutes.post('/verifyCode', async (req, res) => {
   const { email, password, verificationCode } = req.body;
   console.log(req.body);
   const nick = generateSportsUsername();
-  console.log(confirmationCodes)
+  console.log(confirmationCodes);
   const storedVerificationCode = confirmationCodes.get(email);
   let user;
   try {
@@ -88,6 +88,8 @@ registrationRoutes.post('/verifyCode', async (req, res) => {
           httpOnly: true,
         });
       }
+
+      res.json({ message: 'success', user });
 
       res.status(200).json({ success: true, message: 'Регистрация успешна' });
     } else {

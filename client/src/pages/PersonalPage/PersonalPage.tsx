@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 import style from './css/PersonalPage.module.css';
 import malyshko from '../../assets/malyshko.png';
 import photo_malishko from '../../assets/post_malichko.png';
@@ -10,9 +10,16 @@ import UserNavbar from './components/UserNavbar';
 import AwardsContainer from './components/AwardsContainer';
 import PerformanceSection from './components/PerformanceSection';
 import NavBar from '../Navbar/NavBar';
+import { RootState } from '../../store';
+import { useSelector } from 'react-redux';
 
 function PersonalPage() {
   const [activeBtn, setActiveBtn] = useState('publications');
+
+  const user = useSelector((store:RootState)=> store.auth.user)
+  console.log(user)
+
+
 
   const posts = [
     {
@@ -44,29 +51,29 @@ function PersonalPage() {
 
   return (
     <>
-    <div className={style.profile}>
-      <div className={style.profile_feed}>
-        <UserProfile />
-        <UserNavbar
-          activeBtn={activeBtn}
-          handlePublications={handlePublications}
-          handleProgress={handleProgress}
-        />
+      <div className={style.profile}>
+        <div className={style.profile_feed}>
+          <UserProfile />
+          <UserNavbar
+            activeBtn={activeBtn}
+            handlePublications={handlePublications}
+            handleProgress={handleProgress}
+          />
 
-        {activeBtn === 'publications' ? (
-          <div className={style.posts_feed}>
-            {posts.map((el) => (
-              <Post el={el} />
-            ))}
-          </div>
-        ) : (
-          <div className={style.achievement_container}>
-            <AwardsContainer />
-            <PerformanceSection />
-          </div>
-        )}
+          {activeBtn === 'publications' ? (
+            <div className={style.posts_feed}>
+              {posts.map((el) => (
+                <Post el={el} />
+              ))}
+            </div>
+          ) : (
+            <div className={style.achievement_container}>
+              <AwardsContainer />
+              <PerformanceSection />
+            </div>
+          )}
+        </div>
       </div>
-    </div>
       <NavBar />
     </>
   );

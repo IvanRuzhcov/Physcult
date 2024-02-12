@@ -6,7 +6,10 @@ import { useNavigate } from 'react-router-dom';
 import RegistrationForm from './component/RegistrationForm';
 import ConfirmationForm from './component/ConfirmationForm';
 import { useAppDispatch } from '../../../store';
-import { emailСonfirmation, userRegistation } from './registerSlice';
+import {
+  emailСonfirmation,
+  userRegistation,
+} from '../../PersonalPage/userAuthSlice';
 
 export default function RegistrationPage(): JSX.Element {
   const dispatch = useAppDispatch();

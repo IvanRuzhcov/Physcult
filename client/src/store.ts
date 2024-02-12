@@ -1,9 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
+import authSlice from './pages/PersonalPage/userAuthSlice';
 
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
+    auth: authSlice
+
+    // Другие редьюсеры, если они у вас есть
   },
 });
 

@@ -1,11 +1,13 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import * as api from './api';
-import RegisterState from './types/RegisterState';
+import AuthData from './types/AuthData';
 import { RegisterData } from './types/RegisterData';
+import UserAuthState from './types/UserAuthState';
 import { Сonfirmation } from './types/Сonfirmation';
 
-const initialState: RegisterState = {
-  registerData: [],
+const initialState: UserAuthState = {
+  user: undefined,
+  authChecked: false,
 };
 
 export const emailСonfirmation = createAsyncThunk(
@@ -46,19 +48,47 @@ export const userRegistation = createAsyncThunk(
   }
 );
 
-const registerSlice = createSlice({
-  name: 'register',
+export const login = createAsyncThunk('auth/loginFeth', (data: AuthData) => {
+  if (!data.email.trim() || !data.password.trim()) {
+    throw new Error('Не все поля заполнены!');
+  }
+  return api.authFetch(data);
+});
+
+export const verification = createAsyncThunk('auth/verification', () =>
+  api.getUser()
+);
+
+export const logoutUser = createAsyncThunk(
+  'logout/logoutFetch',
+  api.logoutFetch
+);
+
+const authSlice = createSlice({
+  name: 'auth',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(emailСonfirmation.fulfilled, (state, action) => {
-        state.registerData = action.payload;
+      .addCase(login.fulfilled, (state, action) => {
+        state.user = action.payload.existingUser;
       })
-
+      .addCase(emailСonfirmation.fulfilled, (state, action) => {
+        state.user = action.payload;
+      })
       .addCase(userRegistation.fulfilled, (state, action) => {
-        state.registerData = action.payload;
-      });
+        state.user = action.payload.existingUser;
+      })
+      .addCase(verification.fulfilled, (state, action) => {
+        state.authChecked = true;
+
+        state.user = action.payload.isLoggedIn
+          ? action.payload.user
+          : undefined;
+      })
+      .addCase(logoutUser.fulfilled, (state, action) => {
+        state.user = undefined;
+      })
   },
 });
-export default registerSlice.reducer;
+export default authSlice.reducer;

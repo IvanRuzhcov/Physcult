@@ -17,6 +17,5 @@ function generateSportsUsername() {
   }
   
   const newSportsUsername = generateSportsUsername();
-  console.log(newSportsUsername);
 
 module.exports = {verificationCode, generateSportsUsername}
