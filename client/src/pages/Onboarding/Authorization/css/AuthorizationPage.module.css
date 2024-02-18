@@ -12,31 +12,37 @@
   gap: 15px;
 }
 
+
+.text_image {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border-radius: 0px 0px 15px 15px;
+  overflow: hidden;
+}
 .text_image img {
-    max-width: 100%;
-    border-radius: 0px 0px 15px 15px;
+  height: 398px;
+  object-fit: cover;
+  image-rendering: optimizeQuality;
 }
 
 .form {
   background-color: #fff;
   display: block;
-  padding: 1rem;
   max-width: 450px;
   text-align: center;
-  
 }
+
 
 .form-title {
   font-size: 17px;
   font-weight: 600;
   color: #000;
 }
-
-.input-container input, .form button {
-  outline: none;
-  border: none;
-  margin: 8px 0;
+.input_container{
+margin-top: 16px;
 }
+
 
 .input-container input {
   background-color: #000;
@@ -46,7 +52,6 @@
   line-height: 1.25rem;
   width: 345px;
   border-radius: 10px;
-  
 }
 
 .input {
@@ -55,10 +60,9 @@
   margin-top: 10px;
   border-radius: 1rem;
   border: 1px solid gray;
-  
 }
 
-.submit {
+.submit_auth {
   display: block;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
@@ -71,9 +75,12 @@
   font-weight: 500;
   width: 345px;
   border-radius: 10px;
+  outline: none;
+  border: none;
+  margin: 28px 0 0 0;
 }
 
-.submit2 {
+.submit_reg {
   display: block;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
@@ -86,8 +93,7 @@
   font-weight: 500;
   width: 345px;
   border-radius: 10px;
+  outline: none;
+  border: none;
+  margin: 8px 0 0 0;
 }
-
-  
-  
-   

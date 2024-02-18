@@ -11,20 +11,18 @@
   flex-direction: column;
   gap: 15px;
 }
-
-.text_image img {
-  max-width: 100%;
+.text_image {
+  display: flex;
+  justify-content: center;
+  width: 100%;
   border-radius: 0px 0px 15px 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 15px;
-  }
+  overflow: hidden;
+}
   
   .text_image img {
-      max-width: 100%;
-      border-radius: 0px 0px 15px 15px;
+    height: 398px;
+    object-fit: cover;
+    image-rendering: optimizeQuality;
   }
   
   .form {
@@ -35,13 +33,16 @@
     text-align: center;
     
   }
-  
+
   .form-title {
     font-size: 17px;
     font-weight: 600;
     color: #000;
   }
-  
+  .container_register_form{
+    width: 343px;
+    height: 100%;
+  }
   .input-container input, .form button {
     outline: none;
     border: none;
@@ -89,7 +90,12 @@
   font-weight: 600;
   color: #000;
 }
-
+.input_container{
+  margin-top: 16px;
+}
+.input_container input{
+  width: 100%;
+}
 .input-container input,
 .form button {
   outline: none;
