@@ -27,9 +27,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TEXT,
         unique: true,
       },
-      surname: {
-        type: DataTypes.TEXT,
-      },
       gender: {
         type: DataTypes.TEXT,
       },

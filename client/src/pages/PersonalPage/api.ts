@@ -79,8 +79,7 @@ export const logoutFetch = async (): Promise<void> => {
 };
 
 export const updatUserPersonalDataFetch = async (obj: User): Promise<User> => {
-
-  console.log(obj.id)
+  console.log(obj.id);
   const response = await fetch(`/updata/${obj.id}`, {
     method: 'PUT',
     headers: { 'Content-type': 'application/json' },
@@ -88,3 +87,5 @@ export const updatUserPersonalDataFetch = async (obj: User): Promise<User> => {
   });
   return response.json();
 };
+
+

@@ -1,18 +1,30 @@
-import React, {
-  useState,
-  useRef,
-  useEffect,
-} from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import style from '../css/PersonalDataSettings.module.css';
 
 const DateInput = ({
   setDate,
+  date_of_birth,
 }: {
   setDate: React.Dispatch<React.SetStateAction<string>>;
+  date_of_birth: string;
 }) => {
   const [day, setDay] = useState<string>('');
   const [month, setMonth] = useState<string>('');
   const [year, setYear] = useState<string>('');
+
+  useEffect(() => {
+    // Разбиваем строку на подстроки по точкам
+    const dateParts = date_of_birth.split('.');
+
+    // Проверяем формат даты
+    const validDateFormat = /^\d{1,2}\.\d{1,2}\.\d{4}$/;
+    if (date_of_birth && validDateFormat.test(date_of_birth)) {
+      // Устанавливаем состояния
+      setDay(dateParts[0] || ''); // Первая подстрока - день
+      setMonth(dateParts[1] || ''); // Вторая подстрока - месяц
+      setYear(dateParts[2] || ''); // Третья подстрока - год
+    }
+  }, [date_of_birth]);
 
   useEffect(() => {
     setDate(`${day}.${month}.${year}`);
@@ -30,16 +42,14 @@ const DateInput = ({
       nextInput.current.focus();
     }
 
-    let parsedValue = parseInt(value, 10);
-
     switch (input.name) {
       case 'day':
-        if (!isNaN(parsedValue) && parsedValue >= 1 && parsedValue <= 31) {
+        if (value === '' || (value >= 1 && value <= 31)) {
           setDay(value);
         }
         break;
       case 'month':
-        if (!isNaN(parsedValue) && parsedValue >= 1 && parsedValue <= 12) {
+        if (value === '' || (value >= 1 && value <= 12)) {
           setMonth(value);
         }
         break;
@@ -49,6 +59,7 @@ const DateInput = ({
       default:
         break;
     }
+    
   };
 
   return (

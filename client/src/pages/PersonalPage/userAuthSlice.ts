@@ -70,6 +70,7 @@ export const updataUser = createAsyncThunk(
   (action: User) => api.updatUserPersonalDataFetch(action)
 );
 
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -94,21 +95,20 @@ const authSlice = createSlice({
       })
       .addCase(logoutUser.fulfilled, (state, action) => {
         state.user = undefined;
-      }).addCase(updataUser.fulfilled, (state, action) => {
+      })
+      .addCase(updataUser.fulfilled, (state, action) => {
         state.user = {
           ...state.user,
           name: action.payload.name,
           surname: action.payload.surname,
-          nick:action.payload.nick,
+          nick: action.payload.nick,
           email: action.payload.email,
           gender: action.payload.gender,
           telephone: action.payload.telephone,
-          date_of_birth:action.payload.date_of_birth,
-          // avatar_img:action.payload.avatar_img
-
+          date_of_birth: action.payload.date_of_birth,
         };
       })
-
+   
   },
 });
 export default authSlice.reducer;

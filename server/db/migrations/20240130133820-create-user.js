@@ -26,9 +26,6 @@ module.exports = {
         type: Sequelize.TEXT,
         unique: true,
       },
-      surname: {
-        type: Sequelize.TEXT,
-      },
       gender: {
         type: Sequelize.TEXT,
       },

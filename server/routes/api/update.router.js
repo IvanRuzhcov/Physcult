@@ -5,7 +5,7 @@ updataRouter.put('/:id', async (req, res) => {
     console.log('req')
   try {
     const { id } = req.params;
-    const { name, surname, nick, gender, telephon, email, data_of_birth } =
+    const { name, surname, nick, gender, telephone, email, date_of_birth } =
       req.body;
 
     const user = await User.findOne({ where: Number(id) });
@@ -13,9 +13,9 @@ updataRouter.put('/:id', async (req, res) => {
     user.surname = surname;
     user.nick = nick;
     user.gender = gender;
-    user.telephone = telephon;
+    user.telephone = telephone;
     user.email = email;
-    user.date_of_birth = data_of_birth;
+    user.date_of_birth = date_of_birth;
     user.save();
     res.status(200).json(user);
   } catch ({ message }) {

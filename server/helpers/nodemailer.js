@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport(
     },
   },
   {
-    from: 'Leth <PanettoneRacit@yandex.ru>', // ваша почта яндекс
+    from: 'Phiscult <info@physcult.pro>', // ваша почта яндекс
   }
 );
 

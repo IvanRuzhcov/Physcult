@@ -13,7 +13,7 @@ function UserProfileSettings() {
   return (
     <div className={style.settingsContainer}>
       <div className={style.settingsHeader}>
-        <div className={style.exitingSettings} onClick={() => navigate(-1)}>
+        <div className={style.exitingSettings} onClick={() => navigate('/profile')}>
           <img src={leftArrow} alt="" />
         </div>
         <span>Настройки</span>
