@@ -1,11 +1,15 @@
 import React, { memo } from 'react';
 import style from '../css/NewsFeed.module.css'
+import noPhoto from '../../../assets/no_avatar.png'
 import malyshko from '../../../assets/malyshko.png';
 import lekarev from '../../../assets/lekarev.png';
 import tsekulin from '../../../assets/tsekulin.png';
 import blanin from '../../../assets/blanin.png';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store';
 
 function History() {
+  const user = useSelector((store:RootState)=> store.auth.user)
     const historyUser = {
         photo: malyshko,
         name: 'malyshko',
@@ -32,38 +36,16 @@ function History() {
           history:
             'https://static.news.ru/photo/37bf9717-fa52-4209-b747-b7214ba533a8_1024.jpg',
         },
-        {
-          photo: blanin,
-          name: 'blanin',
-          history:
-            'https://static.news.ru/photo/37bf9717-fa52-4209-b747-b7214ba533a8_1024.jpg',
-        },
-        {
-          photo: blanin,
-          name: 'blanin',
-          history:
-            'https://static.news.ru/photo/37bf9717-fa52-4209-b747-b7214ba533a8_1024.jpg',
-        },
-        {
-          photo: blanin,
-          name: 'blanin',
-          history:
-            'https://static.news.ru/photo/37bf9717-fa52-4209-b747-b7214ba533a8_1024.jpg',
-        },
-        {
-          photo: blanin,
-          name: 'blanin',
-          history:
-            'https://static.news.ru/photo/37bf9717-fa52-4209-b747-b7214ba533a8_1024.jpg',
-        },
+       
+       
       ];
     return (
         <>
         <div className={style.history_feed}>
         <div className={style.history}>
-          <img src={historyUser.photo} alt="" />
+          <img src={user?.avatar_img || noPhoto} alt="" />
           <div className={style.history_name}>
-            <span>{historyUser.name}</span>
+            <span>{user?.nick}</span>
           </div>
         </div>
         {history.map((el) => {

@@ -16,10 +16,10 @@ module.exports = {
       {
         password: await bcrypt.hash('1234', 5),
         avatar_img:
-          'https://psv4.userapi.com/c909618/u126590865/docs/d43/8a74a21a53d4/photo_2023-10-30_21_31_51.png?extra=dhmNknUiloYNrEh2GbRvXpQJu9GF9fz30BnccDUpzoO3VvinZxWen_rH9-zFde4ZZL3DVUGg7BnueKzC42Z6784CId4ab1f9-Jk3qZA81upjBMySjnpfOsY6nuET-rBXwTVs8ydy12eyGE6M-flChfVH',
+          'https://psv4.userapi.com/c909618/u126590865/docs/d43/3ff1e7608408/photo_2023-10-30_21_31_51.png?extra=eIHDVi4cD2ZbRplKMA-HTp5kjH_R1_GUTNCrMO38l3Ck0iq3vkaWifm6bWTRuETKjsbdA6moTrGojUZBLkbYBd55XYog0NR6r07ypCXdtmg9OEfmIh58iLFF0wCz9eoBD8N46srYaZtrVvRozXGm7bYg',
         name: 'Дмитрий',
         surname: 'Малышко',
-        nick: '@malyshko',
+        nick: 'malyshko',
         gender: 'Мужской',
         telephone: '+71111111111',
         email: 'mal@gmail.com',
@@ -51,14 +51,14 @@ module.exports = {
 
     await TrainingData.bulkCreate([
       {
-        distance: 19.69,
-        pace: 5/19,
+        distance: '19,69',
+        pace: '5:19',
         time: '1ч. 44мин.',
         calories: 400,
       },
       {
-        distance: 14.81,
-        pace: 5/27,
+        distance: '14,81',
+        pace: '5:27',
         time: '1ч. 20мин.',
         calories: 340,
       },

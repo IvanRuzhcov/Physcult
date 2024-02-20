@@ -18,7 +18,7 @@ module.exports = {
           'https://psv4.userapi.com/c909218/u126590865/docs/d58/e7c72e4458ac/lekarev.png?extra=lQSjHvoC0yX1d2NPVTDOImPXTj5NOdrbX-bFhsGEt5wp3wzr9eF8X0wse1TuSVBDID31KKQpo30PUDaH1ojBS4rjqu8r-olI84weHXU6XOKNzre4qNRL0qz4GBK7nah-u02ifn_jN4nth-16pzzCI1-o',
         name: 'Aлексей',
         surname: 'Лекарев',
-        nick: '@lekarev',
+        nick: 'lekarev',
         gender: 'Мужской',
         telephone: '+71111111112',
         email: 'lek@gmail.com',
@@ -42,8 +42,8 @@ module.exports = {
 
     await TrainingData.bulkCreate([
       {
-        distance: 7.10,
-        pace: 4/54,
+        distance: '7,10',
+        pace: '4:54',
         time: '1ч.',
         calories: 450,
       },

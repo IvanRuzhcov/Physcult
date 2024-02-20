@@ -18,7 +18,7 @@ module.exports = {
           'https://psv4.userapi.com/c909618/u126590865/docs/d58/4937bf0606a5/licensed-image.png?extra=uUwVi6AVV3RymYWwD9rTMuKl4jPHf4vtaPEZk2WGpEe5K-7zYT-ml_DQCGjCmsa72S66FS8FcSg4tVWHtTlecms00D008-GFXBJZFMIKZl72WDYWnR2QQlJmxIVhaZ-jsutlGsPWbi3egVt49VL87Yr5',
         name: 'Анатолий',
         surname: 'Шипулин',
-        nick: '@shipulin',
+        nick: 'shipulin',
         gender: 'Мужской',
         telephone: '+71111111114',
         email: 'shi@gmail.com',
@@ -42,8 +42,8 @@ module.exports = {
 
     await TrainingData.bulkCreate([
       {
-        distance: 10.04,
-        pace: 5/35,
+        distance: '10,04',
+        pace: '5:35',
         time: '2ч. 26мин.',
         calories: 550,
       },
