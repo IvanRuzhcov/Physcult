@@ -7,19 +7,23 @@ import ski from '../../../assets/ski.png';
 import gym from '../../../assets/gym.png';
 import swim from '../../../assets/swim.png';
 import swim100 from '../../../assets/swim100.png';
-
+import { useNavigate } from 'react-router-dom';
 
 export default function TrialsPage():JSX.Element {
   const [activeBtn, setActiveBtn] = useState('main');
+  const navigate = useNavigate()
 
   const handleMain = () => {
     setActiveBtn('main');
+    navigate('/main')
   };
   const handleTests = () => {
-    setActiveBtn('test');
+    setActiveBtn('trials');
+    navigate('/trials')
   };
   const handleFriends = () => {
     setActiveBtn('friend');
+    navigate('/friend')
   };
 
 
@@ -52,7 +56,7 @@ export default function TrialsPage():JSX.Element {
           <div className={styles.progress_box} onClick={handleTests}>
             <div
               className={
-                activeBtn === 'test'
+                activeBtn === 'trials'
                   ? styles.on_progress
                   : styles.off_progress
               }
@@ -61,7 +65,7 @@ export default function TrialsPage():JSX.Element {
             </div>
             <div
               className={
-                activeBtn === 'test' ? styles.active_line : styles.line
+                activeBtn === 'trials' ? styles.active_line : styles.line
               }
             ></div>
           </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './css/MainPage.module.css';
 import star from '../../../assets/icons/Star.png';
 import alert from '../../../assets/icons/NotificationAlert.png';
@@ -12,20 +12,63 @@ import orlova from '../../../assets/orlova.png';
 import stepanova from '../../../assets/stepanova.png';
 import sokolov from '../../../assets/sokolov.png';
 import NavBar from '../../Navbar/NavBar';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 export default function MainPage():JSX.Element {
   const [activeBtn, setActiveBtn] = useState('main');
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  useEffect(() => {
+    const path = location.pathname;
+
+    if (path === '/main') {
+      setActiveBtn('main');
+    } else if (path === '/trials') {
+      setActiveBtn('trials');
+    } else if (path === '/friend') {
+      setActiveBtn('friend');
+    }  
+  }, [location.pathname]);
 
   const handleMain = () => {
     setActiveBtn('main');
+    navigate('/main')
   };
   const handleTests = () => {
-    setActiveBtn('test');
+    setActiveBtn('trials');
+    navigate('/trials')
   };
   const handleFriends = () => {
     setActiveBtn('friend');
+    navigate('/friend')
   };
+
+
+  const sborniki = [
+    {
+      id: 1,
+      photo: latypov,
+      text: 'Латыпов Э.'
+    },
+    {
+      id: 2,
+      photo: latypov,
+      text: 'Латыпов Э.'
+    },
+    {
+      id: 3,
+      photo: latypov,
+      text: 'Латыпов Э.'
+    },
+    {
+      id: 4,
+      photo: latypov,
+      text: 'Латыпов Э.'
+    }
+
+  ]
 
   return (
     <>
@@ -64,7 +107,7 @@ export default function MainPage():JSX.Element {
           <div className={styles.progress_box} onClick={handleTests}>
             <div
               className={
-                activeBtn === 'test'
+                activeBtn === 'trials'
                   ? styles.on_progress
                   : styles.off_progress
               }
@@ -73,7 +116,7 @@ export default function MainPage():JSX.Element {
             </div>
             <div
               className={
-                activeBtn === 'test' ? styles.active_line : styles.line
+                activeBtn === 'trials' ? styles.active_line : styles.line
               }
             ></div>
           </div>
@@ -95,6 +138,7 @@ export default function MainPage():JSX.Element {
           </div>
         </div>
 
+
         <div className={styles.physcult_market}>
           <div className={styles.img_market}>
             <img src={market} alt="" />
@@ -112,15 +156,22 @@ export default function MainPage():JSX.Element {
           </div>
         </div>
 
+
         <div className={styles.compilation_elem}>
+          {sborniki.map((el:any) => {return(
+
+          <>
           <div className={styles.elem}>
             <div className={styles.name_elem}>
-              <p>Латыпов Э.</p>
+              <p>{el.text}</p>
               <img src={star} alt="" />
             </div>
-            <img className={styles.photo} src={latypov} alt="" /> 
+            <img className={styles.photo} src={el.photo} alt="" /> 
           </div>
+          </>
+        )})}
         </div>
+        
 
         <div className={styles.compilations}>
           <div className={styles.inside}>
