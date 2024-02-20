@@ -14,23 +14,23 @@ const transporter = nodemailer.createTransport(
     },
   },
   {
-    from: 'Leth <PanettoneRacit@yandex.ru>', // ваша почта яндекс
+    from: 'Phiscult <info@physcult.pro>', // ваша почта яндекс
   }
 );
 
-const mailer = (message) => {
-   transporter.sendMail(message, (error, info) => {
-      if (error) {
-        console.error(error);
-        res.status(500).send('Ошибка отправки кода подтверждения');
-      } else {
-        console.log('Код подтверждения отправлен: ' + info.response);
+const mailer = (message, { confirmationCodes, code, email }) => {
+  transporter.sendMail(message, (error, info) => {
+    if (error) {
+      console.error(error);
+      res.status(500).send('Ошибка отправки кода подтверждения');
+    } else {
+      console.log('Код подтверждения отправлен: ' + info.response);
 
-        confirmationCodes.set(email, code);
+      confirmationCodes.set(email, code);
 
-        res.status(200).send('Код подтверждения отправлен успешно');
-      }
-    });
+      res.status(200).send('Код подтверждения отправлен успешно');
+    }
+  });
 };
 
 module.exports = mailer;

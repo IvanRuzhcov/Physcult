@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -51,6 +51,7 @@
   text-align: center;
 }
 .user_photo img {
+  border-radius: 50%;
   width: 87px;
   height: 87px;
 }
@@ -179,7 +180,7 @@
   display: block;
   text-align: center;
 }
-.achievement_container{
+.achievement_container {
   max-width: 380px;
   width: 100%;
   margin: 0 auto;
@@ -190,7 +191,6 @@
 .award_container {
   margin-top: 20px;
   align-self: stretch;
-
 }
 .award_container span {
   color: var(--Label-Color-Light-Primary, var(--black, #000));
@@ -255,9 +255,7 @@
 }
 .indicators_container:not(:last-child) {
   margin-top: 16px;
-  
 }
-
 
 .indicators_box {
   display: flex;
@@ -318,7 +316,7 @@
   line-height: 100%; /* 38px */
   letter-spacing: -0.5px;
 }
-.lol{
+.lol {
   margin-bottom: 10px;
 }
 .frequent_training img {

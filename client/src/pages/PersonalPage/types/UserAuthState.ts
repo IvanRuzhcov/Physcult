@@ -1,6 +1,12 @@
-import User from "./User";
+import { Subscription } from '../types/Subscription';
+import { Posts } from './Post';
+import User from './User';
 
-export default interface UserAuthState{
-    user: User | undefined
-    authChecked: boolean
+export default interface UserAuthState {
+  user: User | undefined;
+  allUsers: User[]
+  post: Posts[];
+  allPosts:Posts[]
+  subscription: Subscription[];
+  authChecked: boolean;
 }

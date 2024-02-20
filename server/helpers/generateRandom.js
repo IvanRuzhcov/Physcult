@@ -12,7 +12,7 @@ function generateSportsUsername() {
     
     const randomNumber = Math.floor(100000 + Math.random() * 900000); // Добавление случайного числа для уникальности
   
-    const username = `${randomAdjective}${randomNoun}${randomNumber}`;
+    const username = `@${randomAdjective}${randomNoun}${randomNumber}`;
     return username;
   }
   

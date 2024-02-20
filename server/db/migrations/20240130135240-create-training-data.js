@@ -10,11 +10,11 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       distance: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.TEXT,
         allowNull: false,
       },
       pace: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.TEXT,
         allowNull: false,
       },
       time: {

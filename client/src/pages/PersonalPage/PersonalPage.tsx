@@ -15,32 +15,14 @@ import { useSelector } from 'react-redux';
 
 function PersonalPage() {
   const [activeBtn, setActiveBtn] = useState('publications');
-
+  const post = useSelector((store:RootState)=> store.auth.post)
   const user = useSelector((store:RootState)=> store.auth.user)
-  console.log(user)
+
+  console.log('--->', post)
 
 
 
-  const posts = [
-    {
-      id: 1,
-      name: 'Дмитрий Малышко',
-      photo: malyshko,
-      distance: '19,69',
-      pace: '5:19',
-      time: '1ч. 44мин.',
-      medals_gold: 2,
-      medals_silver: 2,
-      medals_bronze: 1,
-      date: '14.10.2023',
-      time_post: '12:32',
-      description:
-        'Сегодня впервые вместе с семьей на лыжах, даже малыш открыл для себя этот веселый вид активности!',
-      like: 9.8,
-      comments: 9.8,
-      photo_post: [photo_malishko, map],
-    },
-  ];
+ 
 
   const handlePublications = () => {
     setActiveBtn('publications');
@@ -62,8 +44,9 @@ function PersonalPage() {
 
           {activeBtn === 'publications' ? (
             <div className={style.posts_feed}>
-              {posts.map((el) => (
-                <Post el={el} />
+              {post && post.map((el) => (
+                <Post key={user?.id} el={el} />
+                
               ))}
             </div>
           ) : (

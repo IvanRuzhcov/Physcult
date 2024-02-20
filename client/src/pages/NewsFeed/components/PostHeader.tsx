@@ -1,15 +1,36 @@
 // PostHeader.jsx
 import React, { memo } from 'react';
 import style from '../css/NewsFeed.module.css';
-import { Posts } from '../types/Posts';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store';
+import { Posts } from '../../PersonalPage/types/Post';
+import noPhoto from '../../../assets/no_avatar.png'
 
-function PostHeader({ photo, name, date, time_post }:Posts) {
+function PostHeader({createdAt,user_id_post}:Posts) {
+  const users = useSelector((store:RootState)=> store.auth.allUsers)
+  console.log(users)
+let formattedDate = ''
+
+  const regex = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})\.(\d{3})Z$/;
+const match = createdAt!.match(regex);
+if (match) {
+  const year = match[1];
+  const month = match[2];
+  const day = match[3];
+  const hours = match[4];
+  const minutes = match[5];
+
+  // Собираем отформатированную строку
+  formattedDate = `${day}.${month}.${year} • ${hours}:${minutes}`;
+}
+
+const postUser = users.find((u) => u.id === user_id_post);
   return (
     <div className={style.post_header}>
-      <img src={photo} alt="" />
+      <img src={postUser?.avatar_img || noPhoto } alt="" />
       <div className={style.post_name}>
-        <span>{name}</span>
-        <div>{`${date}•${time_post} `}</div>
+        <span>{postUser?.nick}</span>
+        <div>{`${formattedDate} `}</div>
       </div>
     </div>
   );

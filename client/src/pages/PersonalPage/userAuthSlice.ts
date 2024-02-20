@@ -4,9 +4,14 @@ import AuthData from './types/AuthData';
 import { RegisterData } from './types/RegisterData';
 import UserAuthState from './types/UserAuthState';
 import { Сonfirmation } from './types/Сonfirmation';
+import User from './types/User';
 
 const initialState: UserAuthState = {
   user: undefined,
+  allUsers: [],
+  post: [],
+  allPosts: [],
+  subscription: [],
   authChecked: false,
 };
 
@@ -64,6 +69,24 @@ export const logoutUser = createAsyncThunk(
   api.logoutFetch
 );
 
+export const updataUser = createAsyncThunk(
+  'update/updatUserPersonalDataFetch',
+  (action: User) => api.updatUserPersonalDataFetch(action)
+);
+export const initPost = createAsyncThunk('initPost/initPostFeth', () =>
+  api.initPostFeth()
+);
+export const initUserPost = createAsyncThunk('initPost/initUserPostFeth', () =>
+  api.initUserPostFeth()
+);
+export const initSubscription = createAsyncThunk(
+  'initSubscription/initSubscriptionFeth',
+  () => api.initSubscriptionFeth()
+);
+export const initUsers = createAsyncThunk('user/initUsersFeth', () =>
+  api.initUsersFeth()
+);
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -88,7 +111,35 @@ const authSlice = createSlice({
       })
       .addCase(logoutUser.fulfilled, (state, action) => {
         state.user = undefined;
+        state.post = [];
+        state.allPosts = [];
+        state.allUsers = [];
+        state.subscription = [];
       })
+      .addCase(updataUser.fulfilled, (state, action) => {
+        state.user = {
+          ...state.user,
+          name: action.payload.name,
+          surname: action.payload.surname,
+          nick: action.payload.nick,
+          email: action.payload.email,
+          gender: action.payload.gender,
+          telephone: action.payload.telephone,
+          date_of_birth: action.payload.date_of_birth,
+        };
+      })
+      .addCase(initUserPost.fulfilled, (state, action) => {
+        state.post = action.payload;
+      })
+      .addCase(initSubscription.fulfilled, (state, action) => {
+        state.subscription = action.payload;
+      })
+      .addCase(initPost.fulfilled, (state, action) => {
+        state.allPosts = action.payload;
+      })
+      .addCase(initUsers.fulfilled, (state, action) => {
+        state.allUsers = action.payload;
+      });
   },
 });
 export default authSlice.reducer;

@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const cookieParser = require('cookie-parser');
 const { verifyAccessToken } = require('../middlewares/verifyJWT');
 const getUser = require('../middlewares/getUser');
@@ -6,6 +7,7 @@ const getUser = require('../middlewares/getUser');
 const serverConfig = (app) => {
   // парсим формы
   app.use(express.urlencoded({ extended: true }));
+  
   // парсим JSON
   app.use(express.json());
   app.use(cookieParser());
