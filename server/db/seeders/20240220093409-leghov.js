@@ -16,7 +16,7 @@ module.exports = {
           'https://psv4.userapi.com/c909618/u126590865/docs/d39/d179e6d03839/legkov.png?extra=ZUvz9azRElJVZF17YBGv30-Dq7vMoCAsjJlC_dz3kD0wjh5AKEAF3oXb1Z0TH_WvM7FdtL2Apw5r3fl2mw-se-V_mu-muNzccOjOQHxtmyBnKyjVRaAP2t2Dry4e_uAW9ULvX47PjUgiwkzVIA2g0xIU',
         name: 'Александр',
         surname: 'Легков',
-        nick: '@leghov',
+        nick: 'leghov',
         gender: 'Мужской',
         telephone: '+71111111116',
         email: 'leg@gmail.com',
@@ -40,8 +40,8 @@ module.exports = {
 
     await TrainingData.bulkCreate([
       {
-        distance: 16.34,
-        pace: 5/25,
+        distance: '16,34',
+        pace: '5:25',
         time: '2ч. 43мин.',
         calories: 550,
       },

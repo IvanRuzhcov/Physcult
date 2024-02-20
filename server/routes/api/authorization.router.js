@@ -1,6 +1,6 @@
 const authorizationRoutes = require('express').Router();
 const bcrypt = require('bcrypt');
-const { User } = require('../../db/models');
+const { User, Subscription, Post } = require('../../db/models');
 const generateTokens = require('../../utils/authUtils');
 const configJWT = require('../../middlewares/configJWT');
 
@@ -15,7 +15,10 @@ authorizationRoutes.post('/user', async (req, res) => {
         .json({ success: false, message: ' Не все поля заполнены' });
     }
 
-    const existingUser = await User.findOne({ where: { email } });
+    const existingUser = await User.findOne({
+      where: { email },
+      include: [ { model: Post }]
+    });
     if (
       existingUser &&
       (await bcrypt.compare(password, existingUser.password))
@@ -37,13 +40,12 @@ authorizationRoutes.post('/user', async (req, res) => {
         maxAge: 1000 * 60 * 60 * 24 * 30,
         httpOnly: true,
       });
-      
+
       return res.status(200).json({
         success: true,
         message: 'Аутентификация успешна',
         existingUser,
       });
-      
     } else {
       // Отправляем ответ об ошибке, если аутентификация не удалась
 
@@ -57,7 +59,6 @@ authorizationRoutes.post('/user', async (req, res) => {
     return res.status(500).json({ error: 'Failed to subscribe' });
   }
 });
-
 
 authorizationRoutes.post('/logout', (req, res) => {
   res.clearCookie(configJWT.access).clearCookie(configJWT.refresh);

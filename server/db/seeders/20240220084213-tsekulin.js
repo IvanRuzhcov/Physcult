@@ -18,7 +18,7 @@ module.exports = {
           'https://psv4.userapi.com/c909618/u126590865/docs/d48/025d0b36decf/tsekulin_s_fonom.png?extra=Xt7mjXDlJA_WaC-tDNfsZk6EVIvZpEvCAD8sPw-0RvBUvLEuvCIb575cdnoZXpgm9Gp7Zhgl_fnm8eeVaHPewmkp6uwIj9sr-528IUC6HAixO8NNpPc1ONXQzQzjXLr8ynDN4vlIflpei2BKl9B2HwRY',
         name: 'Анатолий',
         surname: 'Цекулин',
-        nick: '@tsekulin',
+        nick: 'tsekulin',
         gender: 'Мужской',
         telephone: '+71111111113',
         email: 'tse@gmail.com',
@@ -42,8 +42,8 @@ module.exports = {
 
     await TrainingData.bulkCreate([
       {
-        distance: 37.04,
-        pace: 5/35,
+        distance: '37,04',
+        pace: '5:35',
         time: '3ч. 26мин.',
         calories: 950,
       },

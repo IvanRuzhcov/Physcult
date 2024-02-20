@@ -18,7 +18,7 @@ module.exports = {
           'https://psv4.userapi.com/c909618/u126590865/docs/d55/8ab20bd9fda3/IMG_5127.png?extra=fZQacGSY8jNP4PGXaePX_6FiCds5zTWN_VBW_6gx9dgFaeVuF045Fd3K8VoadjKJTM_lgpkk_WiyWP3sce2vcgYxWTcQ9140nRJIGcnrfVoTVRYAqnGW9_tnTF1uWPi6Rx0UQlRh6Exz8Be_nJI0X34z',
         name: 'Наталья',
         surname: 'Гербулова',
-        nick: '@gerbulova',
+        nick: 'gerbulova',
         gender: 'Женский',
         telephone: '+71111111115',
         email: 'ger@gmail.com',
@@ -51,14 +51,14 @@ module.exports = {
 
     await TrainingData.bulkCreate([
       {
-        distance: 12.04,
-        pace: 4/35,
+        distance: '12,04',
+        pace: '4:35',
         time: '1ч. 23мин.',
         calories: 350,
       },
       {
-        distance: 17.04,
-        pace: 4/35,
+        distance: '17,04',
+        pace: '4:35',
         time: '2ч. 23мин.',
         calories: 550,
       },

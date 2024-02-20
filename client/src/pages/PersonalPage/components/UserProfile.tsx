@@ -13,31 +13,11 @@ import { RootState } from '../../../store';
 
 function UserProfile() {
   const user = useSelector((store: RootState) => store.auth.user);
+  const subscribers = useSelector((store: RootState) => store.auth.subscription);
   console.log(user);
 
   const naviget = useNavigate();
   
-  const mal = {
-    id: 1,
-    name: 'Дмитрий Малышко',
-    photo: malyshko,
-    nick: '@malyshko',
-    distance: '19,69',
-    pace: '5:19',
-    time: '1ч. 44мин.',
-    medals_gold: 2,
-    medals_silver: 2,
-    medals_bronze: 1,
-    date: '14.10.2023',
-    time_post: '12:32',
-    description:
-      'Сегодня впервые вместе с семьей на лыжах, даже малыш открыл для себя этот веселый вид активности!',
-    like: 9.8,
-    comments: 9.8,
-    photo_post: [photo_malishko, map],
-    subscriptions: 8,
-    subscribers: 8,
-  };
 
   const hendleRedirectToSettings = () => {
     naviget('/settings');
@@ -70,17 +50,17 @@ function UserProfile() {
             <span>{user?.name}</span>
           </div>
           <div className={style.user_nick}>
-            <span>{user?.nick}</span>
+            <span>@{user?.nick}</span>
           </div>
         </div>
         <div className={style.community_box}>
           <div className={style.community}>
             <div className={`${style.statistics}`}>
-              <div>{mal.subscriptions}</div>
+              <div>{subscribers.length}</div>
               <span>подписок</span>
             </div>
             <div className={`${style.statistics}`}>
-              <div>{mal.subscribers}</div>
+              <div>{subscribers.length}</div>
               <span>подписчиков</span>
             </div>
           </div>

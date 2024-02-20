@@ -11,11 +11,11 @@ module.exports = (sequelize, DataTypes) => {
   }
   TrainingData.init({
     distance: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     pace: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     time: {

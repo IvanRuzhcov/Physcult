@@ -1,7 +1,7 @@
 // PostDescription.tsx
 import React, { memo } from 'react';
 import style from '../css/NewsFeed.module.css';
-import { Posts } from '../types/Posts';
+import { Posts } from '../../PersonalPage/types/Post';
 
 
 

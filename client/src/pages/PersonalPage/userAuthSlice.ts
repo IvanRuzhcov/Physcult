@@ -8,6 +8,10 @@ import User from './types/User';
 
 const initialState: UserAuthState = {
   user: undefined,
+  allUsers: [],
+  post: [],
+  allPosts: [],
+  subscription: [],
   authChecked: false,
 };
 
@@ -69,7 +73,19 @@ export const updataUser = createAsyncThunk(
   'update/updatUserPersonalDataFetch',
   (action: User) => api.updatUserPersonalDataFetch(action)
 );
-
+export const initPost = createAsyncThunk('initPost/initPostFeth', () =>
+  api.initPostFeth()
+);
+export const initUserPost = createAsyncThunk('initPost/initUserPostFeth', () =>
+  api.initUserPostFeth()
+);
+export const initSubscription = createAsyncThunk(
+  'initSubscription/initSubscriptionFeth',
+  () => api.initSubscriptionFeth()
+);
+export const initUsers = createAsyncThunk('user/initUsersFeth', () =>
+  api.initUsersFeth()
+);
 
 const authSlice = createSlice({
   name: 'auth',
@@ -95,6 +111,10 @@ const authSlice = createSlice({
       })
       .addCase(logoutUser.fulfilled, (state, action) => {
         state.user = undefined;
+        state.post = [];
+        state.allPosts = [];
+        state.allUsers = [];
+        state.subscription = [];
       })
       .addCase(updataUser.fulfilled, (state, action) => {
         state.user = {
@@ -108,7 +128,18 @@ const authSlice = createSlice({
           date_of_birth: action.payload.date_of_birth,
         };
       })
-   
+      .addCase(initUserPost.fulfilled, (state, action) => {
+        state.post = action.payload;
+      })
+      .addCase(initSubscription.fulfilled, (state, action) => {
+        state.subscription = action.payload;
+      })
+      .addCase(initPost.fulfilled, (state, action) => {
+        state.allPosts = action.payload;
+      })
+      .addCase(initUsers.fulfilled, (state, action) => {
+        state.allUsers = action.payload;
+      });
   },
 });
 export default authSlice.reducer;

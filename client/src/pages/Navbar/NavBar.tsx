@@ -38,7 +38,7 @@ function NavBar() {
     navigate('/profile');
   };
   const handleMain = () => {
-    navigate('/');
+    navigate('/main');
   };
 
   return (
