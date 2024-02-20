@@ -17,7 +17,7 @@ app.io = io;
 
 app.use('/', indexRouter);
 
-const PORT = process.env.PORT ?? 4000;
+const PORT = process.env.PORT ?? 4002;
 
 server.listen(PORT, () => {
   console.log(`Сервер тренируется на ${PORT} порту`);

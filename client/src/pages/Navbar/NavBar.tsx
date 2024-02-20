@@ -27,6 +27,10 @@ function NavBar() {
       setActivePage('user');
     } else if (path === '/main') {
       setActivePage('main');
+    } else if (path === '/map') {
+      setActivePage('play')
+    } else if (path === '/messenger') {
+      setActivePage('chat')
     }
   }, [location.pathname]);
 
@@ -40,6 +44,12 @@ function NavBar() {
   const handleMain = () => {
     navigate('/main');
   };
+  const handlePlay = () => {
+    navigate('/map')
+  }
+  const handleChat = () => {
+    navigate('/messenger')
+  }
   
   return (
     <div className={style.navbar}>
@@ -57,15 +67,12 @@ function NavBar() {
           <span>Главная</span>
         </div>
 
-        <div
-          className={`${style.icons} ${style.icons_play}`}
-          onClick={() => setActivePage('play')}
-        >
+        <div className={`${style.icons} ${style.icons_play}`}  onClick={handlePlay} >
           <img src={activePage === 'play' ? play : offPlay} alt="" />
           <span>Тренировка</span>
         </div>
 
-        <div className={style.icons} onClick={() => setActivePage('chat')}>
+        <div className={style.icons} onClick={handleChat}>
           <img src={activePage === 'chat' ? chat : offChat} alt="" />
           <span>Сообщения </span>
         </div>

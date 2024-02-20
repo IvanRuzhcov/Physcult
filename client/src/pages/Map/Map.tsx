@@ -3,6 +3,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl, { Map as MapboxMap } from 'mapbox-gl';
 import styles from './css/Map.module.css';
 import Stopwatch from './components/Stopwatch';
+import NavBar from '../Navbar/NavBar';
 
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoia29zdGEyMjIiLCJhIjoiY2xzYm8zdzBwMDRqdDJpbzFqYndreTR4dSJ9.9z2G7foqI3ENFW83Hcdj4A';
@@ -40,6 +41,7 @@ export default function Map():JSX.Element {
        <div className={styles.footer}>
          <Stopwatch/>
        </div>
+       <NavBar/>
     </div>
   )
 }

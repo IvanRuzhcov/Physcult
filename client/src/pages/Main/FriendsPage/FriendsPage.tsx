@@ -9,20 +9,24 @@ import blanin from '../../../assets/blanin1.png';
 import shipulin from '../../../assets/shipulin.png';
 import guberniev from '../../../assets/guber.png';
 import gerbulova from '../../../assets/gerbulova.png';
-
+import { useNavigate } from 'react-router-dom';
 
 
 export default function FriendsPage():JSX.Element {
   const [activeBtn, setActiveBtn] = useState('main');
+  const navigate = useNavigate()
 
   const handleMain = () => {
     setActiveBtn('main');
+    navigate('/main')
   };
   const handleTests = () => {
-    setActiveBtn('test');
+    setActiveBtn('trials');
+    navigate('/trials')
   };
   const handleFriends = () => {
     setActiveBtn('friend');
+    navigate('/friend')
   };
 
   return (
@@ -52,7 +56,7 @@ export default function FriendsPage():JSX.Element {
           <div className={styles.progress_box} onClick={handleTests}>
             <div
               className={
-                activeBtn === 'test'
+                activeBtn === 'trials'
                   ? styles.on_progress
                   : styles.off_progress
               }
@@ -61,7 +65,7 @@ export default function FriendsPage():JSX.Element {
             </div>
             <div
               className={
-                activeBtn === 'test' ? styles.active_line : styles.line
+                activeBtn === 'trials' ? styles.active_line : styles.line
               }
             ></div>
           </div>

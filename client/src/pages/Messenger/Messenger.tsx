@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import NavBar from '../Navbar/NavBar';
 import Search from './components/Search';
 import styles from './css/Messenger.module.css';
 
@@ -33,9 +34,9 @@ export default function Messenger(): JSX.Element {
           <span className={styles.title_name}>Чат</span>
         </div>
         <Search/>
-      <div className={styles.messages}>
+      <div className={styles.message_conteiner}>
         {messages.map(message => (
-          <div className={styles.message_conteiner} key={message.id}>
+          <div className={styles.message} key={message.id}>
             <span className={styles.sender_name}>{message.sender}: </span>
             <span className={styles.text_message}>{message.text}</span>
           </div>
@@ -43,17 +44,14 @@ export default function Messenger(): JSX.Element {
       </div>
       <div className={styles.input_container}>
         <input type="text" placeholder='Новое сообщение' value={newMessage} onChange={(e) => setNewMessage(e.target.value)} />
-          <button onClick={handleSendMessage}>
-            <div className={styles.svg_wrapper_1}>
-              <div className={styles.svg_wrapper}>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                <path fill="none" d="M0 0h24v24H0z"></path>
-                <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
-                </svg>
-              </div>
-            </div>
-          </button>
+        <button id="sendButton" onClick={handleSendMessage}>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 664 663">
+            <path fill="none" d="M646.293 331.888L17.7538 17.6187L155.245 331.888M646.293 331.888L17.753 646.157L155.245 331.888M646.293 331.888L318.735 330.228L155.245 331.888"  ></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="33.67" stroke="#6c6c6c" d="M646.293 331.888L17.7538 17.6187L155.245 331.888M646.293 331.888L17.753 646.157L155.245 331.888M646.293 331.888L318.735 330.228L155.245 331.888" ></path>
+          </svg>
+        </button> 
       </div>
+      <NavBar/>
     </div>
   )
 }
