@@ -38,15 +38,15 @@ function NavBar() {
     navigate('/profile');
   };
   const handleMain = () => {
-    navigate('/main');
+    navigate('/');
   };
-  
+
   return (
     <div className={style.navbar}>
       <div className={style.navbar_feed}>
-      <div className={style.logo}>
-        <img src={logo} alt="" />
-      </div>
+        <div className={style.logo}>
+          <img src={logo} alt="" />
+        </div>
         <div className={style.icons} onClick={handleNews}>
           <img src={activePage === 'fire' ? Fire : offFire} alt="" />
           <span>Новости</span>

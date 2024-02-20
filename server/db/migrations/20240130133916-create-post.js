@@ -19,7 +19,7 @@ module.exports = {
         onDelete: 'CASCADE',
       },
       photo_post: {
-        type: Sequelize.TEXT,
+        type: Sequelize.ARRAY(Sequelize.STRING),
       },
       description: {
         type: Sequelize.TEXT,

@@ -6,7 +6,7 @@ const configJWT = require('../../middlewares/configJWT');
 
 authorizationRoutes.post('/user', async (req, res) => {
   const { email, password } = req.body;
-  console.log(req.body);
+  // console.log(req.body);
 
   try {
     if (!email.length || !password.length) {
@@ -29,12 +29,12 @@ authorizationRoutes.post('/user', async (req, res) => {
       });
 
       res.cookie('access', accessToken, {
-        maxAge: 1000 * 60 * 5,
+        maxAge: 1000 * 60 * 60 * 24 * 5,
         httpOnly: true,
       });
 
       res.cookie('refresh', refreshToken, {
-        maxAge: 1000 * 60 * 60 * 12,
+        maxAge: 1000 * 60 * 60 * 24 * 30,
         httpOnly: true,
       });
       

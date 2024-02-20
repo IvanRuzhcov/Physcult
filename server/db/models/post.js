@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'CASCADE',
       },
       photo_post: {
-        type: DataTypes.TEXT,
+        type: DataTypes.ARRAY(DataTypes.STRING),
       },
       description: {
         type: DataTypes.TEXT,

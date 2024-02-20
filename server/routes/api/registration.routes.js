@@ -14,7 +14,7 @@ const confirmationCodes = new Map();
 
 registrationRoutes.post('/sendCode', async (req, res) => {
   const { email, password, repeatPassword } = req.body;
-  console.log(req.body);
+  // console.log(req.body);
   let code = verificationCode();
 
   try {
@@ -40,7 +40,7 @@ registrationRoutes.post('/sendCode', async (req, res) => {
         text: `Ваш код подтверждения: ${code}`,
       };
       confirmationCodes.set(email, code);
-      mailer(message); // отправка сообщения на почту
+      mailer(message, {confirmationCodes , code , email}); // отправка сообщения на почту
 
       return res
         .status(200)
@@ -54,9 +54,8 @@ registrationRoutes.post('/sendCode', async (req, res) => {
 
 registrationRoutes.post('/verifyCode', async (req, res) => {
   const { email, password, verificationCode } = req.body;
-  console.log(req.body);
+  // console.log(req.body);
   const nick = generateSportsUsername();
-  console.log(confirmationCodes);
   const storedVerificationCode = confirmationCodes.get(email);
   let user;
   try {
@@ -79,19 +78,18 @@ registrationRoutes.post('/verifyCode', async (req, res) => {
         });
 
         res.cookie('access', accessToken, {
-          maxAge: 1000 * 60 * 5,
+          maxAge: 1000 * 60 * 60 * 24 * 5,
           httpOnly: true,
         });
 
         res.cookie('refresh', refreshToken, {
-          maxAge: 1000 * 60 * 60 * 12,
+          maxAge: 1000 * 60 * 60 * 24 * 30,
           httpOnly: true,
         });
       }
 
-      res.json({ message: 'success', user });
 
-      res.status(200).json({ success: true, message: 'Регистрация успешна' });
+      res.status(200).json({ success: true, message: 'Регистрация успешна',user });
     } else {
       // Если код не совпадает, отправляем ошибку
       res

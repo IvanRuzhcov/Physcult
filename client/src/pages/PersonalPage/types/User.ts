@@ -1,11 +1,11 @@
 export default interface User {
-  id: number;
+  id?: number;
   name: string;
   nick: string;
   surname: string;
   gender: string;
-  telephon: string;
+  telephone: string;
   email: string;
-  data_of_birth: string;
-  avatar_img: string;
+  date_of_birth: string;
+  avatar_img?: string;
 }

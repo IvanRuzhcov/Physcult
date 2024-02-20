@@ -77,3 +77,15 @@ export const logoutFetch = async (): Promise<void> => {
     method: 'POST',
   });
 };
+
+export const updatUserPersonalDataFetch = async (obj: User): Promise<User> => {
+  console.log(obj.id);
+  const response = await fetch(`/updata/${obj.id}`, {
+    method: 'PUT',
+    headers: { 'Content-type': 'application/json' },
+    body: JSON.stringify(obj),
+  });
+  return response.json();
+};
+
+
