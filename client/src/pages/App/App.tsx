@@ -13,6 +13,8 @@ import PersonalDataSettings from '../PersonalDataSettings/PersonalDataSettings';
 import DevicePage from '../DevicePage/DevicePage';
 import InterfacePage from '../InterfacePage/InterfacePage';
 import AppInfoPage from '../AppInfoPage/AboutAppPage';
+import Map from '../Map/Map';
+import Messenger from '../Messenger/Messenger';
 import { RootState, useAppDispatch } from '../../store';
 import { verification } from '../PersonalPage/userAuthSlice';
 import { useSelector } from 'react-redux';
@@ -44,6 +46,8 @@ function App() {
         <Route path="/settings/device" element={<DevicePage />} />
         <Route path="/settings/interface" element={<InterfacePage />} />
         <Route path="/settings/app information" element={<AppInfoPage />} />
+        <Route path="/map" element={<Map />} />
+        <Route path="/messenger" element={<Messenger />} />
       </Routes>
     </>
   );
