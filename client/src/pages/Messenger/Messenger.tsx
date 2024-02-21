@@ -34,6 +34,18 @@ export default function Messenger(): JSX.Element {
           <span className={styles.title_name}>Чат</span>
         </div>
         <Search/>
+
+        <header>
+	        <nav>
+		        <ul>
+			        <li><a href="#portfolio">Все</a></li>
+			        <li><a href="#press">Press</a></li>
+			        <li><a href="#shop">Лыжи</a></li>
+			        <li><a href="#about">Велосипед</a></li>
+		        </ul>
+	        </nav>
+        </header>
+
       <div className={styles.message_conteiner}>
         {messages.map(message => (
           <div className={styles.message} key={message.id}>
