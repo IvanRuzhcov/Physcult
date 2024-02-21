@@ -10,16 +10,18 @@ function AppInfoPage() {
   return (
     <div className={style.appInfo_container}>
       <div className={style.header_appInfo}>
-        <div className={style.left_arrow} onClick={() => navigate(-1)}>
+        <div className={style.left_arrow} onClick={() => navigate('/settings')}>
           <img src={leftArrow} alt="" />
         </div>
         <span>О приложении</span>
       </div>
+      <div className={style.container}>
       <AppInfoLinks />
       <div className={style.link}>
         <a href="/">physcult.pro</a>
       </div>
       <SocialNetworkList />
+    </div>
     </div>
   );
 }

@@ -6,7 +6,7 @@ import bronzeMedal from '../../../assets/bronzeMedal.png';
 import { Posts } from '../../PersonalPage/types/Post';
 
 function PostResults({ UserPostTrainingData }: Posts) {
-  console.log('UserPostTrainingData:', UserPostTrainingData[0].TrainingDatum);
+  
   const data = UserPostTrainingData[0].TrainingDatum;
 
   return (

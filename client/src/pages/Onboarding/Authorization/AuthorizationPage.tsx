@@ -61,7 +61,7 @@ export default function AuthorizationPage(): JSX.Element {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <div>{error}</div>
+        <div className={styles.error}>{error}</div>
         <button
           type="button"
           onClick={handleAuth}

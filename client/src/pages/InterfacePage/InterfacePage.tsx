@@ -9,7 +9,7 @@ function InterfacePage() {
   return (
     <div className={style.interface_container}>
       <div className={style.header_interface}>
-        <div className={style.left_arrow} onClick={() => navigate(-1)}>
+        <div className={style.left_arrow} onClick={() => navigate('/settings')}>
           <img src={leftArrow} alt="" />
         </div>
         <span>Интерфейс</span>

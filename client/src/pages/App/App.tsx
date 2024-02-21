@@ -15,7 +15,7 @@ import InterfacePage from '../InterfacePage/InterfacePage';
 import AppInfoPage from '../AppInfoPage/AboutAppPage';
 import Map from '../Map/Map';
 import Messenger from '../Messenger/Messenger';
-import { RootState, useAppDispatch } from '../../store';
+import { useAppDispatch } from '../../store';
 import {
   initPost,
   initSubscription,
@@ -23,11 +23,9 @@ import {
   initUsers,
   verification,
 } from '../PersonalPage/userAuthSlice';
-import { useSelector } from 'react-redux';
 
 function App() {
   const dispatch = useAppDispatch();
-  const user = useSelector((store: RootState) => store.auth.user);
 
   useEffect(() => {
     dispatch(verification());

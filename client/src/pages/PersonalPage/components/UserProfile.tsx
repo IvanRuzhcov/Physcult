@@ -1,11 +1,8 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import CalendarMinimalistic from '../../../assets/CalendarMinimalistic.png';
 import NotificationAlert from '../../../assets/NotificationAlert.png';
-import no_photo from '../../../assets/no_avatar.png'
+import no_photo from '../../../assets/no_avatar.png';
 import Settings from '../../../assets/Settings.png';
-import malyshko from '../../../assets/malyshko.png';
-import photo_malishko from '../../../assets/post_malichko.png';
-import map from '../../../assets/map_malishko.jpeg';
 import style from '../css/PersonalPage.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -13,11 +10,11 @@ import { RootState } from '../../../store';
 
 function UserProfile() {
   const user = useSelector((store: RootState) => store.auth.user);
-  const subscribers = useSelector((store: RootState) => store.auth.subscription);
-  console.log(user);
+  const subscribers = useSelector(
+    (store: RootState) => store.auth.subscription
+  );
 
   const naviget = useNavigate();
-  
 
   const hendleRedirectToSettings = () => {
     naviget('/settings');
@@ -53,30 +50,32 @@ function UserProfile() {
             <span>@{user?.nick}</span>
           </div>
         </div>
-        <div className={style.community_box}>
-          <div className={style.community}>
-            <div className={`${style.statistics}`}>
-              <div>{subscribers.length}</div>
-              <span>подписок</span>
+        <div className={style.container}>
+          <div className={style.community_box}>
+            <div className={style.community}>
+              <div className={`${style.statistics}`}>
+                <div>{subscribers.length}</div>
+                <span>подписок</span>
+              </div>
+              <div className={`${style.statistics}`}>
+                <div>{subscribers.length}</div>
+                <span>подписчиков</span>
+              </div>
             </div>
-            <div className={`${style.statistics}`}>
-              <div>{subscribers.length}</div>
-              <span>подписчиков</span>
+          </div>
+          <div className={style.results_container}>
+            <div className={style.result}>
+              <div>138</div>
+              <span>дистанция</span>
             </div>
-          </div>
-        </div>
-        <div className={style.results_container}>
-          <div className={style.result}>
-            <div>138</div>
-            <span>дистанция</span>
-          </div>
-          <div className={style.result}>
-            <div>6:05</div>
-            <span>время</span>
-          </div>
-          <div className={style.result}>
-            <div>1024</div>
-            <span>ккал</span>
+            <div className={style.result}>
+              <div>6:05</div>
+              <span>время</span>
+            </div>
+            <div className={style.result}>
+              <div>1024</div>
+              <span>ккал</span>
+            </div>
           </div>
         </div>
       </div>

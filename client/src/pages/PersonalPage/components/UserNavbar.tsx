@@ -10,6 +10,8 @@ function UserNavbar({
   handlePublications: MouseEventHandler<HTMLDivElement>;
   handleProgress: MouseEventHandler<HTMLDivElement>;
 }) {
+
+  
   return (
     <>
       <div className={style.user_navbar}>
