@@ -216,7 +216,7 @@ export default function MainPage():JSX.Element {
           <div className={styles.card_image}>
                <img className={styles.imgs} src={sokolov} alt="" />
              </div>
-             <div>
+             <div className={styles.child_title}>
                <p className={styles.head}>Соколов А.</p>
                <p className={styles.secondary}>Тренер по триатлону</p>
              </div>
@@ -226,7 +226,7 @@ export default function MainPage():JSX.Element {
             <div className={styles.card_image}>
                <img src={istomin} alt="" />
              </div>
-             <div>
+             <div className={styles.child_title}>
                <p className={styles.head}>Истомин А.</p>
                <p className={styles.secondary}>Тренер по биатлону</p>
              </div>
@@ -236,7 +236,7 @@ export default function MainPage():JSX.Element {
             <div className={styles.card_image}>
                <img src={sorin} alt="" />
              </div>
-             <div>
+             <div className={styles.child_title}>
                <p className={styles.head}>Сорин Е.</p>
                <p className={styles.secondary}>Тренер по лыжным гонкам</p>
              </div>
@@ -246,7 +246,7 @@ export default function MainPage():JSX.Element {
           <div className={styles.card_image}>
                <img src={orlova} alt="" />
              </div>
-             <div>
+             <div className={styles.child_title}>
                <p className={styles.head}>Орлова М.</p>
                <p className={styles.secondary}>Тренер по скелетону</p>
              </div>
@@ -256,7 +256,7 @@ export default function MainPage():JSX.Element {
           <div className={styles.card_image}>
                <img src={kulikova} alt="" />
              </div>
-             <div>
+             <div className={styles.child_title}>
                <p className={styles.head}>Куликова Е.</p>
                <p className={styles.secondary}>Тренер по легкой атлетике</p>
              </div>
@@ -266,15 +266,16 @@ export default function MainPage():JSX.Element {
           <div className={styles.card_image}>
                <img src={stepanova} alt="" />
              </div>
-             <div>
+             <div className={styles.child_title}>
                <p className={styles.head}>Степанова П.</p>
                <p className={styles.secondary}>Тренер по фитнесу</p>
              </div>
           </div>
-
         </div>
-    </main>
+        <div className={styles.footer}></div>
         <NavBar />
+    </main>
+        
         </>
   )
 }

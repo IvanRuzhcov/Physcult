@@ -10,6 +10,7 @@ import shipulin from '../../../assets/shipulin.png';
 import guberniev from '../../../assets/guber.png';
 import gerbulova from '../../../assets/gerbulova.png';
 import { useNavigate } from 'react-router-dom';
+import NavBar from '../../Navbar/NavBar';
 
 
 export default function FriendsPage():JSX.Element {
@@ -239,10 +240,9 @@ export default function FriendsPage():JSX.Element {
             <button>Подписаться</button>
           </div>
         </div>
-
       </div>  
-
-
+      <div className={styles.footer}></div>
+     <NavBar/>
     </main>
   )
 }

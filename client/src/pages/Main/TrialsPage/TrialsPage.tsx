@@ -8,6 +8,7 @@ import gym from '../../../assets/gym.png';
 import swim from '../../../assets/swim.png';
 import swim100 from '../../../assets/swim100.png';
 import { useNavigate } from 'react-router-dom';
+import NavBar from '../../Navbar/NavBar';
 
 export default function TrialsPage():JSX.Element {
   const [activeBtn, setActiveBtn] = useState('main');
@@ -183,8 +184,9 @@ export default function TrialsPage():JSX.Element {
               <span>8_заданий</span>
             </div> 
           </div>
-
         </div>
+        <div className={styles.footer}></div>
+        <NavBar/>
     </main>
   )
 }
