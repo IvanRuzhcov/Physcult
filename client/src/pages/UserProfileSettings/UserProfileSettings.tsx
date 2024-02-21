@@ -18,9 +18,11 @@ function UserProfileSettings() {
         </div>
         <span>Настройки</span>
       </div>
+      <div className={style.container}>
       <UserSettings />
       <AccountSettings />
       <AccountManagement />
+      </div>
     </div>
   );
 }

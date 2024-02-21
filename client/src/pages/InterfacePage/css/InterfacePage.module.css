@@ -66,3 +66,37 @@
     display: flex;
     align-items: center;
   }
+  @media only screen and (min-width: 600px) and (max-width: 1024px) {
+    .interface{
+      margin-top: 200px;
+      display: block;
+      margin: 20px auto 0 auto;
+      max-width: 600px;
+      width: 100%;
+    }
+    .interface_box:not(:last-child) {
+      margin-bottom: 10px;
+    }
+    .header_interface{
+      max-width: 720px;
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+  @media only screen and (min-width: 1025px) {
+    .interface{
+      margin-top: 40px;
+      display: block;
+      margin: 20px auto 0 auto;
+      max-width: 725px;
+      width: 100%;
+    }
+    .interface_box:not(:last-child) {
+      margin-bottom: 10px;
+    }
+    .header_interface{
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+    }
+  }

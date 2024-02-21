@@ -13,6 +13,7 @@ export interface UserPostTrainingData extends TrainingDatum {
 }
 
 export interface Posts extends UserPostTrainingData {
+  id:number
   user_id_post: number;
   photo_post: string[];
   description: string;

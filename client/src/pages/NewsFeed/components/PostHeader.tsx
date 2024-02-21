@@ -1,4 +1,3 @@
-// PostHeader.jsx
 import React, { memo } from 'react';
 import style from '../css/NewsFeed.module.css';
 import { useSelector } from 'react-redux';
@@ -8,7 +7,6 @@ import noPhoto from '../../../assets/no_avatar.png'
 
 function PostHeader({createdAt,user_id_post}:Posts) {
   const users = useSelector((store:RootState)=> store.auth.allUsers)
-  console.log(users)
 let formattedDate = ''
 
   const regex = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})\.(\d{3})Z$/;
