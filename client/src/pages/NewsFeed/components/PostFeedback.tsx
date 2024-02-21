@@ -1,4 +1,3 @@
-// PostFeedback.tsx
 import React, { memo } from 'react';
 import style from '../css/NewsFeed.module.css';
 import likee from '../../../assets/like.png';

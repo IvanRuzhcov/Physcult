@@ -329,3 +329,77 @@
   align-items: flex-start;
   gap: 2px;
 }
+@media only screen and (min-width: 600px) and (max-width: 1024px) {
+  /* .personal_info{
+    max-width: 1250px;
+    margin: 0 auto;
+  } */
+  .container {
+    margin: 0 auto;
+    max-width: 530px;
+    width: 100%;
+  }
+  .posts_feed {
+    margin: 0 auto;
+    max-width: 490px;
+    width: 100%;
+  }
+  .posts {
+    width: 100%;
+  }
+  .post_photo img {
+    width: 345px;
+    height: 294px;
+    object-fit: cover;
+    border-radius: 15px;
+    image-rendering: optimizeQuality;
+    margin-left: 10px;
+  }
+  .post_result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 460px;
+  }
+  .achievement_container{
+    max-width: 530px;
+  }
+}
+@media only screen and (min-width: 1025px) {
+  .personal_info{
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .container {
+    margin: 0 auto;
+    max-width: 530px;
+    width: 100%;
+  }
+  .posts_feed {
+    margin: 0 auto;
+    max-width: 590px;
+    width: 100%;
+  }
+  .posts {
+    width: 100%;
+  }
+  .post_photo img {
+    width: 345px;
+    height: 294px;
+    object-fit: cover;
+    border-radius: 15px;
+    image-rendering: optimizeQuality;
+    margin-left: 10px;
+  }
+  .results {
+    flex-grow: 2;
+  }
+  .line {
+    flex-grow: 2;
+    height: 30px;
+  }
+  .achievement_container{
+    max-width: 630px;
+  }
+}

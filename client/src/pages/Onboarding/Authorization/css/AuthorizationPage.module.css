@@ -63,7 +63,9 @@ margin-top: 16px;
 }
 
 .submit_auth {
-  display: block;
+  display: flex;
+  text-align: center;
+  justify-content: center;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   padding-left: 1.25rem;
@@ -78,6 +80,7 @@ margin-top: 16px;
   outline: none;
   border: none;
   margin: 28px 0 0 0;
+  box-sizing: border-box
 }
 
 .submit_reg {
@@ -96,4 +99,12 @@ margin-top: 16px;
   outline: none;
   border: none;
   margin: 8px 0 0 0;
+}
+.error{
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  width: 345px;
+  margin-top: 10px;
+  color:red
 }

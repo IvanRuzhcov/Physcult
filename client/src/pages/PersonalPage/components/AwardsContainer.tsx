@@ -12,32 +12,32 @@ function AwardsContainer() {
           awards: 'первые 10 километров',
         },
         {
-          id: 1,
+          id: 2,
           pfoto: awards1,
           awards: `первые 10 километров`,
         },
         {
-          id: 1,
-          pfoto: awards1,
-          awards: 'первые 10 километров',
-        },
-        {
-          id: 1,
-          pfoto: awards1,
-          awards: 'первые 10 километров',
-        },
-        {
-          id: 2,
-          pfoto: awards2,
-          awards: 'первый километр',
-        },
-        {
           id: 3,
-          pfoto: awards2,
-          awards: 'первый километр',
+          pfoto: awards1,
+          awards: 'первые 10 километров',
         },
         {
           id: 4,
+          pfoto: awards1,
+          awards: 'первые 10 километров',
+        },
+        {
+          id: 5,
+          pfoto: awards2,
+          awards: 'первый километр',
+        },
+        {
+          id: 6,
+          pfoto: awards2,
+          awards: 'первый километр',
+        },
+        {
+          id: 7,
           pfoto: awards2,
           awards: 'первые километр',
         },
@@ -48,7 +48,7 @@ function AwardsContainer() {
        <div className={style.award_container}>
               <span>Награды</span>
               <div className={style.awards_slider}>
-                {awards.map((award) => {
+                {awards.map((award) => { 
                   return (
                     <div className={style.award_box}>
                       <div className={style.award_img}>

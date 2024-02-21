@@ -191,3 +191,30 @@
   line-height: normal;
   letter-spacing: -0.4px;
 }
+@media only screen and (min-width: 600px) and (max-width: 1024px) {
+  .container{
+    display: block;
+    margin: 0 auto;
+    max-width: 600px;
+    width: 100%;
+  }
+  .settings:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+@media only screen and (min-width: 1025px) {
+  .container{
+    display: block;
+    margin: 0 auto;
+    max-width: 825px;
+    width: 100%;
+  }
+  .settings:not(:last-child) {
+    margin-bottom: 10px;
+  }
+  .settingsHeader{
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}

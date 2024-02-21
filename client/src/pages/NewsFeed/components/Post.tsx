@@ -1,4 +1,3 @@
-// Post.jsx
 import { memo } from 'react';
 import PostHeader from './PostHeader';
 import PostResults from './PostResults';

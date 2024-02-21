@@ -96,11 +96,23 @@ const authSlice = createSlice({
       .addCase(login.fulfilled, (state, action) => {
         state.user = action.payload.existingUser;
       })
+      .addCase(login.rejected, (state, action) => {
+        // Обработка ошибки в случае отклонения логина
+        console.error('Login failed:', action.payload);
+      })
       .addCase(emailСonfirmation.fulfilled, (state, action) => {
         state.user = action.payload;
       })
+      .addCase(emailСonfirmation.rejected, (state, action) => {
+        // Обработка ошибки в случае отклонения подтверждения по электронной почте
+        console.error('Email confirmation failed:', action.payload);
+      })
       .addCase(userRegistation.fulfilled, (state, action) => {
         state.user = action.payload.existingUser;
+      })
+      .addCase(userRegistation.rejected, (state, action) => {
+        // Обработка ошибки в случае отклонения регистрации пользователя
+        console.error('User registration failed:', action.payload);
       })
       .addCase(verification.fulfilled, (state, action) => {
         state.authChecked = true;
@@ -109,12 +121,21 @@ const authSlice = createSlice({
           ? action.payload.user
           : undefined;
       })
+      .addCase(verification.rejected, (state, action) => {
+        // Обработка ошибки в случае отклонения верификации
+        console.error('Verification failed:', action.payload);
+      })
+
       .addCase(logoutUser.fulfilled, (state, action) => {
         state.user = undefined;
         state.post = [];
         state.allPosts = [];
         state.allUsers = [];
         state.subscription = [];
+      })
+      .addCase(logoutUser.rejected, (state, action) => {
+        // Обработка ошибки в случае отклонения обновления пользователя
+        console.error('Logout failed:', action.payload);
       })
       .addCase(updataUser.fulfilled, (state, action) => {
         state.user = {
@@ -128,17 +149,37 @@ const authSlice = createSlice({
           date_of_birth: action.payload.date_of_birth,
         };
       })
+      .addCase(updataUser.rejected, (state, action) => {
+        // Обработка ошибки в случае отклонения обновления пользователя
+        console.error('Update user failed:', action.payload);
+      })
       .addCase(initUserPost.fulfilled, (state, action) => {
         state.post = action.payload;
+      })
+      .addCase(initUserPost.rejected, (state, action) => {
+        // Обработка ошибки в случае отклонения инициализации постов пользователя
+        console.error('Init user posts failed:', action.payload);
       })
       .addCase(initSubscription.fulfilled, (state, action) => {
         state.subscription = action.payload;
       })
+      .addCase(initSubscription.rejected, (state, action) => {
+        // Обработка ошибки в случае отклонения инициализации подписок
+        console.error('Init subscriptions failed:', action.payload);
+      })
       .addCase(initPost.fulfilled, (state, action) => {
         state.allPosts = action.payload;
       })
+      .addCase(initPost.rejected, (state, action) => {
+        // Обработка ошибки в случае отклонения инициализации постов
+        console.error('Init posts failed:', action.payload);
+      })
       .addCase(initUsers.fulfilled, (state, action) => {
         state.allUsers = action.payload;
+      })
+      .addCase(initUsers.rejected, (state, action) => {
+        // Обработка ошибки в случае отклонения инициализации пользователей
+        console.error('Init users failed:', action.payload);
       });
   },
 });

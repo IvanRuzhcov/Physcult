@@ -266,3 +266,11 @@ text-decoration-line: underline;
     width: 345px;
     border-radius: 10px;
   }
+  .error{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    width: 345px;
+    margin-top: 10px;
+    color:red
+  }

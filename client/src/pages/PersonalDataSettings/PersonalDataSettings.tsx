@@ -56,7 +56,6 @@ function PersonalDataSettings() {
   };
   return (
     <div className={style.personal_settings_container}>
-      
       <div className={style.header_settings}>
         <div className={style.left_arrow} onClick={() => navigate('/settings')}>
           <img src={leftArrow} alt="" />
@@ -66,6 +65,7 @@ function PersonalDataSettings() {
           Готово
         </div>
       </div>
+      <div className={style.container}>
       <UserInformationPage />
       <div className={style.input_container}>
         <div className={style.input_box}>
@@ -110,6 +110,7 @@ function PersonalDataSettings() {
           />
         </div>
         <DataInput setDate={setDate} date_of_birth={date_of_birth} />
+      </div>
       </div>
     </div>
   );

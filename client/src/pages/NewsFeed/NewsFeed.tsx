@@ -1,37 +1,40 @@
-import React from 'react';
 import style from './css/NewsFeed.module.css';
 import History from './components/History';
-import malyshko from '../../assets/malyshko.png';
-import lekarev from '../../assets/lekarev.png';
-import photo_malishko from '../../assets/post_malichko.png';
-import map from '../../assets/map_malishko.jpeg';
-import lecarev_map from '../../assets/mapLecarev.jpeg';
-import lecarevPhoto from '../../assets/lecarev.jpeg';
 import Post from './components/Post';
 import NavBar from '../Navbar/NavBar';
 import { useSelector } from 'react-redux';
-import { Root } from 'react-dom/client';
 import { RootState } from '../../store';
 
 function NewsFeed() {
-    const user = useSelector((store:RootState)=>store.auth.user)
-    const subscription = useSelector((store:RootState)=>store.auth.subscription)
-    console.log(subscription)
-    const post = useSelector((store:RootState)=>store.auth.allPosts)
+  const user = useSelector((store: RootState) => store.auth.user);
+  const subscription = useSelector(
+    (store: RootState) => store.auth.subscription
+  );
+  const post = useSelector((store: RootState) => store.auth.allPosts);
 
-  
+  console.log();
 
   return (
     <>
-    <div className={style.container}>
-      <History />
-      <div className={style.posts_feed}>
-        { post.map((el) => (
-          <Post el={el} key={el.id} />
-        ))}
+      <div className={style.container}>
+        <div className={style.container_news_feed}>
+          <History />
+          <div className={style.posts_feed}>
+            {post.map((el) => {
+              const isSubscribed = subscription.find(
+                (sub) => sub.subscribe_id === el.user_id_post
+              );
+
+              if (isSubscribed) {
+                return <Post el={el} key={el.id} />;
+              }
+
+              return null;
+            })}
+          </div>
+        </div>
       </div>
-    </div>
-    <NavBar />
+      <NavBar />
     </>
   );
 }
