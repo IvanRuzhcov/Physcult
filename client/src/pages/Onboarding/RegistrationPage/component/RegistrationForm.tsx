@@ -29,7 +29,7 @@ const navigate = useNavigate()
     <>
   <div className={styles.container_register_form}>
       <div className={styles.header_register}>
-        <img src={arrowLeft} alt="" onClick={()=> navigate(-1)}/>
+        <img src={arrowLeft} alt="" onClick={()=> navigate('/auth')}/>
         <span className={styles.form_title}>Регистрация</span>
       </div>
       <div className={styles.input_container}>

@@ -27,8 +27,8 @@ const postUser = users.find((u) => u.id === user_id_post);
     <div className={style.post_header}>
       <img src={postUser?.avatar_img || noPhoto } alt="" />
       <div className={style.post_name}>
-        <span>{postUser?.nick}</span>
-        <div>{`${formattedDate} `}</div>
+        <span>{`${postUser?.name} ${postUser?.surname}`}</span>
+        <div>{formattedDate}</div>
       </div>
     </div>
   );

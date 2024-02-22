@@ -8,13 +8,13 @@ import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../../store';
 import DataInput from './components/DataInput';
 import { updataUser } from '../PersonalPage/userAuthSlice';
+import axios from 'axios';
 
 function PersonalDataSettings() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const user = useSelector((store: RootState) => store.auth.user);
-  console.log(user);
 
   const [surname, setSurName] = useState<string>(user?.surname || '');
   const [name, setName] = useState<string>(user?.name || '');
@@ -23,6 +23,7 @@ function PersonalDataSettings() {
   const [telephone, setTelephon] = useState<string>(user?.telephone || '');
   const [email, setEmail] = useState<string>(user?.email || '');
   const [date_of_birth, setDate] = useState<string>(user?.date_of_birth || '');
+  const [selectedFile, setSelectedFile] = useState(null);
 
   useEffect(() => {
     if (user) {
@@ -35,7 +36,7 @@ function PersonalDataSettings() {
       setDate(user.date_of_birth || '');
     }
   }, [user]);
-
+// ипортируем изменения юзера
   const handleСhanges = async () => {
     try {
       const action = await dispatch(
@@ -53,7 +54,28 @@ function PersonalDataSettings() {
     } catch (error) {
       console.error('Произошла ошибка при изменении:', error);
     }
+
+    if (!selectedFile) {
+      return;
+    }
+    try {
+      const formData = new FormData();
+
+      formData.append('avatar', selectedFile);
+      // Фактический запрос к серверу
+      const response = await axios.post('/api/upload', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      console.log('Файл успешно загружен');
+    } catch (error) {
+      console.log('Произошла ошибка при загрузке файла:', error);
+    }
+
   };
+
+
   return (
     <div className={style.personal_settings_container}>
       <div className={style.header_settings}>
@@ -66,7 +88,7 @@ function PersonalDataSettings() {
         </div>
       </div>
       <div className={style.container}>
-      <UserInformationPage />
+      <UserInformationPage setSelectedFile={setSelectedFile}/>
       <div className={style.input_container}>
         <div className={style.input_box}>
           <input

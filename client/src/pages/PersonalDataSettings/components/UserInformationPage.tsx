@@ -1,60 +1,44 @@
 import React, { memo, useState } from 'react';
+import photoCamera from '../../../assets/awards/camera.png';
 import style from '../css/PersonalDataSettings.module.css';
 import noPhoto from '../../../assets/no_avatar.png';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { RootState } from '../../../store';
 
-
-function UserInformationPage() {
-  
-  
+function UserInformationPage({setSelectedFile}:any) {
   const user = useSelector((store: RootState) => store.auth.user);
 
-  console.log( user?.avatar_img )
-
-
-
-  const [selectedFile, setSelectedFile] = useState(null);
+  console.log(user?.avatar_img);
 
 
   const handleFileChange = (e: any) => {
     setSelectedFile(e.target.files[0]);
   };
 
-  const handleUpload = async () => {
-    if (!selectedFile) {
-      console.error('Файл не выбран');
-      return;
-    }
-    try {
-      const formData = new FormData();
-
-      formData.append('avatar', selectedFile);
-      // Фактический запрос к серверу
-      const response = await axios.post('/api/upload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-      console.log('Файл успешно загружен');
-    } catch (error) {
-      console.log('Произошла ошибка при загрузке файла:', error);
-    }
-  };
+ 
 
   return (
     <>
       <div className={style.user_information}>
         <div className={style.user_photo}>
-          <input type="file" onChange={handleFileChange} />
-          <button onClick={handleUpload}>кнопка</button>
-          <img src={user?.avatar_img || noPhoto} alt="" />
+          <div className={style.fon}>
+          <div className={style.input_file}>
+            <label htmlFor="fileInput" className={style.img_photo_camera}>
+              <img src={photoCamera} alt="" />
+            </label>
+            <input
+              id="fileInput"
+              type="file"
+              onChange={handleFileChange}
+              style={{ display: 'none' }}
+            />
+          </div>
+          </div>
+          <img className={style.img_user} src={user?.avatar_img || noPhoto} alt="" />
         </div>
         <div className={style.personal_information}>
-          <div className={style.user_name}>
-            {user?.name ? user.name : 'Твое имя'}
-          </div>
+          <div className={style.user_name}>{user?.name || 'Твое имя'}</div>
           <div className={style.user_nikc}>{user?.nick}</div>
         </div>
       </div>
