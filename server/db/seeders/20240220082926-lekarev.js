@@ -15,7 +15,7 @@ module.exports = {
       {
         password: await bcrypt.hash('1234', 5),
         avatar_img:
-          'https://psv4.userapi.com/c909218/u126590865/docs/d58/e7c72e4458ac/lekarev.png?extra=lQSjHvoC0yX1d2NPVTDOImPXTj5NOdrbX-bFhsGEt5wp3wzr9eF8X0wse1TuSVBDID31KKQpo30PUDaH1ojBS4rjqu8r-olI84weHXU6XOKNzre4qNRL0qz4GBK7nah-u02ifn_jN4nth-16pzzCI1-o',
+          '/images/lecarev.png',
         name: 'Aлексей',
         surname: 'Лекарев',
         nick: 'lekarev',
@@ -30,11 +30,11 @@ module.exports = {
       {
         user_id_post: 2,
         photo_post: [
-          'https://sun9-27.userapi.com/impg/vAmFbUoBPxXZCC1TZErAgiaCccadLlIJtSAsoQ/qA4V8-GAcc0.jpg?size=589x737&quality=96&sign=78b6f656807fa7daf75bc9fc1ab650cd&type=album',
-          'https://sun9-77.userapi.com/impg/b5O6z2bIzoSKRXYwD3AlKlD4kpupZ3w4d5tO4w/qjBMDrgsKhQ.jpg?size=1228x826&quality=96&sign=e99d528621710866e900dabdac971c32&type=album',
+          '/postImg/photo_post_lecatrev_1.png',
+          '/postImg/map_lecarev.jpg',
         ],
         description:
-          'Готовы увидеть звезд российского биатлона и лыж в деле?...',
+          'Сплетя волны под ногами и встречая рассвет на финише, я преодолел дистанцию Ironman, пересекая ленту финиша с поразительным временем.',
       },
       
     ]);

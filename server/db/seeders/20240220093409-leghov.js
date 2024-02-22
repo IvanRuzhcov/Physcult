@@ -13,7 +13,7 @@ module.exports = {
       {
         password: await bcrypt.hash('1234', 5),
         avatar_img:
-          'https://psv4.userapi.com/c909618/u126590865/docs/d39/d179e6d03839/legkov.png?extra=ZUvz9azRElJVZF17YBGv30-Dq7vMoCAsjJlC_dz3kD0wjh5AKEAF3oXb1Z0TH_WvM7FdtL2Apw5r3fl2mw-se-V_mu-muNzccOjOQHxtmyBnKyjVRaAP2t2Dry4e_uAW9ULvX47PjUgiwkzVIA2g0xIU',
+          '/images/leghov.png',
         name: 'Александр',
         surname: 'Легков',
         nick: 'leghov',
@@ -28,11 +28,20 @@ module.exports = {
       {
         user_id_post: 6,
         photo_post: [
-          'http://vostexpress.info/wp-content/uploads/2023/02/legkov.jpg',
-          'https://sun9-77.userapi.com/impg/b5O6z2bIzoSKRXYwD3AlKlD4kpupZ3w4d5tO4w/qjBMDrgsKhQ.jpg?size=1228x826&quality=96&sign=e99d528621710866e900dabdac971c32&type=album',
+          '/postImg/photo_post_leghov_1.jpg',
+          '/postImg/map_malyshko.jpg',
         ],
         description:
           'Даже без идеальных условий и снега, моя тренировка не знает остановки. Сегодняшний фокус – сила внутри и постоянное стремление к прогрессу.',
+      },
+      {
+        user_id_post: 6,
+        photo_post: [
+          '/postImg/photo_post_leghov_2.jpeg',
+          '/postImg/map_malyshko.jpg',
+        ],
+        description:
+          'Готовы увидеть звезд российского биатлона и лыж в деле?...',
       },
     ]);
 
@@ -45,12 +54,22 @@ module.exports = {
         time: '2ч. 43мин.',
         calories: 550,
       },
+      {
+        distance: '20,34',
+        pace: '4:15',
+        time: '2ч. 53мин.',
+        calories: 550,
+      },
     ]);
 
     await UserPostTrainingData.bulkCreate([
       {
         training_data_id: 8,
         user_post_id: 8,
+      },
+      {
+        training_data_id: 9,
+        user_post_id: 9,
       },
     ]);
   },

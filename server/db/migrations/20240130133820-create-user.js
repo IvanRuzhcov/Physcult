@@ -14,7 +14,7 @@ module.exports = {
         allowNull: false,
       },
       avatar_img: {
-        type: Sequelize.TEXT,
+        type: Sequelize.STRING,
       },
       name: {
         type: Sequelize.TEXT,

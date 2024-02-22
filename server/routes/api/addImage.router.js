@@ -16,7 +16,7 @@ imageRouter.post(
           });
           if (user) {
             await user.update({
-              avatar_img: req.file.path,
+              avatar_img: req.file.path.replace(/^public/, ''),
             });
             console.log('Изображение успешно добавлено в базу данных.');
           } else {

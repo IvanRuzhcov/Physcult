@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       avatar_img: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
       },
       name: {
         type: DataTypes.TEXT,

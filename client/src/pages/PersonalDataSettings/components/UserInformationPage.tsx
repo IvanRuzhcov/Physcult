@@ -47,8 +47,8 @@ function UserInformationPage() {
     <>
       <div className={style.user_information}>
         <div className={style.user_photo}>
-          {/* <input type="file" onChange={handleFileChange} />
-          <button onClick={handleUpload}>кнопка</button> */}
+          <input type="file" onChange={handleFileChange} />
+          <button onClick={handleUpload}>кнопка</button>
           <img src={user?.avatar_img || noPhoto} alt="" />
         </div>
         <div className={style.personal_information}>

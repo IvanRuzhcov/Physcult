@@ -7,7 +7,7 @@ const getUser = require('../middlewares/getUser');
 const serverConfig = (app) => {
   // парсим формы
   app.use(express.urlencoded({ extended: true }));
-  
+  app.use(express.static('public'));
   // парсим JSON
   app.use(express.json());
   app.use(cookieParser());
