@@ -45,7 +45,7 @@ function UserProfile() {
             <img src={user?.avatar_img || no_photo} alt="" />
           </div>
           <div className={style.user_name}>
-            <span>{user?.name}</span>
+            <span>{`${user?.name} ${user?.surname}`}</span>
           </div>
           <div className={style.user_nick}>
             <span>@{user?.nick}</span>

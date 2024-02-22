@@ -36,7 +36,7 @@ function PersonalDataSettings() {
       setDate(user.date_of_birth || '');
     }
   }, [user]);
-// ипортируем изменения юзера
+  // ипортируем изменения юзера
   const handleСhanges = async () => {
     try {
       const action = await dispatch(
@@ -55,6 +55,8 @@ function PersonalDataSettings() {
       console.error('Произошла ошибка при изменении:', error);
     }
 
+    // Добавление фотографий
+
     if (!selectedFile) {
       return;
     }
@@ -72,9 +74,7 @@ function PersonalDataSettings() {
     } catch (error) {
       console.log('Произошла ошибка при загрузке файла:', error);
     }
-
   };
-
 
   return (
     <div className={style.personal_settings_container}>
@@ -88,51 +88,51 @@ function PersonalDataSettings() {
         </div>
       </div>
       <div className={style.container}>
-      <UserInformationPage setSelectedFile={setSelectedFile}/>
-      <div className={style.input_container}>
-        <div className={style.input_box}>
-          <input
-            type="surname"
-            value={surname}
-            placeholder="Фамилия"
-            onChange={(e) => setSurName(e.target.value)}
-          />
+        <UserInformationPage setSelectedFile={setSelectedFile} />
+        <div className={style.input_container}>
+          <div className={style.input_box}>
+            <input
+              type="surname"
+              value={surname}
+              placeholder="Фамилия"
+              onChange={(e) => setSurName(e.target.value)}
+            />
+          </div>
+          <div className={style.input_box}>
+            <input
+              type="name"
+              value={name}
+              placeholder="Имя"
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div className={style.input_box}>
+            <input
+              type="nick"
+              value={nick}
+              placeholder="Ник"
+              onChange={(e) => setNick(e.target.value)}
+            />
+          </div>
+          <DropDown gender={gender} setGender={setGender} />
+          <div className={style.input_box}>
+            <input
+              type="telephon"
+              value={telephone}
+              placeholder="Телефон"
+              onChange={(e) => setTelephon(e.target.value)}
+            />
+          </div>
+          <div className={style.input_box}>
+            <input
+              type="email"
+              value={email}
+              placeholder="Почта"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <DataInput setDate={setDate} date_of_birth={date_of_birth} />
         </div>
-        <div className={style.input_box}>
-          <input
-            type="name"
-            value={name}
-            placeholder="Имя"
-            onChange={(e) => setName(e.target.value)}
-          />
-        </div>
-        <div className={style.input_box}>
-          <input
-            type="nick"
-            value={nick}
-            placeholder="Ник"
-            onChange={(e) => setNick(e.target.value)}
-          />
-        </div>
-        <DropDown gender={gender} setGender={setGender} />
-        <div className={style.input_box}>
-          <input
-            type="telephon"
-            value={telephone}
-            placeholder="Телефон"
-            onChange={(e) => setTelephon(e.target.value)}
-          />
-        </div>
-        <div className={style.input_box}>
-          <input
-            type="email"
-            value={email}
-            placeholder="Почта"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <DataInput setDate={setDate} date_of_birth={date_of_birth} />
-      </div>
       </div>
     </div>
   );

@@ -38,7 +38,7 @@ function UserInformationPage({setSelectedFile}:any) {
           <img className={style.img_user} src={user?.avatar_img || noPhoto} alt="" />
         </div>
         <div className={style.personal_information}>
-          <div className={style.user_name}>{user?.name || 'Твое имя'}</div>
+          <div className={style.user_name}>{`${user?.name} ${user?.surname}`|| 'Твое имя'}</div>
           <div className={style.user_nikc}>{user?.nick}</div>
         </div>
       </div>
