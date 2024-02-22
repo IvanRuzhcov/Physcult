@@ -80,6 +80,8 @@ export const logoutFetch = async (): Promise<void> => {
   });
 };
 
+
+
 export const updatUserPersonalDataFetch = async (obj: User): Promise<User> => {
   console.log(obj.id);
   const response = await fetch(`/updata/${obj.id}`, {
@@ -90,23 +92,23 @@ export const updatUserPersonalDataFetch = async (obj: User): Promise<User> => {
   return response.json();
 };
 
-export const initUserPostFeth = async ():Promise<Posts[]> => {
+export const initUserPostFeth = async (): Promise<Posts[]> => {
   const response = await fetch('/user/posts');
   const data = await response.json();
-  return data
+  return data;
 };
-export const initPostFeth = async ():Promise<Posts[]> => {
+export const initPostFeth = async (): Promise<Posts[]> => {
   const response = await fetch('/posts');
   const data = await response.json();
-  return data
+  return data;
 };
-export const initSubscriptionFeth = async ():Promise<Subscription[]> => {
+export const initSubscriptionFeth = async (): Promise<Subscription[]> => {
   const response = await fetch('/subscription');
   const data = await response.json();
-  return data
+  return data;
 };
-export const initUsersFeth = async ():Promise<User[]> => {
+export const initUsersFeth = async (): Promise<User[]> => {
   const response = await fetch('/users');
   const data = await response.json();
-  return data
+  return data;
 };

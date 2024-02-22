@@ -1,204 +1,207 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-  }
-  
-  main {
-    background-color: #fff;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
 
-  .head {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 20px;
-      margin-bottom: 24px;
-  }
+main {
+  background-color: #fff;
+  margin-top: 44px;
+}
+.container {
+  margin-top: 44px;
+}
+.head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 24px;
+}
 
-  .head .headline {
-    color: #000;  
-    text-align: center;
-    font-size: 17px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 22px; 
-    letter-spacing: -0.5px;
-  }
+.head .headline {
+  color: #000;
+  text-align: center;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px;
+  letter-spacing: -0.5px;
+}
 
-  .user_navbar {
-    display: flex;
-    justify-content: center;
-    margin-top: 17px;
-  }
+.user_navbar {
+  display: flex;
+  justify-content: center;
+  margin-top: 17px;
+}
 
-  .publications_box:not(:last-child) {
-    margin-right: 52px;
-  }
+.publications_box:not(:last-child) {
+  margin-right: 52px;
+}
 
-  .progress_box:not(:last-child) {
-    margin-right: 52px;
-  }
+.progress_box:not(:last-child) {
+  margin-right: 52px;
+}
 
-  .on_publications .on_progress .on_friend {
-    color: var(--black, #000);
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-  }
+.on_publications .on_progress .on_friend {
+  color: var(--black, #000);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
 
-  .on_publications,
-  .on_progress,
-  .on_friend {
-    color: var(--black, #000);
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-  }
+.on_publications,
+.on_progress,
+.on_friend {
+  color: var(--black, #000);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
 
-  .off_publications,
-  .off_progress,
-  .off_friend {
-    color: rgba(0, 0, 0, 0.5);
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-  }
+.off_publications,
+.off_progress,
+.off_friend {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
 
-  .active_line {
-    margin: 12px auto 0px;
-    width: 88px;
-    height: 5px;
-    border-radius: 2px;
-    background: var(--red, #ff0606);
-  }
-  
-  .input_conteiner {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 45px;
-  }
+.active_line {
+  margin: 12px auto 0px;
+  width: 88px;
+  height: 5px;
+  border-radius: 2px;
+  background: var(--red, #ff0606);
+}
 
-  .group {
-    display: flex;
-    line-height: 28px;
-    align-items: center;
-    position: relative;
-    width: 343px;
-   }
-   
-  .input {
-    width: 100%;
-    height: 54px;
-    line-height: 28px;
-    padding: 0 1rem;
-    padding-left: 2.5rem;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    outline: none;
-    background-color: #f3f3f4;
-    color: #0d0c22;
-    transition: .3s ease;
-   }
-   
-   .input::placeholder {
-    color: #9e9ea7;
-    font-size: 17px;
-   }
-   
-   .input:focus, input:hover {
-    outline: none;
-    border-color: #ff0606;
-    background-color: #fff;
-    box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
-   }
-   
-   .icon {
-    position: absolute;
-    left: 1rem;
-    fill: #9e9ea7;
-    width: 1rem;
-    height: 1rem;
-   }
+.input_conteiner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 45px;
+}
 
-   .friend_conteiner {
-       display: flex;
-       justify-content: center;
-       align-items: center;
-       flex-direction: column;
-       gap: 10px;
-       margin-top: 24px;
-   }
+.group {
+  display: flex;
+  line-height: 28px;
+  align-items: center;
+  position: relative;
+  width: 343px;
+}
 
-   .friend {
-       display: flex;
-       justify-content: space-between;
-       align-items: center;
-       width: 343px;
-       height: 50px;
-       background-color: #fff;
-   }
+.input {
+  width: 100%;
+  height: 54px;
+  line-height: 28px;
+  padding: 0 1rem;
+  padding-left: 2.5rem;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  background-color: #f3f3f4;
+  color: #0d0c22;
+  transition: 0.3s ease;
+}
 
-   .photo {
-       width: 50px;
-       height: 50px;
-       
-   }
+.input::placeholder {
+  color: #9e9ea7;
+  font-size: 17px;
+}
 
-   .name_friend {
-       display: flex;
-       flex-direction: column;
-       align-items: flex-start;
-       gap: 4px;
-       width: 157px;
-       height: 32px;
-   }
+.input:focus,
+input:hover {
+  outline: none;
+  border-color: #ff0606;
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+}
 
-   .name_friend .name {
-       color: #000;
-       font-size: 16px;
-       font-style: normal;
-       font-weight: 500;
-       line-height: 14px;
-       letter-spacing: -0.5px;
-   }
+.icon {
+  position: absolute;
+  left: 1rem;
+  fill: #9e9ea7;
+  width: 1rem;
+  height: 1rem;
+}
 
-   .name_friend .nik_name {
-       color: rgba(0, 0, 0, 0.50);
-       font-size: 12px;
-       font-style: normal;
-       font-weight: 400;
-       line-height: 14px; 
-       letter-spacing: -0.5px;
-   }
+.friend_conteiner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 24px;
+}
 
-   .btn_sub {
-       display: flex;
-       width: 105px;
-       padding: 10px;
-       justify-content: center;
-       align-items: center;
-       gap: 10px;
-       flex-shrink: 0;
-       height: 34px;
-       border-radius: 10px;
-       background: #F2F2F2;
-   }
+.friend {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 343px;
+  height: 50px;
+  background-color: #fff;
+}
 
-   .btn_sub button {
-       border: none;
-       width: 105px;
-       height: 34px;
-       cursor: pointer;
-   }
+.photo {
+  width: 50px;
+  height: 50px;
+}
 
-   .footer {
-    width: 100%;
-    height: 70px;
-    background: transparent;
-  }
+.name_friend {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  width: 157px;
+  height: 32px;
+}
+
+.name_friend .name {
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: -0.5px;
+}
+
+.name_friend .nik_name {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: -0.5px;
+}
+
+.btn_sub {
+  display: flex;
+  width: 105px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  height: 34px;
+  border-radius: 10px;
+  background: #f2f2f2;
+}
+
+.btn_sub button {
+  border: none;
+  width: 105px;
+  height: 34px;
+  cursor: pointer;
+}
+
+.footer {
+  width: 100%;
+  height: 70px;
+  background: transparent;
+}

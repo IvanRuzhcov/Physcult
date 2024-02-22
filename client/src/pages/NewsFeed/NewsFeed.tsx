@@ -6,13 +6,11 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 
 function NewsFeed() {
-  const user = useSelector((store: RootState) => store.auth.user);
   const subscription = useSelector(
     (store: RootState) => store.auth.subscription
   );
   const post = useSelector((store: RootState) => store.auth.allPosts);
 
-  console.log();
 
   return (
     <>
@@ -24,11 +22,9 @@ function NewsFeed() {
               const isSubscribed = subscription.find(
                 (sub) => sub.subscribe_id === el.user_id_post
               );
-
               if (isSubscribed) {
                 return <Post el={el} key={el.id} />;
               }
-
               return null;
             })}
           </div>

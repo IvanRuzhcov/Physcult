@@ -19,10 +19,10 @@ console.log(user)
         <>
         <div className={style.userSettings} onClick={handleRedirectSettingsProfil}>
         <div className={style.user_photo}>
-          <img src={user?.avatar_img ? user.avatar_img : noPhoto} alt="" />
+          <img src={user?.avatar_img || noPhoto} alt="" />
         </div>
         <div className={style.personalInformation}>
-          <div className={style.userName}>{user?.name}</div>
+          <div className={style.userName}>{`${user?.name} ${user?.surname}`}</div>
           <div className={style.userNikc}>{user?.nick}</div>
           <div className={style.userTelephone}>{user?.telephone}</div>
         </div>

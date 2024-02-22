@@ -54,6 +54,8 @@
   border-radius: 50%;
   width: 87px;
   height: 87px;
+  object-fit: cover;
+
 }
 .user_name {
   margin-top: 16px;

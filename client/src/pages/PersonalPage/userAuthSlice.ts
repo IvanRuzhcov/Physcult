@@ -14,7 +14,6 @@ const initialState: UserAuthState = {
   subscription: [],
   authChecked: false,
 };
-
 export const emailСonfirmation = createAsyncThunk(
   'auth/emailСonfirmationFetch',
   async (data: RegisterData, { rejectWithValue }) => {
@@ -33,13 +32,11 @@ export const emailСonfirmation = createAsyncThunk(
       const userData = await api.emailСonfirmationFetch(data);
 
       if (!userData.success) {
-        // Можете добавить дополнительную информацию об ошибке в userData, если необходимо
         throw new Error('Пользователь с такой почтой уже зарегистрирован');
       }
 
       return userData;
     } catch (error: any) {
-      // Используйте явное указание типа данных (any) для переменной error
       return rejectWithValue({ message: error.message });
     }
   }
@@ -60,8 +57,9 @@ export const login = createAsyncThunk('auth/loginFeth', (data: AuthData) => {
   return api.authFetch(data);
 });
 
-export const verification = createAsyncThunk('auth/verification', () =>
-  api.getUser()
+export const verification = createAsyncThunk(
+  'auth/verification',
+  async () => await api.getUser()
 );
 
 export const logoutUser = createAsyncThunk(
@@ -71,13 +69,15 @@ export const logoutUser = createAsyncThunk(
 
 export const updataUser = createAsyncThunk(
   'update/updatUserPersonalDataFetch',
-  (action: User) => api.updatUserPersonalDataFetch(action)
+  async (action: User) => await api.updatUserPersonalDataFetch(action)
 );
-export const initPost = createAsyncThunk('initPost/initPostFeth', () =>
-  api.initPostFeth()
+export const initPost = createAsyncThunk(
+  'initPost/initPostFeth',
+  async () => await api.initPostFeth()
 );
-export const initUserPost = createAsyncThunk('initPost/initUserPostFeth', () =>
-  api.initUserPostFeth()
+export const initUserPost = createAsyncThunk(
+  'initPost/initUserPostFeth',
+  async () => await api.initUserPostFeth()
 );
 export const initSubscription = createAsyncThunk(
   'initSubscription/initSubscriptionFeth',

@@ -52,11 +52,42 @@
 .user_photo {
   width: 87px;
   height: 87px;
+  position: relative;
 }
-.user_photo img {
+.img_user {
   width: 87px;
   height: 87px;
   border-radius: 50%;
+  object-fit: cover;
+}
+.user_photo:hover .input_file {
+  opacity: 1; /* Показать input_file при наведении на user_photo */
+}
+.user_photo:hover .fon {
+  position: absolute;
+  border-radius: 50%;
+  width: 87px;
+  height: 87px;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 5;
+}
+.fon {
+  transition: opacity 0.3s ease;
+}
+.input_file {
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+}
+.input_file input {
+  display: none;
+}
+.img_photo_camera img {
+  width: 40px;
+  height: 40px;
 }
 .personal_information {
   margin: 0 auto 0 16px;
@@ -234,8 +265,9 @@
   align-items: center;
   justify-content: center;
 }
+
 @media only screen and (min-width: 600px) and (max-width: 1024px) {
-  .container{
+  .container {
     display: block;
     margin: 0 auto;
     max-width: 600px;
@@ -244,14 +276,14 @@
   .input_box:not(:last-child) {
     margin-bottom: 10px;
   }
-  .header_settings{
+  .header_settings {
     max-width: 720px;
     width: 100%;
     margin: 0 auto;
   }
 }
 @media only screen and (min-width: 1025px) {
-  .container{
+  .container {
     display: block;
     margin: 0 auto;
     max-width: 825px;
@@ -260,7 +292,7 @@
   .input_box:not(:last-child) {
     margin-bottom: 10px;
   }
-  .header_settings{
+  .header_settings {
     max-width: 1100px;
     width: 100%;
     margin: 0 auto;
