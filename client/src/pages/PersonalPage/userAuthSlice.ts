@@ -14,7 +14,6 @@ const initialState: UserAuthState = {
   subscription: [],
   authChecked: false,
 };
-
 export const emailСonfirmation = createAsyncThunk(
   'auth/emailСonfirmationFetch',
   async (data: RegisterData, { rejectWithValue }) => {
