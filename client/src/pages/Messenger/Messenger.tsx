@@ -12,6 +12,8 @@ interface Message {
 export default function Messenger(): JSX.Element {
   const [messages, setMessages] = useState<Message[]>([]);
   const [newMessage, setNewMessage] = useState<string>('');
+  const [isClicked, setIsClicked] = useState<string>('');
+
 
   const handleSendMessage = () => {
     if (newMessage.trim() === '') {
@@ -35,16 +37,16 @@ export default function Messenger(): JSX.Element {
         </div>
         <Search/>
 
-        <header>
-	        <nav>
-		        <ul>
-			        <li><a href="#portfolio">Все</a></li>
-			        <li><a href="#press">Press</a></li>
-			        <li><a href="#shop">Лыжи</a></li>
-			        <li><a href="#about">Велосипед</a></li>
-		        </ul>
-	        </nav>
-        </header>
+        <div className={styles.nav_btn_group}>
+          <button className={`${styles.trials_btn} ${isClicked === 'all'? styles.clicked : ''}`} onClick={() => setIsClicked('all')}><span>Все</span></button>
+          <button className={`${styles.trials_btn} ${isClicked === 'phy'? styles.clicked : ''}`} onClick={() => setIsClicked('phy')}><span>Physcult</span></button>
+          <button className={`${styles.trials_btn} ${isClicked === 'sky'? styles.clicked : ''}`} onClick={() => setIsClicked('sky')}><span>Лыжи</span></button> 
+          <button className={`${styles.trials_btn} ${isClicked === 'run'? styles.clicked : ''}`} onClick={() => setIsClicked('run')}><span>Бег</span></button>
+          <button className={`${styles.trials_btn} ${isClicked === 'bck'? styles.clicked : ''}`} onClick={() => setIsClicked('bck')}><span>Велосипед</span></button>
+          <button className={`${styles.trials_btn} ${isClicked === 'tre'? styles.clicked : ''}`} onClick={() => setIsClicked('tre')}><span>Тренеры</span></button>
+        </div>
+
+        <div className={styles.line}></div>
 
       <div className={styles.message_conteiner}>
         {messages.map(message => (
