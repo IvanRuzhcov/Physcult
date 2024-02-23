@@ -9,27 +9,11 @@ import blanin from '../../../assets/blanin1.png';
 import shipulin from '../../../assets/shipulin.png';
 import guberniev from '../../../assets/guber.png';
 import gerbulova from '../../../assets/gerbulova.png';
-import { useNavigate } from 'react-router-dom';
 import NavBar from '../../Navbar/NavBar';
 import MainNavbar from '../MainPage/component/MainNavbar';
 
 export default function FriendsPage(): JSX.Element {
-  const [activeBtn, setActiveBtn] = useState('main');
-  const navigate = useNavigate();
-
-  const handleMain = () => {
-    setActiveBtn('main');
-    navigate('/main');
-  };
-  const handleTests = () => {
-    setActiveBtn('trials');
-    navigate('/trials');
-  };
-  const handleFriends = () => {
-    setActiveBtn('friend');
-    navigate('/friend');
-  };
-
+ 
   return (
     <main className={styles.conteiner}>
       <div className={styles.head}>

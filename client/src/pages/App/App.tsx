@@ -21,7 +21,6 @@ import {
   initSubscription,
   initUserPost,
   initUsers,
-  updataUser,
   verification,
 } from '../PersonalPage/userAuthSlice';
 
