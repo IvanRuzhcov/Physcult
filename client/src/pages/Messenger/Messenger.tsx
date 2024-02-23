@@ -12,6 +12,8 @@ interface Message {
 export default function Messenger(): JSX.Element {
   const [messages, setMessages] = useState<Message[]>([]);
   const [newMessage, setNewMessage] = useState<string>('');
+  const [isClicked, setIsClicked] = useState<string>('');
+
 
   const handleSendMessage = () => {
     if (newMessage.trim() === '') {
@@ -33,27 +35,28 @@ export default function Messenger(): JSX.Element {
         <div className={styles.title}>
           <span className={styles.title_name}>Чат</span>
         </div>
+
         <Search/>
 
-        <header>
-	        <nav>
-		        <ul>
-			        <li><a href="#portfolio">Все</a></li>
-			        <li><a href="#press">Press</a></li>
-			        <li><a href="#shop">Лыжи</a></li>
-			        <li><a href="#about">Велосипед</a></li>
-		        </ul>
-	        </nav>
-        </header>
+        <div className={styles.nav_btn_group}>
+          <button className={`${styles.trials_btn} ${isClicked === 'all'? styles.clicked : ''}`} onClick={() => setIsClicked('all')}><span>Все</span></button>
+          <button className={`${styles.trials_btn} ${isClicked === 'phy'? styles.clicked : ''}`} onClick={() => setIsClicked('phy')}><span>Physcult</span></button>
+          <button className={`${styles.trials_btn} ${isClicked === 'sky'? styles.clicked : ''}`} onClick={() => setIsClicked('sky')}><span>Лыжи</span></button> 
+          <button className={`${styles.trials_btn} ${isClicked === 'run'? styles.clicked : ''}`} onClick={() => setIsClicked('run')}><span>Бег</span></button>
+          <button className={`${styles.trials_btn} ${isClicked === 'bck'? styles.clicked : ''}`} onClick={() => setIsClicked('bck')}><span>Велосипед</span></button>
+          <button className={`${styles.trials_btn} ${isClicked === 'tre'? styles.clicked : ''}`} onClick={() => setIsClicked('tre')}><span>Тренеры</span></button>
+        </div>
 
-      <div className={styles.message_conteiner}>
+        <div className={styles.line}></div>
+
+      
         {messages.map(message => (
-          <div className={styles.message} key={message.id}>
-            <span className={styles.sender_name}>{message.sender}: </span>
-            <span className={styles.text_message}>{message.text}</span>
-          </div>
+            <div className={styles.message} key={message.id}>
+              <span className={styles.sender_name}>{message.sender}: </span>
+              <span className={styles.text_message}>{message.text}</span>
+            </div>
         ))}
-      </div>
+      
       <div className={styles.input_container}>
         <input type="text" placeholder='Новое сообщение' value={newMessage} onChange={(e) => setNewMessage(e.target.value)} />
         <button id="sendButton" onClick={handleSendMessage}>

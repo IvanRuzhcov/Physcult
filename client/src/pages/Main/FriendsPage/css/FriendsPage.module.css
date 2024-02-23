@@ -95,7 +95,7 @@ main {
   width: 343px;
 }
 
-.input {
+.f_input {
   width: 100%;
   height: 54px;
   line-height: 28px;
@@ -109,12 +109,12 @@ main {
   transition: 0.3s ease;
 }
 
-.input::placeholder {
+.f_input::placeholder {
   color: #9e9ea7;
   font-size: 17px;
 }
 
-.input:focus,
+.f_input:focus,
 input:hover {
   outline: none;
   border-color: #ff0606;
