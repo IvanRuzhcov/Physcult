@@ -1,4 +1,3 @@
-import React from 'react';
 import leftArrow from '../../assets/SquareAltArrowLeft.png';
 import style from './css/AppInfoPage.module.css';
 import { useNavigate } from 'react-router-dom';

@@ -12,38 +12,10 @@ import orlova from '../../../assets/orlova.png';
 import stepanova from '../../../assets/stepanova.png';
 import sokolov from '../../../assets/sokolov.png';
 import NavBar from '../../Navbar/NavBar';
-import { useLocation, useNavigate } from 'react-router-dom';
 import MainNavbar from './component/MainNavbar';
 
 export default function MainPage(): JSX.Element {
-  const [activeBtn, setActiveBtn] = useState('main');
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  useEffect(() => {
-    const path = location.pathname;
-
-    if (path === '/main') {
-      setActiveBtn('main');
-    } else if (path === '/trials') {
-      setActiveBtn('trials');
-    } else if (path === '/friend') {
-      setActiveBtn('friend');
-    }
-  }, [location.pathname]);
-
-  const handleMain = () => {
-    setActiveBtn('main');
-    navigate('/main');
-  };
-  const handleTests = () => {
-    setActiveBtn('trials');
-    navigate('/trials');
-  };
-  const handleFriends = () => {
-    setActiveBtn('friend');
-    navigate('/friend');
-  };
+  
 
   const sborniki = [
     {

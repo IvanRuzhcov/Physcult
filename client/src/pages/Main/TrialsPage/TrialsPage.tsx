@@ -7,26 +7,11 @@ import ski from '../../../assets/ski.png';
 import gym from '../../../assets/gym.png';
 import swim from '../../../assets/swim.png';
 import swim100 from '../../../assets/swim100.png';
-import { useNavigate } from 'react-router-dom';
 import NavBar from '../../Navbar/NavBar';
 import MainNavbar from '../MainPage/component/MainNavbar';
 
 export default function TrialsPage(): JSX.Element {
-  const [activeBtn, setActiveBtn] = useState('main');
-  const navigate = useNavigate();
-
-  const handleMain = () => {
-    setActiveBtn('main');
-    navigate('/main');
-  };
-  const handleTests = () => {
-    setActiveBtn('trials');
-    navigate('/trials');
-  };
-  const handleFriends = () => {
-    setActiveBtn('friend');
-    navigate('/friend');
-  };
+  
 
   return (
     <main className={styles.conteiner}>
