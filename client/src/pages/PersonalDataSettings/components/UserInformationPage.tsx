@@ -1,9 +1,8 @@
-import React, { memo, useState } from 'react';
+import { memo } from 'react';
 import photoCamera from '../../../assets/awards/camera.png';
 import style from '../css/PersonalDataSettings.module.css';
 import noPhoto from '../../../assets/no_avatar.png';
 import { useSelector } from 'react-redux';
-import axios from 'axios';
 import { RootState } from '../../../store';
 
 function UserInformationPage({setSelectedFile}:any) {

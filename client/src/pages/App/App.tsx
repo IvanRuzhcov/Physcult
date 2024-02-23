@@ -23,6 +23,7 @@ import {
   initUsers,
   verification,
 } from '../PersonalPage/userAuthSlice';
+// import UserPage from '../UserPage/UserPage';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -46,6 +47,7 @@ function App() {
         <Route path="/friend" element={<FriendsPage />} />
         <Route path="/news" element={<NewsFeed />} />
         <Route path="/profile" element={<PersonalPage />} />
+        {/* <Route path="/profile/:id" element={<UserPage />} /> */}
         <Route path="/settings" element={<UserProfileSettings />} />
         <Route path="/settings/personal" element={<PersonalDataSettings />} />
         <Route path="/settings/device" element={<DevicePage />} />

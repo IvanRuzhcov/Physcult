@@ -28,7 +28,7 @@ const DateInput = ({
 
   useEffect(() => {
     setDate(`${day}.${month}.${year}`);
-  }, [day, month, year]);
+  }, [day, month, setDate, year]);
 
   const dayInput = useRef(null);
   const monthInput = useRef(null);

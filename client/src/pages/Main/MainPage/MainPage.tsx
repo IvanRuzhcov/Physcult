@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from 'react';
 import styles from './css/MainPage.module.css';
 import star from '../../../assets/icons/Star.png';
 import alert from '../../../assets/icons/NotificationAlert.png';
 import market from '../../../assets/PhyscultMARKET.png';
-import latypov from '../../../assets/latypov.png';
-import frame1 from '../../../assets/Frame1.png';
+
+import Green_Marathon from '../../../assets/events/Green_Marathon.png';
+import TheLegkovRace from '../../../assets/events/TheLegkovRace.png';
+import Moscow_marathon from '../../../assets/events/Moscow_marathon.png';
+import race_rf from '../../../assets/events/banner_of_the_race_rf.png';
+import white_nights from '../../../assets/events/white_nights.png';
+
 import istomin from '../../../assets/istomin.png';
 import kulikova from '../../../assets/kulikova.png';
 import sorin from '../../../assets/sorin.png';
@@ -13,33 +17,41 @@ import stepanova from '../../../assets/stepanova.png';
 import sokolov from '../../../assets/sokolov.png';
 import NavBar from '../../Navbar/NavBar';
 import MainNavbar from './component/MainNavbar';
+import CollectionFeed from './component/CollectionFeed';
 
 export default function MainPage(): JSX.Element {
-  
-
-  const sborniki = [
+  const events = [
     {
       id: 1,
-      photo: latypov,
-      text: 'Латыпов Э.',
+      photo: TheLegkovRace,
+      name: 'Гонка Легкова',
+      date: '23-24.02.2024',
     },
     {
       id: 2,
-      photo: latypov,
-      text: 'Латыпов Э.',
+      photo: Green_Marathon,
+      name: 'Зеленый Марафон',
+      date: '19.05.2024',
     },
     {
       id: 3,
-      photo: latypov,
-      text: 'Латыпов Э.',
+      photo: Moscow_marathon,
+      name: 'Московский Марафон ',
+      date: '15.09.2024',
     },
     {
       id: 4,
-      photo: latypov,
-      text: 'Латыпов Э.',
+      photo: race_rf,
+      name: 'Забег.рф',
+      date: '29.06.2024',
+    },
+    {
+      id: 5,
+      photo: white_nights,
+      name: 'Марафон Белые Ночи',
+      date: '29.06.2024',
     },
   ];
-
   return (
     <>
       <main className={styles.container}>
@@ -63,32 +75,7 @@ export default function MainPage(): JSX.Element {
           </div>
         </div>
 
-        <div className={styles.compilations}>
-          <div className={styles.inside}>
-            <div>
-              <p>Сборники</p>
-            </div>
-            <div>
-              <button className={styles.btn}>Ещё</button>
-            </div>
-          </div>
-        </div>
-
-        <div className={styles.compilation_elem}>
-          {sborniki.map((el: any) => {
-            return (
-              <>
-                <div className={styles.elem}>
-                  <div className={styles.name_elem}>
-                    <p>{el.text}</p>
-                    <img src={star} alt="" />
-                  </div>
-                  <img className={styles.photo} src={el.photo} alt="" />
-                </div>
-              </>
-            );
-          })}
-        </div>
+        <CollectionFeed />
 
         <div className={styles.compilations}>
           <div className={styles.inside}>
@@ -100,17 +87,22 @@ export default function MainPage(): JSX.Element {
             </div>
           </div>
         </div>
-
         <div className={styles.events}>
-          <div className={styles.card}>
-            <div className={styles.card_image}>
-              <img src={frame1} alt="" />
-            </div>
-            <div>
-              <p className={styles.head}>Зеленый марафон</p>
-              <p className={styles.secondary}>19.05.2024 Популярное</p>
-            </div>
-          </div>
+          {events.map((event) => {
+            return (
+              <div key={event.id} className={styles.card}>
+                <div className={styles.card_image}>
+                  <img src={event.photo} alt="" />
+                </div>
+                <div className={styles.text_box}>
+                  <p className={styles.head}>{event.name}</p>
+                  <p
+                    className={styles.secondary}
+                  >{`${event.date} • Популярное`}</p>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
         <div className={styles.compilations}>
@@ -125,63 +117,86 @@ export default function MainPage(): JSX.Element {
         </div>
 
         <div className={styles.parent}>
-          <div className={styles.child}>
-            <div className={styles.card_image}>
-              <img className={styles.imgs} src={sokolov} alt="" />
+          <div className={styles.section}>
+            <div className={styles.child}>
+              <div className={styles.card_img}>
+                <div className={styles.star_box_tranier}>
+                  <img src={star} alt="" />
+                </div>
+                <img className={styles.photo_1} src={sokolov} alt="" />
+              </div>
+
+              <div className={styles.child_title}>
+                <p className={styles.head}>Соколов А.</p>
+                <p className={styles.secondary}>Тренер по Триатлону</p>
+              </div>
             </div>
-            <div className={styles.child_title}>
-              <p className={styles.head}>Соколов А.</p>
-              <p className={styles.secondary}>Тренер по триатлону</p>
+
+            <div className={styles.child}>
+              <div className={styles.card_img}>
+                <div className={styles.star_box_tranier}>
+                  <img src={star} alt="" />
+                </div>
+                <img className={styles.photo_2} src={istomin} alt="" />
+              </div>
+              <div className={styles.child_title}>
+                <p className={styles.head}>Истомин А.</p>
+                <p className={styles.secondary}>Тренер по Биатлону</p>
+              </div>
+            </div>
+
+            <div className={styles.child}>
+              <div className={styles.card_img}>
+                <div className={styles.star_box_tranier}>
+                  <img src={star} alt="" />
+                </div>
+                <img className={styles.photo_3} src={sorin} alt="" />
+              </div>
+              <div className={styles.child_title}>
+                <p className={styles.head}>Сорин Е.</p>
+                <p className={styles.secondary}>Тренер по Лыжным гонкам</p>
+              </div>
             </div>
           </div>
 
-          <div className={styles.child}>
-            <div className={styles.card_image}>
-              <img src={istomin} alt="" />
+          <div className={styles.section}>
+            <div className={styles.child}>
+              <div className={styles.card_img}>
+                <div className={styles.star_box_tranier}>
+                  <img src={star} alt="" />
+                </div>
+                <img className={styles.photo_4} src={orlova} alt="" />
+              </div>
+              <div className={styles.child_title}>
+                <p className={styles.head}>Орлова М.</p>
+                <p className={styles.secondary}>Тренер по Скелетону</p>
+              </div>
             </div>
-            <div className={styles.child_title}>
-              <p className={styles.head}>Истомин А.</p>
-              <p className={styles.secondary}>Тренер по биатлону</p>
-            </div>
-          </div>
 
-          <div className={styles.child}>
-            <div className={styles.card_image}>
-              <img src={sorin} alt="" />
+            <div className={styles.child}>
+              <div className={styles.card_img}>
+                <div className={styles.star_box_tranier}>
+                  <img src={star} alt="" />
+                </div>
+                <img className={styles.photo_5} src={kulikova} alt="" />
+              </div>
+              <div className={styles.child_title}>
+                <p className={styles.head}>Куликова Е.</p>
+                <p className={styles.secondary}>Тренер по Легкой Атлетике</p>
+              </div>
             </div>
-            <div className={styles.child_title}>
-              <p className={styles.head}>Сорин Е.</p>
-              <p className={styles.secondary}>Тренер по лыжным гонкам</p>
-            </div>
-          </div>
 
-          <div className={styles.child}>
-            <div className={styles.card_image}>
-              <img src={orlova} alt="" />
-            </div>
-            <div className={styles.child_title}>
-              <p className={styles.head}>Орлова М.</p>
-              <p className={styles.secondary}>Тренер по скелетону</p>
-            </div>
-          </div>
-
-          <div className={styles.child}>
-            <div className={styles.card_image}>
-              <img src={kulikova} alt="" />
-            </div>
-            <div className={styles.child_title}>
-              <p className={styles.head}>Куликова Е.</p>
-              <p className={styles.secondary}>Тренер по легкой атлетике</p>
-            </div>
-          </div>
-
-          <div className={styles.child}>
-            <div className={styles.card_image}>
-              <img src={stepanova} alt="" />
-            </div>
-            <div className={styles.child_title}>
-              <p className={styles.head}>Степанова П.</p>
-              <p className={styles.secondary}>Тренер по фитнесу</p>
+            <div className={styles.child}>
+              <div className={styles.card_img}>
+                <div className={styles.star_box_tranier}>
+                  <img src={star} alt="" />
+                </div>
+                <img className={styles.photo_6} src={stepanova} alt="" />
+              </div>
+              <div className={styles.child_title}>
+                <p className={styles.head}>Степанова П.</p>
+                <p className={styles.secondary}>Тренер по Фитнесу</p>
+              </div>
             </div>
           </div>
         </div>
