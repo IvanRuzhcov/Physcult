@@ -97,7 +97,7 @@ export default function MainPage(): JSX.Element {
                 <div className={styles.text_box}>
                   <p className={styles.head}>{event.name}</p>
                   <p
-                    className={styles.secondary}
+                    className={styles.sec}
                   >{`${event.date} • Популярное`}</p>
                 </div>
               </div>

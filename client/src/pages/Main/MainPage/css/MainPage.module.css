@@ -347,6 +347,16 @@ main {
   letter-spacing: -0.5px;
   margin-bottom: 10px;
 }
+.sec{
+  width: 165px;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 110%;
+  letter-spacing: -0.5px;
+  text-align: left;
+}
 .secondary {
   width: 100px;
   color: rgba(0, 0, 0, 0.5);
