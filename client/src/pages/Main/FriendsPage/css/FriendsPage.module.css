@@ -9,9 +9,7 @@ main {
   background-color: #fff;
   margin-top: 44px;
 }
-.container {
-  margin-top: 44px;
-}
+
 .head {
   display: flex;
   justify-content: center;

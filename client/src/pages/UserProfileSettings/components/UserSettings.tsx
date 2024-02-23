@@ -1,5 +1,4 @@
 import React, { memo } from 'react';
-import malyshko from '../../../assets/malyshko.png';
 import rightArrow from '../../../assets/rightArrow.png';
 import noPhoto from '../../../assets/no_avatar.png';
 import style from '../css/UserProfileSettings.module.css';

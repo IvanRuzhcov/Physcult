@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import styles from './css/TrialsPage.module.css';
 import star from '../../../assets/icons/Star.png';
 import velo from '../../../assets/velo.png';

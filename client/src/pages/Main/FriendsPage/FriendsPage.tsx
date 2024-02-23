@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import styles from './css/FriendsPage.module.css';
 import stepanova from '../../../assets/stepan.png';
 import malyshko from '../../../assets/malyshk.png';

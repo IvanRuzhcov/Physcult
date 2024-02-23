@@ -4,7 +4,6 @@ import NotificationAlert from '../../../assets/NotificationAlert.png';
 import no_photo from '../../../assets/no_avatar.png';
 import Settings from '../../../assets/Settings.png';
 import style from '../css/PersonalPage.module.css';
-import mal from '../../../assets/malyshko.png';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../store';
