@@ -61,7 +61,10 @@ authorizationRoutes.post('/user', async (req, res) => {
 });
 
 authorizationRoutes.post('/logout', (req, res) => {
-  res.clearCookie(configJWT.access).clearCookie(configJWT.refresh);
+  res.clearCookie(configJWT.access.type, { path: '/' }).clearCookie(configJWT.refresh.type, { path: '/' });
   res.json({ success: true });
 });
+
+
+
 module.exports = authorizationRoutes;

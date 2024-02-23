@@ -4,7 +4,7 @@ import NotificationAlert from '../../../assets/NotificationAlert.png';
 import no_photo from '../../../assets/no_avatar.png';
 import Settings from '../../../assets/Settings.png';
 import style from '../css/PersonalPage.module.css';
-import mal from '../../../assets/malyshko.png'
+import mal from '../../../assets/malyshko.png';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../store';
@@ -45,7 +45,9 @@ function UserProfile() {
             <img src={user?.avatar_img || no_photo} alt="" />
           </div>
           <div className={style.user_name}>
-            <span>{`${user?.name} ${user?.surname}`}</span>
+            <span>
+              {user?.name ? `${user?.name} ${user?.surname}` : 'Твое имя'}
+            </span>
           </div>
           <div className={style.user_nick}>
             <span>@{user?.nick}</span>

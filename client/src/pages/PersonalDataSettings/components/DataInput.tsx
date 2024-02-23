@@ -44,12 +44,12 @@ const DateInput = ({
 
     switch (input.name) {
       case 'day':
-        if (value === '' || (value >= 1 && value <= 31)) {
+        if (value === '' || (value >= 0 && value <= 31)) {
           setDay(value);
         }
         break;
       case 'month':
-        if (value === '' || (value >= 1 && value <= 12)) {
+        if (value === '' || (value >= 0 && value <= 12)) {
           setMonth(value);
         }
         break;

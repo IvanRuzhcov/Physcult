@@ -51,16 +51,12 @@ function PersonalDataSettings() {
           date_of_birth,
         })
       );
-    } catch (error) {
-      console.error('Произошла ошибка при изменении:', error);
-    }
 
-    // Добавление фотографий
+      // Добавление фотографий
 
-    if (!selectedFile) {
-      return;
-    }
-    try {
+      if (!selectedFile) {
+        return;
+      }
       const formData = new FormData();
 
       formData.append('avatar', selectedFile);

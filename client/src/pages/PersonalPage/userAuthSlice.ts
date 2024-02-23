@@ -46,16 +46,33 @@ export const userRegistation = createAsyncThunk(
   'auth/userRegistation',
   async (data: Сonfirmation) => {
     const userData = await api.userRegistationFetch(data);
+   
     return userData;
   }
 );
 
-export const login = createAsyncThunk('auth/loginFeth', (data: AuthData) => {
-  if (!data.email.trim() || !data.password.trim()) {
-    throw new Error('Не все поля заполнены!');
+export const login = createAsyncThunk(
+  'auth/loginFeth',
+  async (data: AuthData, { dispatch }) => {
+    if (!data.email.trim() || !data.password.trim()) {
+      throw new Error('Не все поля заполнены!');
+    }
+    const response = await api.authFetch(data);
+
+    // Ваши операции после успешной авторизации
+    if (response.success) {
+      await Promise.all([
+        dispatch(initUserPost()),
+        dispatch(initPost()),
+        dispatch(initSubscription()),
+        dispatch(initUsers()),
+        // Другие асинхронные операции, которые вам нужны
+      ]);
+    }
+
+    return response;
   }
-  return api.authFetch(data);
-});
+);
 
 export const verification = createAsyncThunk(
   'auth/verification',
@@ -95,6 +112,7 @@ const authSlice = createSlice({
     builder
       .addCase(login.fulfilled, (state, action) => {
         state.user = action.payload.existingUser;
+        state.authChecked = true;
       })
       .addCase(login.rejected, (state, action) => {
         // Обработка ошибки в случае отклонения логина
@@ -116,7 +134,7 @@ const authSlice = createSlice({
       })
       .addCase(verification.fulfilled, (state, action) => {
         state.authChecked = true;
-
+        console.log(action);
         state.user = action.payload.isLoggedIn
           ? action.payload.user
           : undefined;
@@ -147,6 +165,7 @@ const authSlice = createSlice({
           gender: action.payload.gender,
           telephone: action.payload.telephone,
           date_of_birth: action.payload.date_of_birth,
+          avatar_img: action.payload.avatar_img,
         };
       })
       .addCase(updataUser.rejected, (state, action) => {
