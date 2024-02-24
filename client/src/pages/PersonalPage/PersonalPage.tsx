@@ -1,19 +1,19 @@
-import {  useState } from 'react';
+import { useState } from 'react';
 import style from './css/PersonalPage.module.css';
 
 import Post from '../NewsFeed/components/Post';
-import UserProfile from './components/UserProfile';
+import UserProfile from './components/OwnProfile';
 import UserNavbar from './components/UserNavbar';
 import AwardsContainer from './components/AwardsContainer';
 import PerformanceSection from './components/PerformanceSection';
 import NavBar from '../Navbar/NavBar';
 import { RootState } from '../../store';
 import { useSelector } from 'react-redux';
+import OwnProfile from './components/OwnProfile';
 
 function PersonalPage() {
   const [activeBtn, setActiveBtn] = useState('publications');
-  const post = useSelector((store:RootState)=> store.auth.post)
- 
+  const post = useSelector((store: RootState) => store.auth.post);
 
   const handlePublications = () => {
     setActiveBtn('publications');
@@ -26,7 +26,7 @@ function PersonalPage() {
     <>
       <div className={style.profile}>
         <div className={style.profile_feed}>
-          <UserProfile />
+          <OwnProfile />
           <UserNavbar
             activeBtn={activeBtn}
             handlePublications={handlePublications}
@@ -35,10 +35,7 @@ function PersonalPage() {
 
           {activeBtn === 'publications' ? (
             <div className={style.posts_feed}>
-              {post && post.map((el) => (
-                <Post key={el.id} el={el} />
-                
-              ))}
+              {post && post.map((el) => <Post key={el.id} el={el} />)}
             </div>
           ) : (
             <div className={style.achievement_container}>
