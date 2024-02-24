@@ -1,0 +1,255 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.profile_feed {
+  margin: 44px 0px 0px 0px;
+  padding: 0 0 100px 0;
+}
+.personal_info {
+  width: 100%;
+  padding: 16px 16px 24px 16px;
+  flex-direction: column;
+  border-radius: 0px 0px 30px 30px;
+  background: #fff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.082);
+}
+.header_personal_info {
+  display: flex;
+  padding: 1px 0px;
+  align-items: center;
+  position: relative;
+}
+
+.header_personal_info div span {
+  color: var(--Label-Color-Light-Primary, var(--black, #000));
+  text-align: center;
+  font-family: Inter;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px; /* 129.412% */
+  letter-spacing: -0.5px;
+}
+.profile_span {
+  margin: 0 auto;
+}
+
+.profile_iсons {
+  position: absolute;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: 10px;
+  margin-left: 8px;
+}
+.profile_iсons img {
+  width: 40px;
+  height: 40px;
+}
+.profile_exit {
+  position: absolute;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: 10px;
+  margin-left: 8px;
+}
+
+.profile_exit img {
+  width: 40px;
+  height: 40px;
+}
+.profile_photo {
+  margin-top: 46px;
+  text-align: center;
+}
+.user_photo img {
+  border-radius: 50%;
+  width: 87px;
+  height: 87px;
+  object-fit: cover;
+}
+.user_name {
+  margin-top: 16px;
+  color: var(--black, #000);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px; /* 87.5% */
+  letter-spacing: -0.5px;
+}
+.user_nick {
+  margin-top: 12px;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px; /* 100% */
+  letter-spacing: -0.5px;
+}
+.community {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 53px;
+}
+.statistics {
+  width: 100%;
+  height: auto;
+  padding: 12px 8px;
+  text-align: center;
+  border-radius: 15px;
+  background: #f6f6f6;
+}
+.statistics span {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px; /* 100% */
+  letter-spacing: -0.5px;
+}
+.statistics div {
+  color: var(--black, #000);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px; /* 87.5% */
+  letter-spacing: -0.5px;
+}
+.statistics:not(:last-child) {
+  margin-right: 4px;
+}
+.btn_sub_container {
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  margin-top: 13px;
+  width: 100%;
+  height: 50px;
+  border: 1px solid black;
+  background-color:#000;
+  border-radius: 10px;
+  color: #fff
+}
+.btn_sub_container {
+font-size: 18px;
+font-weight: 500;
+line-height: 18px;
+letter-spacing: -0.01em;
+text-align: left;
+
+}
+.user_navbar {
+  display: flex;
+  justify-content: center;
+  margin-top: 17px;
+}
+.publications_box:not(:last-child) {
+  margin-right: 52px;
+}
+.on_publications .on_progress {
+  color: var(--black, #000);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.on_publications,
+.on_progress {
+  color: var(--black, #000);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.off_publications,
+.off_progress {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.active_line {
+  margin: 12px auto 0px;
+  width: 100%;
+  height: 5px;
+  border-radius: 2px;
+  background: var(--red, #ff0606);
+}
+.posts_feed{
+  display: block;
+  text-align: center;
+}
+.modal {
+  display: none;
+}
+
+.modal_activ {
+  display: block;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+  }
+  50% {
+    transform: translateY(-8%);
+  }
+  65% {
+    transform: translateY(4%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.modal_backgraund {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(0.5px);
+  opacity: 1;
+  transform: translateY(0);
+}
+.modal_body {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 202px;
+  background-color: white;
+  overflow: auto;
+  opacity: 1;
+  transform: translateY(0);
+  animation: slideUp 1s ease;
+  border-radius: 30px 30px 0 0
+}
+.contact_method{
+  width: 100%;
+  height: 72px;
+  display: flex;
+  align-items:center;
+  border-bottom:1px solid rgba(200, 197, 197, 0.501)
+}
+.contact_method span{
+  margin-left: 30px;
+}
+.to_block{
+  width: 100%;
+  height: 72px;
+  display: flex;
+  align-items:center;
+}
+.to_block span{
+  margin-left: 30px;
+  color:#ff0606
+}

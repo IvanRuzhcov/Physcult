@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../store';
 
-function UserProfile() {
+function OwnProfile() {
   const user = useSelector((store: RootState) => store.auth.user);
   const subscribers = useSelector(
     (store: RootState) => store.auth.subscription
@@ -85,4 +85,4 @@ function UserProfile() {
   );
 }
 
-export default memo(UserProfile);
+export default memo(OwnProfile);
