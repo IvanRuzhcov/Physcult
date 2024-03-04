@@ -134,7 +134,6 @@ const authSlice = createSlice({
       })
       .addCase(verification.fulfilled, (state, action) => {
         state.authChecked = true;
-        console.log(action);
         state.user = action.payload.isLoggedIn
           ? action.payload.user
           : undefined;

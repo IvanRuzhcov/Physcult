@@ -7,6 +7,7 @@ const updataRouter = require('../api/update.router')
 const imageRouter = require('../api/addImage.router')
 const initPostRouter = require('../api/initPost.router')
 const initSubscriptionRouter = require('../api/initSubscription.router')
+const polarRouter = require('../api/polar.router')
 
 routes.use('/register', registrationRoutes);
 routes.use('/authentication', authorizationRoutes);
@@ -15,5 +16,6 @@ routes.use('/updata', updataRouter);
 routes.use('/api', imageRouter);
 routes.use('/', initPostRouter);
 routes.use('/', initSubscriptionRouter);
+routes.use('/polar', polarRouter);
 
 module.exports = routes;
