@@ -9,6 +9,11 @@ import { logoutUser } from '../../PersonalPage/userAuthSlice';
 function AccountManagement() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+
+  const deleteCookie = (name:string, domain:string) => {
+    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${domain}`;
+  };
+
   const handleLogout = async () => {
     try {
       const action = await dispatch(logoutUser());
@@ -16,6 +21,8 @@ function AccountManagement() {
       if (logoutUser.fulfilled.match(action)) {
         navigate('/');
       }
+      deleteCookie('flow.polar.com', 'flow.polar.com');
+      deleteCookie('polar.com', 'polar.com');
     } catch (error) {
       console.error('Произошла ошибка при выходе из системы:', error);
       // Обработка других ошибок при необходимости

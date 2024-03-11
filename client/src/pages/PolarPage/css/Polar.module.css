@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.polar_container {
+  margin: 60px 16px 100px 16px;
+}
+.header_polar {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.polar_img {
+  position: absolute;
+  top: -70%;
+}
+.left_arrow {
+  position: absolute;
+  left: 0;
+}
+.right_arrow {
+  position: absolute;
+  right: 0;
+}
+.right_arrow {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: 10px;
+  margin-left: 8px;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.polar_data_box {
+  margin-top: 30px;
+  width: 100%;
+  height: 300px;
+  border-radius: 20px;
+  padding: 10px;
+  background: #fff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.082);
+}
+.polar_map {
+  margin: 5px auto;
+  width: 230px;
+  height: 196px;
+  border: 1px solid black;
+}
+.post_header {
+  display: flex;
+  align-items: center;
+}
+.post_header img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.post_name {
+  margin-left: 12px;
+  text-align: left;
+}
+.post_name span {
+  color: var(--black, #000);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%; /* 16px */
+  letter-spacing: -0.16px;
+}
+.post_name div {
+  margin-top: 4px;
+  color: rgba(0, 0, 0, 0.5);
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%; /* 12px */
+  letter-spacing: -0.12px;
+}
+
+.result_container {
+  margin-top: 8px;
+  display: flex;
+}
+.result_box {
+  width: 100%;
+  height: auto;
+  text-align: center;
+  border-radius: 15px;
+  background: #f6f6f6;
+  margin: 0 auto;
+  padding: 12px 8px;
+}
+.result_box:not(:last-child) {
+  margin-right: 4px;
+}
+.result_box span {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px; /* 100% */
+  letter-spacing: -0.5px;
+}
+.result_box div {
+  color: var(--black, #000);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px; /* 87.5% */
+  letter-spacing: -0.5px;
+}
+
+.polar_text {
+  margin-top: 18px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px; /* 100% */
+  letter-spacing: -0.5px;
+}

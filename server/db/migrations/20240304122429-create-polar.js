@@ -7,31 +7,34 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       user_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       data: {
-        type: Sequelize.ARRAY(Sequelize.JSON)
+        type: Sequelize.ARRAY(Sequelize.JSON),
       },
       token: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
       },
       polar_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+      },
+      state: {
+        type: Sequelize.TEXT,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Polars');
-  }
+  },
 };

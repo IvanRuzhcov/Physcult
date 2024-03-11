@@ -2,7 +2,6 @@ import { useState } from 'react';
 import style from './css/PersonalPage.module.css';
 
 import Post from '../NewsFeed/components/Post';
-import UserProfile from './components/OwnProfile';
 import UserNavbar from './components/UserNavbar';
 import AwardsContainer from './components/AwardsContainer';
 import PerformanceSection from './components/PerformanceSection';

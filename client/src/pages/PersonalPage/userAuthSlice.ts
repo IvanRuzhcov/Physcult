@@ -5,6 +5,8 @@ import { RegisterData } from './types/RegisterData';
 import UserAuthState from './types/UserAuthState';
 import { Сonfirmation } from './types/Сonfirmation';
 import User from './types/User';
+import { initPolar } from '../DevicePage/DeviceSlice';
+
 
 const initialState: UserAuthState = {
   user: undefined,
@@ -46,7 +48,7 @@ export const userRegistation = createAsyncThunk(
   'auth/userRegistation',
   async (data: Сonfirmation) => {
     const userData = await api.userRegistationFetch(data);
-   
+
     return userData;
   }
 );
@@ -66,10 +68,11 @@ export const login = createAsyncThunk(
         dispatch(initPost()),
         dispatch(initSubscription()),
         dispatch(initUsers()),
+        dispatch(initPolar()),
+
         // Другие асинхронные операции, которые вам нужны
       ]);
     }
-
     return response;
   }
 );

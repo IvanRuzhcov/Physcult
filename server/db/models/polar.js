@@ -26,6 +26,9 @@ module.exports = (sequelize, DataTypes) => {
       polar_id: {
         type: DataTypes.INTEGER,
       },
+      state: {
+        type: DataTypes.TEXT
+      },
     },
     {
       sequelize,
