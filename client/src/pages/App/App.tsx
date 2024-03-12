@@ -50,7 +50,7 @@ function App() {
         <Route path="/friend" element={<FriendsPage />} />
         <Route path="/news" element={<NewsFeed />} />
         <Route path="/profile" element={<PersonalPage />} />
-        <Route path="/:id" element={<UserPage />} />
+        <Route path="profile/:id" element={<UserPage />} />
         <Route path="/settings" element={<UserProfileSettings />} />
         <Route path="/settings/personal" element={<PersonalDataSettings />} />
         <Route path="/settings/device" element={<DevicePage />} />

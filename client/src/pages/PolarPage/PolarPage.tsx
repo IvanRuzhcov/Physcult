@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import style from './css/Polar.module.css';
 import leftArrow from '../../assets/SquareAltArrowLeft.png';
 import rightArrow from '../../assets/Settings.png';
@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom';
 import polar from '../../assets/ devices/polar.png';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
+import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
+import TrackMap from './component/TrackMap';
 
 function formatDate(uploadTime: string) {
   const date = new Date(uploadTime);
@@ -40,7 +42,7 @@ function formatDuration(duration: string) {
   if (minutes > 0 || hours === 0) {
     result += `${minutes} мин`;
   }
-  if (hours === 0 || minutes === 0 || minutes > 0) {
+  if (hours === 0 && minutes >= 0) {
     const roundedSeconds = Math.round(seconds);
     result += ` ${roundedSeconds} с`;
   }
@@ -49,7 +51,6 @@ function formatDuration(duration: string) {
 }
 
 function PolarPage() {
-    
   const polarDev = useSelector((store: RootState) => store.device.polar);
   const user = useSelector((store: RootState) => store.auth.user);
 
@@ -72,33 +73,39 @@ function PolarPage() {
           <img src={rightArrow} alt="" />
         </div>
       </div>
-      <div className={style.container}>
+      <div className={style.containerr}>
         {polarDev?.data ? (
           polarDev?.data.map((data:any) => {
+            console.log(data.gpx);
             return (
-                <div className={style.polar_data_box} key={data["id"]}>
-                  <div className={style.post_header}>
-                    <img src={user?.avatar_img || noPhoto} alt="" />
-                    <div className={style.post_name}>
-                      <span>{`${user?.name} ${user?.surname}`}</span>
-                      <div>{formatDate(data['upload-time'])}</div>
-                    </div>
-                  </div>
-                  <div className={style.result_container}>
-                    <div className={style.result_box}>
-                      <div>{data['distance']}</div>
-                      <span>Дистанция</span>
-                    </div>
-                    <div className={style.result_box}>
-                      <div>{formatDuration(data["duration"])}</div>
-                      <span>Время </span>
-                    </div>
-                    <div className={style.result_box}>
-                      <div>{data["calories"]}</div>
-                      <span>Ккал</span>
-                    </div>
+              <div className={style.polar_data_box} key={data['id']}>
+                <div className={style.post_header}>
+                  <img src={user?.avatar_img || noPhoto} alt="" />
+                  <div className={style.post_name}>
+                    <span>{`${user?.name} ${user?.surname}`}</span>
+                    <div>{formatDate(data['upload-time'])}</div>
                   </div>
                 </div>
+                <div className={style.result_container}>
+                  <div className={style.result_box}>
+                    <div>{data['distance']}</div>
+                    <span>Дистанция</span>
+                  </div>
+                  <div className={style.result_box}>
+                    <div>{formatDuration(data['duration'])}</div>
+                    <span>Время </span>
+                  </div>
+                  <div className={style.result_box}>
+                    <div>{data['calories']}</div>
+                    <span>Ккал</span>
+                  </div>
+                </div>
+                <div className={style.map_container}>
+                  {data.gpx && (
+                    <TrackMap gpxData={data.gpx} mapId={`map-${data['id']}`} />
+                  )}
+                </div>
+              </div>
             );
           })
         ) : (

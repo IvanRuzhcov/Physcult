@@ -12,6 +12,8 @@ initSubscription.get('/subscription', async (req, res) => {
     console.error(error);
   }
 });
+
+
 initSubscription.get('/users', async (req, res) => {
   const users = await User.findAll();
   res.json(users);

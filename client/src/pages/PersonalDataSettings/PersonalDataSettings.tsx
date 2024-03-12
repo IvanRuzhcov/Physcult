@@ -61,6 +61,7 @@ function PersonalDataSettings() {
 
       formData.append('avatar', selectedFile);
       // Фактический запрос к серверу
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const response = await axios.post('/api/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',

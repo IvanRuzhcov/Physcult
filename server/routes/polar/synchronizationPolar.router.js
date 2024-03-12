@@ -190,29 +190,35 @@ polarRouter.post('/auth', async (req, res) => {
       //     "https://www.polaraccesslink.com/v3/users/12/exercise-transactions/34/exercises/120"
       //   ]
       // }
-
+      const headersGPX = {
+        Accept: 'application/gpx+xml',
+        Authorization: `Bearer ${userAccessToken}`,
+      };
+      
       const exercisePromises = exercises.exercises.map(async (activityLog) => {
         const exerciseResponse = await fetch(activityLog, {
           method: 'GET',
           headers: headers,
         });
-      
+
         if (exerciseResponse.ok) {
           const exerciseData = await exerciseResponse.json();
-      
+
           // Запрос GPX данных вместе с данными о тренировке
           const gpxResponse = await fetch(`${activityLog}/gpx`, {
             method: 'GET',
-            headers: headers,
+            headers: headersGPX,
           });
-      
+
           if (gpxResponse.ok) {
             const gpxData = await gpxResponse.text();
             exerciseData.gpx = gpxData;
           } else {
-            console.error(`Ошибка при получении GPX данных: ${gpxResponse.status}`);
+            console.error(
+              `Ошибка при получении GPX данных: ${gpxResponse.status}`
+            );
           }
-      
+
           return exerciseData;
         }
       });
@@ -304,10 +310,6 @@ polarRouter.post('/auth', async (req, res) => {
     console.log(error);
   }
 });
-
-const deleteCookie = (name, domain) => {
-  document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${domain}`;
-};
 
 polarRouter.delete('/delete', async (req, res) => {
   const user = await Polar.findOne({ where: { user_id: res.locals.user.id } });

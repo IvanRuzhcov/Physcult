@@ -5,7 +5,6 @@ import { Posts } from '../../PersonalPage/types/Post';
 
 
 const PostPhotos = ({ photo_post }:Posts) => {
-  console.log(photo_post)
   return (
     <div className={style.post_photos}>
       {photo_post.map((photo, index) => (

@@ -7,7 +7,6 @@ import { Subscription } from './types/Subscription';
 
 export const emailСonfirmationFetch = async (obj: RegisterData) => {
   try {
-    console.log(obj);
     const response = await fetch('/register/sendCode', {
       method: 'POST',
       headers: {
@@ -25,7 +24,6 @@ export const emailСonfirmationFetch = async (obj: RegisterData) => {
 
 export const userRegistationFetch = async (obj: Сonfirmation) => {
   try {
-    console.log(obj);
     const response = await fetch('/register/verifyCode', {
       method: 'POST',
       headers: {
@@ -83,7 +81,6 @@ export const logoutFetch = async (): Promise<void> => {
 
 
 export const updatUserPersonalDataFetch = async (obj: User): Promise<User> => {
-  console.log(obj.id);
   const response = await fetch(`/updata/${obj.id}`, {
     method: 'PUT',
     headers: { 'Content-type': 'application/json' },

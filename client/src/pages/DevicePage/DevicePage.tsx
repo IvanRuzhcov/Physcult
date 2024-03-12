@@ -14,7 +14,6 @@ function DevicePage() {
 
   const polarDev = useSelector((store: RootState) => store.device.polar);
 
-  console.log(polarDev);
 
   const deleteWithPolar = async () => {
     try {
