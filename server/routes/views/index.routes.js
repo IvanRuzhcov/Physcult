@@ -7,9 +7,11 @@ const updataRouter = require('../api/update.router')
 const imageRouter = require('../api/addImage.router')
 const initPostRouter = require('../api/initPost.router')
 const initSubscriptionRouter = require('../api/initSubscription.router')
-const polarRouter = require('../polar/synchronizationPolar.router')
+const polarRouter = require('../polar/registerPolar.router')
 const initPolarRouter = require('../polar/initPolar.router')
 const webHookRouter = require('../polar/webhook.router')
+const polarLastDataRouter = require('../polar/polarLastData.router')
+
 
 routes.use('/register', registrationRoutes);
 routes.use('/authentication', authorizationRoutes);
@@ -21,5 +23,6 @@ routes.use('/', initSubscriptionRouter);
 routes.use('/polar', polarRouter);
 routes.use('/polar', initPolarRouter);
 routes.use('/polar', webHookRouter);
+routes.use('/polar', polarLastDataRouter);
 
 module.exports = routes;

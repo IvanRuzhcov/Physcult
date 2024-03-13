@@ -3,40 +3,30 @@ import leftArrow from '../../assets/SquareAltArrowLeft.png';
 import rightArrow from '../../assets/rightArrow.png';
 
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import DeviceModal from './component/DeviceModal';
-
 
 function DevicePage() {
   const [newDev, setNewDev] = useState(false);
 
   const polarDev = useSelector((store: RootState) => store.device.polar);
 
+  useEffect(() => {
+    const withPolar = async () => {
+      try {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const response = await fetch('/polar/auth', {
+          method: 'POST',
+        });
+      } catch (error) {
+        console.error('Ошибка при синхронизации с Polar:', error);
+      }
+    };
 
-  const deleteWithPolar = async () => {
-    try {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const response = await fetch('/polar/delete', {
-        method: 'DELETE',
-      });
-    } catch (error) {
-      console.error('Ошибка при синхронизации с Polar:', error);
-    }
-  };
-
-  const withPolar = async () => {
-    try {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const response = await fetch('/polar/auth', {
-        method: 'POST',
-      });
-    } catch (error) {
-      console.error('Ошибка при синхронизации с Polar:', error);
-    }
-  };
-
+    withPolar();
+  }, []);
 
   const navigate = useNavigate();
 
@@ -84,13 +74,6 @@ function DevicePage() {
         >
           <div>Добавить устройство</div>
         </div>
-        <div
-          className={style.btn_adding_device}
-          onClick={withPolar}
-        >
-          <div>Добавить </div>
-        </div>
-       
       </div>
       <DeviceModal newDev={newDev} setNewDev={setNewDev} />
     </div>

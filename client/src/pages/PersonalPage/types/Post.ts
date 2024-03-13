@@ -18,5 +18,5 @@ export interface Posts extends UserPostTrainingData {
   photo_post: string[];
   description: string;
   UserPostTrainingData: UserPostTrainingData[];
-  createdAt?:string
+  createdAt:string
 }
