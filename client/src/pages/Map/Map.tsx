@@ -1,24 +1,43 @@
 import React, { useRef, useEffect, useState } from 'react';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl, { Map as MapboxMap } from 'mapbox-gl';
-import { Settings, Route, Bike, HeartPulse, Music4 } from 'lucide-react';
+import { Settings, Route, Bike, HeartPulse, Music4, ArrowLeft } from 'lucide-react';
 import styles from './css/Map.module.css';
+import KindOfSportModal from './modals/KindOfSportModal';
+import RouteModal from './modals/RouteModal';
+import PulseSensorModal from './modals/PulseSensorModal';
+
 
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoia29zdGEyMjIiLCJhIjoiY2xzYm8zdzBwMDRqdDJpbzFqYndreTR4dSJ9.9z2G7foqI3ENFW83Hcdj4A';
 
-export default function Map():JSX.Element { 
+export default function Map():JSX.Element {
+  const [modalKind, setModalKind] = useState(false);
+  const [modalRoute, setModalRoute] = useState(false);
+  const [modalPulse, setModalPulse] = useState(false);
+
+  const handleModalKind = () => {
+    setModalKind(!modalKind);
+  };
+  const handleModalRoute = () => {
+    setModalRoute(!modalRoute);
+  };
+  const handleModalPulse = () => {
+    setModalPulse(!modalPulse);
+  };
+  
+
     const mapContainer = useRef<HTMLDivElement>(null);
     const map = useRef<mapboxgl.Map | null>(null);
     const [lng, setLng] = useState<number>(30.25);
     const [lat, setLat] = useState<number>(59.9);
-    const [zoom, setZoom] = useState<number>(6);
+    const [zoom, setZoom] = useState<number>(12);
     
     useEffect(() => {
         if (map.current) return; 
         map.current = new mapboxgl.Map({
             container: mapContainer.current!,
-            style: 'mapbox://styles/mapbox/streets-v12',
+            style: 'mapbox://styles/mapbox/standard',
             center: [lng, lat],
             zoom: zoom
         });
@@ -34,14 +53,14 @@ export default function Map():JSX.Element {
   return (
     <div className={styles.map_field}>
       <div className={styles.header}>
-          <div className={styles.c_btn}>
-            <button className={styles.close_btn}>Закрыть</button>
+          <div className={styles.arrow_btn}>
+          <ArrowLeft color="#ff0606" size={25}/>
           </div>
           <div className={styles.k_o_s}>
             <span className={styles.kind_of_sport}>Велоспорт</span>
           </div>
           <div className={styles.settings_icon}>
-            <Settings color="#ff0606" size={23} />
+            <Settings color="#ff0606" size={25} />
           </div>
       </div>
 
@@ -49,15 +68,18 @@ export default function Map():JSX.Element {
 
        <div className={styles.footer}> 
          <div className={styles.btn_group}>
-           <span><Route size={48} /></span>
-           <span><Bike color="#ff0606" size={48} /></span>
-           <span><HeartPulse size={48} /></span>
-           <span><Music4 size={48} /></span>
+           <span onClick={handleModalRoute}><Route strokeWidth={1.5} size={48} /></span>
+           <span onClick={handleModalKind}><Bike strokeWidth={1.5} color="#ff0606" size={48} /></span>
+           <span onClick={handleModalPulse}><HeartPulse strokeWidth={1.5} size={48} /></span>
+           <span><Music4 strokeWidth={1.5} size={48} /></span>
          </div>
          <div className={styles.container_red_round_button}>
            <button className={styles.red_round_button}>СТАРТ</button>
          </div>
        </div>
+       <KindOfSportModal modalKind={modalKind} handleModalKind={handleModalKind}/>
+       <RouteModal modalRoute={modalRoute} handleModalRoute={handleModalRoute}/>
+       <PulseSensorModal modalPulse={modalPulse} handleModalPulse={handleModalPulse}/>
     </div>
   )
 }
