@@ -1,15 +1,16 @@
-export interface TrainingDatum {
+export interface TrainingDatum  {
   id:number
-  distance: number;
+  distance: number | string;
   pace: number;
   time: string;
-  calories: number;
+  calories: number | string;
+  gpx:string
 }
 
 export interface UserPostTrainingData extends TrainingDatum {
   trainer_data_id: number;
   user_post_id: number;
-  TrainingDatum: TrainingDatum;
+  TrainingDatum: TrainingDatum;  // ??
 }
 
 export interface Posts extends UserPostTrainingData {

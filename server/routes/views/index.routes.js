@@ -11,6 +11,7 @@ const polarRouter = require('../polar/registerPolar.router')
 const initPolarRouter = require('../polar/initPolar.router')
 const webHookRouter = require('../polar/webhook.router')
 const polarLastDataRouter = require('../polar/polarLastData.router')
+const publishingRouter = require('../polar/publishingAWorkout.router')
 
 
 routes.use('/register', registrationRoutes);
@@ -24,5 +25,6 @@ routes.use('/polar', polarRouter);
 routes.use('/polar', initPolarRouter);
 routes.use('/polar', webHookRouter);
 routes.use('/polar', polarLastDataRouter);
+routes.use('/polar', publishingRouter);
 
 module.exports = routes;

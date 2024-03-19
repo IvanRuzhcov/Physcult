@@ -7,7 +7,6 @@ import { Сonfirmation } from './types/Сonfirmation';
 import User from './types/User';
 import { initPolar } from '../DevicePage/DeviceSlice';
 
-
 const initialState: UserAuthState = {
   user: undefined,
   allUsers: [],
@@ -16,6 +15,7 @@ const initialState: UserAuthState = {
   subscription: [],
   authChecked: false,
 };
+
 export const emailСonfirmation = createAsyncThunk(
   'auth/emailСonfirmationFetch',
   async (data: RegisterData, { rejectWithValue }) => {
@@ -86,6 +86,7 @@ export const logoutUser = createAsyncThunk(
   'logout/logoutFetch',
   api.logoutFetch
 );
+
 
 export const updataUser = createAsyncThunk(
   'update/updatUserPersonalDataFetch',

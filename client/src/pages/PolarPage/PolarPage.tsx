@@ -1,33 +1,35 @@
 import style from './css/Polar.module.css';
 import leftArrow from '../../assets/SquareAltArrowLeft.png';
 import rightArrow from '../../assets/Settings.png';
+import physcult from '../../assets/physcylt.png'
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
 import Svg from '../Onboarding/RegistrationPage/component/Svg';
 import PolarPost from './component/PolarPost';
-import { useEffect } from 'react';
+
 
 function PolarPage() {
   const polarDev = useSelector((store: RootState) => store.device.polar);
-
   const navigate = useNavigate();
   
-  useEffect(() => {
-    const withPolar = async () => {
-      try {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const response = await fetch('/polar/auth', {
-          method: 'POST',
-        });
-      } catch (error) {
-        console.error('Ошибка при синхронизации с Polar:', error);
-      }
-    };
+console.log(polarDev)
 
-    withPolar();
-  }, []);
+  // useEffect(() => {
+  //   const withPolar = async () => {
+  //     try {
+  //       // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  //       const response = await fetch('/polar/auth', {
+  //         method: 'POST',
+  //       });
+  //     } catch (error) {
+  //       console.error('Ошибка при синхронизации с Polar:', error);
+  //     }
+  //   };
+
+  //   withPolar();
+  // }, []);
 
   return (
     <div className={style.polar_container}>
@@ -38,7 +40,9 @@ function PolarPage() {
         >
           <img src={leftArrow} alt="" />
         </div>
-        <Svg />
+        <div className={style.svg_physcult}>
+          <img src={physcult} alt="" />
+        </div>
         <div
           className={style.right_arrow}
           onClick={() => navigate('/settings/device')}
@@ -50,7 +54,7 @@ function PolarPage() {
       <div className={style.container}>
         {polarDev?.data ? (
           [...polarDev?.data].reverse().map((data: any) => (
-            <PolarPost key={data['id']} data={data} />
+            <PolarPost key={data['id']} data={data} index={data['id']} />
           ))
         ) : (
           <span className={style.polar_text}>
@@ -58,7 +62,8 @@ function PolarPage() {
             Polar
           </span>
         )}
-        <div className={style.polar_data}></div>
+        <div className={style.polar_data}>
+        </div>
       </div>
     </div>
   );
