@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useEffect } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 
 import style from '../css/Polar.module.css';
 import pictures from '../../../assets/pictures.png';
@@ -33,7 +33,6 @@ function CreatePostModal({
 
   const fileInputId = `fileInput-${postId}`;
 
-
   const handleRemoveFile = (index: number) => {
     const newFiles = [...photo_post];
     newFiles.splice(index, 1);
@@ -41,11 +40,13 @@ function CreatePostModal({
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log('File selected');
     if (e.target.files) {
       const filesArray = Array.from(e.target.files); // Преобразование объекта FileList в массив
       setPhoto_post([...photo_post, ...filesArray]); // Добавление новых файлов в состояние
     }
   };
+  console.log(photo_post)
   return (
     <>
       <div className={modal ? style.modal_activ : style.modul_deactivated}>

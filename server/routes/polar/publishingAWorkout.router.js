@@ -9,7 +9,7 @@ const fileMiddleware = require('../../middlewares/filePost');
 const {
   formatDuration,
   formatDurationTime,
-  convertDecimalTime
+  convertDecimalTime,
 } = require('../../helpers/formatDuration');
 
 publishingRouter.post(
@@ -42,9 +42,7 @@ publishingRouter.post(
 
       const minuts = formatDuration(data[0]['duration']);
       const dtn = data[0].distance / 1000;
-      const pace = (minuts / dtn).toFixed(2);
-
-
+      const pace = convertDecimalTime((minuts / dtn).toFixed(2));
 
       const distance = `${(data[0].distance / 1000).toFixed(2)}`.replace(
         '.',

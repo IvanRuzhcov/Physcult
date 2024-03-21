@@ -267,7 +267,7 @@
 .media_block_text {
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content:flex-end;
 }
 .media_block_text span {
   margin-left: 8px;
