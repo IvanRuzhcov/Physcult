@@ -24,7 +24,7 @@ function PersonalDataSettings() {
   const [email, setEmail] = useState<string>(user?.email || '');
   const [date_of_birth, setDate] = useState<string>(user?.date_of_birth || '');
   const [selectedFile, setSelectedFile] = useState(null);
-
+  console.log(selectedFile)
   useEffect(() => {
     if (user) {
       setSurName(user.surname || '');
@@ -39,6 +39,7 @@ function PersonalDataSettings() {
   // ипортируем изменения юзера
   const handleСhanges = async () => {
     try {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const action = await dispatch(
         updataUser({
           id: user?.id,
@@ -61,6 +62,7 @@ function PersonalDataSettings() {
 
       formData.append('avatar', selectedFile);
       // Фактический запрос к серверу
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const response = await axios.post('/api/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',

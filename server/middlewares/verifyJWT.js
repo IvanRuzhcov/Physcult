@@ -9,7 +9,6 @@ function verifyRefreshToken(req, res, next) {
 
     const { payload:{user} } = jwt.verify(refresh, process.env.SIGNATURE_REFRESH);
 
-    // console.log('verifyRefreshToken - user:', user);
 
     const { accessToken, refreshToken } = generateTokens({
       user: { id: user.id, email: user.email, nick: user.nick },
@@ -29,7 +28,7 @@ function verifyRefreshToken(req, res, next) {
 
     next();
   } catch (error) {
-    // console.log(error);
+    console.log(error);
     res.clearCookie(configJWT.access.type).clearCookie(configJWT.refresh.type);
     next();
   }

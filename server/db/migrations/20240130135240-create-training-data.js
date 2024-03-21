@@ -25,6 +25,9 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
+      gpx:{
+        type: Sequelize.TEXT,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

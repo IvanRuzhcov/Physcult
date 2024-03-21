@@ -30,8 +30,8 @@ module.exports = {
       {
         user_id_post: 5,
         photo_post: [
-          'postImg/photo_post_gerbulova_1.jpeg',
-          'postImg/map_malyshko.jpg',
+          '/postImg/photo_post_gerbulova_1.jpeg',
+          '/postImg/map_malyshko.jpg',
         ],
         description:
           'В зоне комфорта нет роста. Сегодня – тренировка: стрельба, бег, и вечная гонка за совершенством. ',
@@ -39,8 +39,8 @@ module.exports = {
       {
         user_id_post: 5,
         photo_post: [
-          'postImg/photo_post_gerbulova_2.jpeg',
-          'postImg/map_malyshko.jpg',
+          '/postImg/photo_post_gerbulova_2.jpeg',
+          '/postImg/map_malyshko.jpg',
         ],
         description:
           'Тренировки не знают погодных ограничений – даже без снега продолжаю покорять свои пределы!',

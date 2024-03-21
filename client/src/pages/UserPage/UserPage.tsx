@@ -3,11 +3,10 @@ import style from './css/UserPage.module.css';
 import Post from '../NewsFeed/components/Post';
 import AwardsContainer from '../PersonalPage/components/AwardsContainer';
 import PerformanceSection from '../PersonalPage/components/PerformanceSection';
-import letter from '../../assets/Letter.png';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import UserProfile from './components/UserProfile';
-import {useNavigate, useParams } from 'react-router-dom';
+import {useParams } from 'react-router-dom';
 import UserProfileNavbar from './components/UserProfileNavbar';
 
 function UserPage() {
@@ -17,11 +16,9 @@ function UserPage() {
   const posts = useSelector((store: RootState) => store.auth.allPosts);
 
   const post = posts.filter((el) => el.user_id_post === Number(id));
-  console.log('post',post)
  
   const [modal, setModal] = useState(false);
 
-  const navigate = useNavigate();
 
   const handleModal = () => {
     setModal(!modal);

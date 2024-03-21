@@ -2,7 +2,6 @@ const updataRouter = require('express').Router();
 const { User } = require('../../db/models');
 
 updataRouter.put('/:id', async (req, res) => {
-    console.log('req')
   try {
     const { id } = req.params;
     const { name, surname, nick, gender, telephone, email, date_of_birth } =

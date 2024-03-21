@@ -24,6 +24,8 @@ import {
   verification,
 } from '../PersonalPage/userAuthSlice';
 import UserPage from '../UserPage/UserPage';
+import { initPolar } from '../DevicePage/DeviceSlice';
+import PolarPage from '../PolarPage/PolarPage';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -34,6 +36,7 @@ function App() {
     dispatch(initPost());
     dispatch(initSubscription());
     dispatch(initUsers());
+    dispatch(initPolar());
   }, [dispatch]);
 
   return (
@@ -47,10 +50,11 @@ function App() {
         <Route path="/friend" element={<FriendsPage />} />
         <Route path="/news" element={<NewsFeed />} />
         <Route path="/profile" element={<PersonalPage />} />
-        <Route path="/:id" element={<UserPage />} />
+        <Route path="profile/:id" element={<UserPage />} />
         <Route path="/settings" element={<UserProfileSettings />} />
         <Route path="/settings/personal" element={<PersonalDataSettings />} />
         <Route path="/settings/device" element={<DevicePage />} />
+        <Route path="/settings/device/polar/:id" element={<PolarPage />} />
         <Route path="/settings/interface" element={<InterfacePage />} />
         <Route path="/settings/app information" element={<AppInfoPage />} />
         <Route path="/map" element={<Map />} />

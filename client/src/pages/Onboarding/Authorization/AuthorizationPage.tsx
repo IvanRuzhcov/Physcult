@@ -6,6 +6,9 @@ import HeadlinePhyscult from './components/HeadlinePhyscult';
 import { useAppDispatch } from '../../../store';
 import { login } from '../../PersonalPage/userAuthSlice';
 
+
+
+
 export default function AuthorizationPage(): JSX.Element {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

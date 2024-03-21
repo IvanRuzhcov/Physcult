@@ -1,7 +1,6 @@
 const initPostRouter = require('express').Router();
 const {
   Post,
-  User,
   UserPostTrainingData,
   TrainingData,
 } = require('../../db/models');
@@ -13,6 +12,7 @@ initPostRouter.get('/user/posts', async (req, res) => {
         {
           model: UserPostTrainingData,
           include: [{ model: TrainingData }],
+
         },
       ],
       where: {
@@ -34,7 +34,7 @@ initPostRouter.get('/posts', async (req, res) => {
           include: [{ model: TrainingData }],
         },
       ],
-      order: [['createdAt', 'DESC']], // Используйте правильный синтаксис для order
+      order: [['createdAt', 'DESC']],
     });
     res.json(posts);
   } catch (error) {

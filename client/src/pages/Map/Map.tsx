@@ -9,11 +9,14 @@ import NavBar from '../Navbar/NavBar';
 mapboxgl.accessToken = 'pk.eyJ1Ijoia29zdGEyMjIiLCJhIjoiY2xzYm8zdzBwMDRqdDJpbzFqYndreTR4dSJ9.9z2G7foqI3ENFW83Hcdj4A';
 
 export default function Map():JSX.Element { 
+
     const mapContainer = useRef<HTMLDivElement>(null);
     const map = useRef<mapboxgl.Map | null>(null);
+    
     const [lng, setLng] = useState<number>(30.25);
     const [lat, setLat] = useState<number>(59.9);
     const [zoom, setZoom] = useState<number>(6);
+
     
     useEffect(() => {
         if (map.current) return; 

@@ -3,35 +3,26 @@ import style from '../css/NewsFeed.module.css';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../store';
 import { Posts } from '../../PersonalPage/types/Post';
-import noPhoto from '../../../assets/no_avatar.png'
+import noPhoto from '../../../assets/no_avatar.png';
 import { useNavigate } from 'react-router-dom';
+import { createdAtData } from '../../../helpers/format'
 
-function PostHeader({createdAt,user_id_post }:Posts) {
-  const navigate = useNavigate()
-  const users = useSelector((store:RootState)=> store.auth.allUsers)
-let formattedDate = ''
+function PostHeader({ createdAt, user_id_post }: Posts) {
+  const navigate = useNavigate();
+  const users = useSelector((store: RootState) => store.auth.allUsers);
 
-  const regex = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})\.(\d{3})Z$/;
-const match = createdAt!.match(regex);
-if (match) {
-  const year = match[1];
-  const month = match[2];
-  const day = match[3];
-  const hours = match[4];
-  const minutes = match[5];
+  const postUser = users.find((u) => u.id === user_id_post);
 
-  // Собираем отформатированную строку
-  formattedDate = `${day}.${month}.${year} • ${hours}:${minutes}`;
-}
-
-const postUser = users.find((u) => u.id === user_id_post);
+  const hendlePost = () => {
+    navigate(`/profile/${user_id_post}`);
+  };
 
   return (
-    <div className={style.post_header} onClick={()=> navigate(`/${user_id_post}`)}>
-      <img src={postUser?.avatar_img || noPhoto } alt="" />
+    <div className={style.post_header} onClick={hendlePost}>
+      <img src={postUser?.avatar_img || noPhoto} alt="" />
       <div className={style.post_name}>
         <span>{`${postUser?.name} ${postUser?.surname}`}</span>
-        <div>{formattedDate}</div>
+        <div>{createdAtData(createdAt)}</div>
       </div>
     </div>
   );

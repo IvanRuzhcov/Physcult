@@ -3,6 +3,7 @@ const { Subscription, User } = require('../../db/models');
 
 initSubscription.get('/subscription', async (req, res) => {
   try {
+   
     const subscription = await Subscription.findAll({
       where: { user_id: res.locals.user.id },
     });
@@ -11,6 +12,8 @@ initSubscription.get('/subscription', async (req, res) => {
     console.error(error);
   }
 });
+
+
 initSubscription.get('/users', async (req, res) => {
   const users = await User.findAll();
   res.json(users);

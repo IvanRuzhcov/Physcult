@@ -5,6 +5,7 @@ import { RegisterData } from './types/RegisterData';
 import UserAuthState from './types/UserAuthState';
 import { Сonfirmation } from './types/Сonfirmation';
 import User from './types/User';
+import { initPolar } from '../DevicePage/DeviceSlice';
 
 const initialState: UserAuthState = {
   user: undefined,
@@ -14,6 +15,7 @@ const initialState: UserAuthState = {
   subscription: [],
   authChecked: false,
 };
+
 export const emailСonfirmation = createAsyncThunk(
   'auth/emailСonfirmationFetch',
   async (data: RegisterData, { rejectWithValue }) => {
@@ -46,7 +48,7 @@ export const userRegistation = createAsyncThunk(
   'auth/userRegistation',
   async (data: Сonfirmation) => {
     const userData = await api.userRegistationFetch(data);
-   
+
     return userData;
   }
 );
@@ -66,10 +68,11 @@ export const login = createAsyncThunk(
         dispatch(initPost()),
         dispatch(initSubscription()),
         dispatch(initUsers()),
+        dispatch(initPolar()),
+
         // Другие асинхронные операции, которые вам нужны
       ]);
     }
-
     return response;
   }
 );
@@ -83,6 +86,7 @@ export const logoutUser = createAsyncThunk(
   'logout/logoutFetch',
   api.logoutFetch
 );
+
 
 export const updataUser = createAsyncThunk(
   'update/updatUserPersonalDataFetch',
@@ -134,7 +138,6 @@ const authSlice = createSlice({
       })
       .addCase(verification.fulfilled, (state, action) => {
         state.authChecked = true;
-        console.log(action);
         state.user = action.payload.isLoggedIn
           ? action.payload.user
           : undefined;
