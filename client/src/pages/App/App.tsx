@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import NewsFeed from '../NewsFeed/NewsFeed';
 import OnboardingPage from '../Onboarding/OnbordingPage/OnboardingPage';
@@ -15,9 +15,10 @@ import InterfacePage from '../InterfacePage/InterfacePage';
 import AppInfoPage from '../AppInfoPage/AboutAppPage';
 import Map from '../Map/Map';
 import Messenger from '../Messenger/Messenger';
-import { useAppDispatch } from '../../store';
+import { RootState, useAppDispatch } from '../../store';
 import {
   initPost,
+  initSubscribers,
   initSubscription,
   initUserPost,
   initUsers,
@@ -26,18 +27,24 @@ import {
 import UserPage from '../UserPage/UserPage';
 import { initPolar } from '../DevicePage/DeviceSlice';
 import PolarPage from '../PolarPage/PolarPage';
+import { useSelector } from 'react-redux';
 
 function App() {
+  const user = useSelector((store: RootState) => store.auth.user);
   const dispatch = useAppDispatch();
+
+
+  
 
   useEffect(() => {
     dispatch(verification());
     dispatch(initUserPost());
     dispatch(initPost());
-    dispatch(initSubscription());
     dispatch(initUsers());
     dispatch(initPolar());
-  }, [dispatch]);
+    dispatch(initSubscription(Number(user?.id)));
+    dispatch(initSubscribers(Number(user?.id)));
+  }, [dispatch, user?.id]);
 
   return (
     <>

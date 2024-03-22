@@ -98,15 +98,20 @@ export const initPostFeth = async (): Promise<Posts[]> => {
   console.log(data)
   return data;
 };
-export const initSubscriptionFeth = async (): Promise<Subscription[]> => {
-  const response = await fetch('/subscription');
-  const data = await response.json();
-  return data;
-};
+
 export const initUsersFeth = async (): Promise<User[]> => {
   const response = await fetch('/users');
   const data = await response.json();
   return data;
 };
 
-
+export const initSubscriptionFetch = async (obj:number) => {
+  const response = await fetch(`/subscription/${obj}`);
+  const data = await response.json();
+  return data;
+};
+export const initSubscribersFetch = async (obj:number) => {
+  const response = await fetch(`/subscribers/${obj}`);
+  const data = await response.json();
+  return data;
+};

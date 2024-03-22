@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
     {
       user_id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
         references: {
           model: 'Users',
           key: 'id',
@@ -21,7 +20,6 @@ module.exports = (sequelize, DataTypes) => {
       },
       post_id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
         references: {
           model: 'Posts',
           key: 'id',

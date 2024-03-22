@@ -8,5 +8,6 @@ export default interface UserAuthState {
   post: Posts[];
   allPosts:Posts[]
   subscription: Subscription[];
+  subscribers: Subscription[];
   authChecked: boolean;
 }

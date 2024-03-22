@@ -7,12 +7,13 @@ import { Сonfirmation } from './types/Сonfirmation';
 import User from './types/User';
 import { initPolar } from '../DevicePage/DeviceSlice';
 
-const initialState: UserAuthState = {
+ export const initialState: UserAuthState = {
   user: undefined,
   allUsers: [],
   post: [],
   allPosts: [],
   subscription: [],
+  subscribers: [],
   authChecked: false,
 };
 
@@ -66,7 +67,6 @@ export const login = createAsyncThunk(
       await Promise.all([
         dispatch(initUserPost()),
         dispatch(initPost()),
-        dispatch(initSubscription()),
         dispatch(initUsers()),
         dispatch(initPolar()),
 
@@ -102,7 +102,11 @@ export const initUserPost = createAsyncThunk(
 );
 export const initSubscription = createAsyncThunk(
   'initSubscription/initSubscriptionFeth',
-  () => api.initSubscriptionFeth()
+ async (id:number) => await api.initSubscriptionFetch(id)
+);
+export const initSubscribers = createAsyncThunk(
+  'initSubscribers/initSubscribersFetch', 
+  async (id:number) => await api.initSubscribersFetch(id)
 );
 export const initUsers = createAsyncThunk('user/initUsersFeth', () =>
   api.initUsersFeth()
@@ -186,6 +190,13 @@ const authSlice = createSlice({
         state.subscription = action.payload;
       })
       .addCase(initSubscription.rejected, (state, action) => {
+        // Обработка ошибки в случае отклонения инициализации подписок
+        console.error('Init subscriptions failed:', action.payload);
+      })
+      .addCase(initSubscribers.fulfilled, (state, action) => {
+        state.subscribers = action.payload;
+      })
+      .addCase(initSubscribers.rejected, (state, action) => {
         // Обработка ошибки в случае отклонения инициализации подписок
         console.error('Init subscriptions failed:', action.payload);
       })

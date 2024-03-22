@@ -1,13 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 import authSlice from './pages/PersonalPage/userAuthSlice';
-import deviceSlice from './pages/DevicePage/DeviceSlice'
+import deviceSlice from './pages/DevicePage/DeviceSlice';
+import userPageSlice from './pages/UserPage/UserPageSlice'
 
 export const store = configureStore({
   reducer: {
     auth: authSlice,
-    device: deviceSlice
-
+    device: deviceSlice,
+    userData: userPageSlice
     // Другие редьюсеры, если они у вас есть
   },
 });

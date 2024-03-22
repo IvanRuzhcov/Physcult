@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
-import Svg from '../Onboarding/RegistrationPage/component/Svg';
 import PolarPost from './component/PolarPost';
 
 

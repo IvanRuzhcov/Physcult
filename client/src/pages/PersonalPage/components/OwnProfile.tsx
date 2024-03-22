@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useEffect, useState } from 'react';
 import CalendarMinimalistic from '../../../assets/CalendarMinimalistic.png';
 import NotificationAlert from '../../../assets/NotificationAlert.png';
 import no_photo from '../../../assets/no_avatar.png';
@@ -10,10 +10,11 @@ import { RootState } from '../../../store';
 
 function OwnProfile() {
   const user = useSelector((store: RootState) => store.auth.user);
-  const subscribers = useSelector(
-    (store: RootState) => store.auth.subscription
-  );
+  const subscription = useSelector((store: RootState) => store.auth.subscription);
+  const subscribers = useSelector((store: RootState) => store.auth.subscribers);
+  
 
+ 
   const naviget = useNavigate();
 
   const hendleRedirectToSettings = () => {
@@ -56,7 +57,7 @@ function OwnProfile() {
           <div className={style.community_box}>
             <div className={style.community}>
               <div className={`${style.statistics}`}>
-                <div>{subscribers.length}</div>
+                <div>{subscription.length}</div>
                 <span>подписок</span>
               </div>
               <div className={`${style.statistics}`}>
