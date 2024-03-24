@@ -13,15 +13,13 @@ export default function RouteModal({ modalRoute, handleModalRoute }: ModalRouteP
       <div className={styles.overlay_r} onClick={handleModalRoute}>
         <div className={styles.modal_content_r}>
         <div className={styles.header_r}>
-            <span>Маршруты</span>
-            <span><CircleX size={28} /></span>
+            <span className={styles.header_name}>Маршруты</span>
+            <span><CircleX  size={28} /></span>
           </div>
           <div className={styles.divider}></div>
           <div className={styles.title}>
-            <span>Создавайте свои маршруты</span>
-          </div>
-          <div className={styles.information_text}>
-            <p>Для внесения изменений о маршруте или составления нового маршрута, пожалуйста, посетите наш веб-сайт</p>
+            <span className={styles.title_name}>Создавайте свои маршруты</span>
+            <span className={styles.information}>Для внесения изменений о маршруте или составления нового маршрута, пожалуйста, посетите наш веб-сайт.</span>
           </div>
         </div>
       </div>

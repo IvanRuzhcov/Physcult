@@ -1,3 +1,133 @@
+.modal {
+  display: none;
+}
+
+.modal_activ {
+  display: block;
+  z-index: 9999;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateX(100%);
+  }
+  50% {
+    transform: translateX(-8%);
+  }
+  65% {
+    transform: translateX(4%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(0.5px);
+  opacity: 1;
+  transform: translateX(0);
+} 
+
+.modal_content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; 
+  padding: 18px; 
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+  background-color: white;
+  overflow: hidden;
+  transform: translateX(0);
+  animation: slideUp 1.5s ease;
+}
+
+.time_block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.speed_block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.distance_block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+font-size: 14px;
+font-weight: 400;
+}
+
+.time_content {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 95px;
+  font-weight: 400;
+  line-height: 129px;
+  font-style: normal;
+}
+
+.speed_content {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 170px;
+  font-weight: 400;
+  line-height: 212px;
+  font-style: normal;
+}
+
+.distance_content {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 110px;
+  font-weight: 400;
+  line-height: 150px;
+  font-style: normal;
+}
+
+.footer {
+    width: 100%;
+    padding-top: 20px;
+}
+
+.btn_group {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  padding: 5px 50px  5px 50px;
+}
+
+.stop_button {
+  background-color: #ff0606; 
+  color: white; 
+  border: none; 
+  border-radius: 50%; 
+  width: 100px; 
+  height: 100px; 
+  font-size: 20px;
+  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27); 
+  cursor: pointer;
+}
+
 .divider {
     border-top: 1px solid #ccc;
     margin: 10px 0;

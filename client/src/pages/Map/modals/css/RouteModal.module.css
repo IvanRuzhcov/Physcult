@@ -4,6 +4,7 @@
   
 .modal_activ {
     display: block;
+    z-index: 999;
   }
 
   @keyframes slideUp {
@@ -38,7 +39,6 @@
     bottom: 0;
     right: 0;
     left: 0;
-    height: 400px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-color: white;
@@ -46,12 +46,36 @@
     opacity: 1;
     transform: translateY(0);
     animation: slideUp 1.5s ease;
+    padding: 15px;
   }
 
 .header_r {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 20px 10px 20px;
+}
+
+.header_name {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 22px;
+}
+
+.title_name {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.information {
+  font-size: 18px;
+  font-weight: 300;
 }
 
 .divider {

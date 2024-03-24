@@ -14,12 +14,25 @@ export default function PulseSensorModal({ modalPulse, handleModalPulse }: Modal
       <div className={styles.overlay} onClick={handleModalPulse}>
         <div className={styles.modal_content}>
             <div className={styles.header}>
-                <span>Датчик пульса</span>
+                <span className={styles.header_name}>Датчик пульса</span>
                 <span><CircleCheck size={28} /></span>
             </div>
             <div className={styles.divider}></div>
             <div className={styles.title}>
                 <span>Доступные датчики</span>
+                <div className={styles.spinner_block}></div>
+                <div className={styles.spinner}>
+                    <div></div>   
+                    <div></div>    
+                    <div></div>    
+                    <div></div>    
+                    <div></div>    
+                    <div></div>    
+                    <div></div>    
+                    <div></div>    
+                    <div></div>    
+                    <div></div>
+                </div>
             </div>
             <div className={styles.information_text}>
                 <p>Выберите датчик для сопряжения с телефоном.</p>
