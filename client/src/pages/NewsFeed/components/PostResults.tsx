@@ -1,15 +1,14 @@
 import React, { memo } from 'react';
 import style from '../css/NewsFeed.module.css';
-import goldMedal from '../../../assets/goldMedal.png';
-import silverMedal from '../../../assets/silverMedal.png';
-import bronzeMedal from '../../../assets/bronzeMedal.png';
+// import goldMedal from '../../../assets/goldMedal.png';
+// import silverMedal from '../../../assets/silverMedal.png';
+// import bronzeMedal from '../../../assets/bronzeMedal.png';
 import { Posts } from '../../PersonalPage/types/Post';
 
 function PostResults({ UserPostTrainingData }: Posts) {
   
   const data = UserPostTrainingData[0].TrainingDatum;
   
-console.log(data)
 
   return (
     <div className={style.post_result}>

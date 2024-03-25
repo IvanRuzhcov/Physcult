@@ -31,7 +31,7 @@ function UserProfile({
     ])
       .then(() => setLoading(false))
       .catch((error) => console.error('Error fetching subscription:', error));
-  }, [dispatch, id]);
+  }, [id]);
 
   const users = useSelector((store: RootState) => store.auth.allUsers); // Все юзеры
 

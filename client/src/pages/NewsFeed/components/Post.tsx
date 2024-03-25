@@ -8,13 +8,14 @@ import style from '../css/NewsFeed.module.css';
 import { Posts } from '../../PersonalPage/types/Post';
 
 function Post({ el }: { el: Posts }) {
+  console.log(el)
   return (
     <div className={style.posts}>
       <PostHeader {...el} />
       <PostResults {...el} />
       <PostPhotos {...el} />
       <PostDescription {...el} />
-      <PostFeedback />
+      <PostFeedback {...el}/>
     </div>
   );
 }

@@ -9,12 +9,15 @@ import { createdAtData } from '../../../helpers/format'
 
 function PostHeader({ createdAt, user_id_post }: Posts) {
   const navigate = useNavigate();
+
   const users = useSelector((store: RootState) => store.auth.allUsers);
+  const user = useSelector((store: RootState) => store.auth.user?.id);
 
   const postUser = users.find((u) => u.id === user_id_post);
-
   const hendlePost = () => {
-    navigate(`/profile/${user_id_post}`);
+    if(user_id_post !== user ){
+      navigate(`/profile/${user_id_post}`);
+    }
   };
 
   return (

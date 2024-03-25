@@ -95,7 +95,6 @@ export const initUserPostFeth = async (): Promise<Posts[]> => {
 export const initPostFeth = async (): Promise<Posts[]> => {
   const response = await fetch('/posts');
   const data = await response.json();
-  console.log(data)
   return data;
 };
 

@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from 'react';
+import React,{ memo } from 'react';
 import CalendarMinimalistic from '../../../assets/CalendarMinimalistic.png';
 import NotificationAlert from '../../../assets/NotificationAlert.png';
 import no_photo from '../../../assets/no_avatar.png';

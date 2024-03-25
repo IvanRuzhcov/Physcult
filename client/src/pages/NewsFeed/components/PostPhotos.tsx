@@ -5,7 +5,6 @@ import TrackMap from '../../PolarPage/component/TrackMap';
 
 const PostPhotos = ({ photo_post, UserPostTrainingData }: Posts) => {
   const data = UserPostTrainingData[0].TrainingDatum;
-  console.log()
 
   return (
     <div className={style.post_photos}>
