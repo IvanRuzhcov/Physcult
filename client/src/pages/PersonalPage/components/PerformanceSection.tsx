@@ -5,6 +5,7 @@ import dumbbells from '../../../assets/icons/Dumbbells.png';
 import style from '../css/PersonalPage.module.css'
 
 function PerformanceSection() {
+  
     return (
         <>
         <div className={style.performance_section}>

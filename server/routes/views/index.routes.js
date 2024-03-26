@@ -12,6 +12,8 @@ const initPolarRouter = require('../polar/initPolar.router')
 const webHookRouter = require('../polar/webhook.router')
 const polarLastDataRouter = require('../polar/polarLastData.router')
 const publishingRouter = require('../polar/publishingAWorkout.router')
+const likeRouter = require('../api/like.router')
+const commentsRouter = require('../api/comments.router')
 
 
 routes.use('/register', registrationRoutes);
@@ -21,6 +23,8 @@ routes.use('/updata', updataRouter);
 routes.use('/api', imageRouter);
 routes.use('/', initPostRouter);
 routes.use('/', initSubscriptionRouter);
+routes.use('/', likeRouter);
+routes.use('/comment', commentsRouter);
 routes.use('/polar', polarRouter);
 routes.use('/polar', initPolarRouter);
 routes.use('/polar', webHookRouter);

@@ -46,7 +46,6 @@ function CreatePostModal({
       setPhoto_post([...photo_post, ...filesArray]); // Добавление новых файлов в состояние
     }
   };
-  console.log(photo_post)
   return (
     <>
       <div className={modal ? style.modal_activ : style.modul_deactivated}>

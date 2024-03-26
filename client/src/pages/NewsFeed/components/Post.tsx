@@ -14,7 +14,7 @@ function Post({ el }: { el: Posts }) {
       <PostResults {...el} />
       <PostPhotos {...el} />
       <PostDescription {...el} />
-      <PostFeedback />
+      <PostFeedback {...el}/>
     </div>
   );
 }
