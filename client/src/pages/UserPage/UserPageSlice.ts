@@ -3,9 +3,11 @@ import * as api from './api';
 import { UserPageState } from './types/UserPageState';
 import { Subscription } from '../PersonalPage/types/Subscription';
 import { Like } from './types/Like';
+import { Comment } from './types/Comment';
 
 const initialState: UserPageState = {
   like: [],
+  comment: [],
   subscription: [],
   subscribers: [],
 };
@@ -37,6 +39,21 @@ export const likeUser = createAsyncThunk(
 export const removeLike = createAsyncThunk(
   'like/removeLikeFetch',
   async (action: Like) => api.removeLikeFetch(action)
+);
+export const initComment = createAsyncThunk('comment/initCommentFetch', () =>
+  api.initCommentFetch()
+);
+export const addComment = createAsyncThunk(
+  'comment/addCommentFetch',
+  async (comment: Comment) => {
+    api.addCommentFetch(comment);
+  }
+);
+export const removeComment = createAsyncThunk(
+  'comment/removeCommentFetch',
+  async (comment: Comment) => {
+    api.removeCommentFetch(comment);
+  }
 );
 
 const userPageSlice = createSlice({
@@ -72,14 +89,18 @@ const userPageSlice = createSlice({
         console.error('Like confirmation failed:', action.payload);
       })
       .addCase(removeLike.fulfilled, (state, action) => {
-        console.log(action.meta.arg);
         state.like = state.like.filter(
           (el) => el.user_id !== action.meta.arg.user_id
         );
       })
-
       .addCase(likeUser.fulfilled, (state, action) => {
         state.like.push(action.meta.arg);
+      })
+      .addCase(initComment.fulfilled, (state, action) => {
+        state.comment = action.payload;
+      })
+      .addCase(addComment.fulfilled, (state, action) => {
+        state.comment.push(action.meta.arg);
       });
   },
 });

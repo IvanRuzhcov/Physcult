@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from 'react';
+import React, { memo, useState } from 'react';
 import style from '../css/NewsFeed.module.css';
 import likee from '../../../assets/like.png';
 import like_activ from '../../../assets/like_activ.png';
@@ -6,7 +6,7 @@ import coments from '../../../assets/comments.png';
 import back from '../../../assets/back.png';
 import { Posts } from '../../PersonalPage/types/Post';
 import { RootState, useAppDispatch } from '../../../store';
-import { initLike, likeUser, removeLike } from '../../UserPage/UserPageSlice';
+import { likeUser, removeLike } from '../../UserPage/UserPageSlice';
 import { useSelector } from 'react-redux';
 
 const PostFeedback = ({ id }: Posts) => {
@@ -20,8 +20,6 @@ const PostFeedback = ({ id }: Posts) => {
 
   const likePost = likes.filter((el) => el.post_id === id);
   const userLick = likePost.some((el) => el.user_id === userId);
-console.log(userLick)
-console.log(userId)
 
   const handleLike = async () => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars

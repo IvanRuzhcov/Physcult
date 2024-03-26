@@ -28,7 +28,7 @@ import UserPage from '../UserPage/UserPage';
 import { initPolar } from '../DevicePage/DeviceSlice';
 import PolarPage from '../PolarPage/PolarPage';
 import { useSelector } from 'react-redux';
-import { initLike } from '../UserPage/UserPageSlice';
+import { initComment, initLike } from '../UserPage/UserPageSlice';
 
 function App() {
   const user = useSelector((store: RootState) => store.auth.user);
@@ -46,6 +46,7 @@ function App() {
     dispatch(initSubscription(Number(user?.id)));
     dispatch(initSubscribers(Number(user?.id)));
     dispatch(initLike())
+    dispatch(initComment())
   }, [dispatch, user?.id]);
 
   return (

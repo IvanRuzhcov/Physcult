@@ -1,5 +1,5 @@
-import { LineAndCharacter } from 'typescript';
 import { Subscription } from '../PersonalPage/types/Subscription';
+import { Comment } from './types/Comment';
 import { Like } from './types/Like';
 
 export const initSubscriptionFetch = async (obj: number) => {
@@ -63,6 +63,34 @@ export const removeLikeFetch = async (obj: Like) => {
     },
     body: JSON.stringify(obj),
   });
-  const data = await response.json()
-  return data
+  const data = await response.json();
+  return data;
+};
+
+export const initCommentFetch = async () => {
+  const response = await fetch('/comment/init');
+  const data = await response.json();
+  return data;
+};
+
+export const addCommentFetch = async (obj: Comment) => {
+  const response = await fetch('/comment/add', {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify(obj),
+  });
+  const data = await response.json();
+  return data;
+};
+export const removeCommentFetch = async (obj: Comment) => {
+  const response = await fetch('/comment/remove', {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify(obj),
+  });
+  return response.json()
 };

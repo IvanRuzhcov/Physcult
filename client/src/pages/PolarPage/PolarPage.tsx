@@ -13,7 +13,6 @@ function PolarPage() {
   const polarDev = useSelector((store: RootState) => store.device.polar);
   const navigate = useNavigate();
   
-console.log(polarDev)
 
   // useEffect(() => {
   //   const withPolar = async () => {

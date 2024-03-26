@@ -3,7 +3,6 @@ const { Like, Post } = require('../../db/models');
 
 likeRouter.get('/init/like', async (req, res) => {
   try {
-    const id = req.params.id;
 
     const like = await Like.findAll({});
 

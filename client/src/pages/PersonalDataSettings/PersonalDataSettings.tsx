@@ -24,7 +24,6 @@ function PersonalDataSettings() {
   const [email, setEmail] = useState<string>(user?.email || '');
   const [date_of_birth, setDate] = useState<string>(user?.date_of_birth || '');
   const [selectedFile, setSelectedFile] = useState(null);
-  console.log(selectedFile)
   useEffect(() => {
     if (user) {
       setSurName(user.surname || '');
