@@ -16,11 +16,12 @@ initSubscription.get('/subscription/:id', async (req, res) => {
 initSubscription.get('/subscribers/:id', async (req, res) => {
   try {
     const id = req.params.id;
-
-    const subscription = await Subscription.findAll({
-      where: { subscribe_id: id },
-    });
-    res.json(subscription);
+    if (id) {
+      const subscription = await Subscription.findAll({
+        where: { subscribe_id: id },
+      });
+      res.json(subscription);
+    }
   } catch (error) {
     console.error(error);
   }
@@ -31,18 +32,24 @@ initSubscription.post('/unsubscribe', async (req, res) => {
     const { subscribe_id } = req.body;
 
     const existingSubscription = await Subscription.findOne({
-      where: { user_id: res.locals.user.id , subscribe_id: subscribe_id }
+      where: { user_id: res.locals.user.id, subscribe_id: subscribe_id },
     });
     if (!existingSubscription) {
-      return res.status(400).json({ message: 'Вы не подписаны на этого пользователя' });
+      return res
+        .status(400)
+        .json({ message: 'Вы не подписаны на этого пользователя' });
     }
 
     await existingSubscription.destroy();
 
-    res.status(200).json({ message: 'Вы успешно отписались от этого пользователя' });
+    res
+      .status(200)
+      .json({ message: 'Вы успешно отписались от этого пользователя' });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Что-то пошло не так. Пожалуйста, попробуйте еще раз' });
+    res
+      .status(500)
+      .json({ message: 'Что-то пошло не так. Пожалуйста, попробуйте еще раз' });
   }
 });
 
@@ -52,21 +59,32 @@ initSubscription.post('/subscribe', async (req, res) => {
 
     // Проверяем, есть ли уже подписка на указанного пользователя
     const existingSubscription = await Subscription.findOne({
-      where: { user_id: res.locals.user.id , subscribe_id: subscribe_id }
+      where: { user_id: res.locals.user.id, subscribe_id: subscribe_id },
     });
 
     if (existingSubscription) {
-      return res.status(400).json({ message: 'Вы уже подписаны на этого пользователя' });
+      return res
+        .status(400)
+        .json({ message: 'Вы уже подписаны на этого пользователя' });
     }
 
     // Создаем новую запись подписки
-    await Subscription.create({ user_id: res.locals.user.id, subscribe_id: subscribe_id });
+    await Subscription.create({
+      user_id: res.locals.user.id,
+      subscribe_id: subscribe_id,
+    });
 
-
-     res.status(201).json({ message: 'Вы успешно подписались на этого пользователя', subscription: existingSubscription });
+    res
+      .status(201)
+      .json({
+        message: 'Вы успешно подписались на этого пользователя',
+        subscription: existingSubscription,
+      });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Что-то пошло не так. Пожалуйста, попробуйте еще раз' });
+    res
+      .status(500)
+      .json({ message: 'Что-то пошло не так. Пожалуйста, попробуйте еще раз' });
   }
 });
 

@@ -2,7 +2,8 @@
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
-    static associate({ Post, Comment, Like, Subscription,Polar }) {
+    static associate({ Post, Comment, Like, Subscription, Polar,ChatMessage}) {
+      
       this.hasMany(Post, { foreignKey: 'user_id_post' });
       this.hasMany(Comment, { foreignKey: 'user_id' });
       this.hasMany(Like, { foreignKey: 'user_id' });
@@ -21,6 +22,8 @@ module.exports = (sequelize, DataTypes) => {
         otherKey: 'user_id',
         as: 'subscription',
       });
+      this.hasMany(ChatMessage, { foreignKey: 'sender_id' });
+      this.hasMany(ChatMessage, { foreignKey: 'recipient_id' });
     }
   }
   User.init(
@@ -35,7 +38,7 @@ module.exports = (sequelize, DataTypes) => {
       name: {
         type: DataTypes.TEXT,
       },
-      surname:{
+      surname: {
         type: DataTypes.TEXT,
       },
       nick: {
