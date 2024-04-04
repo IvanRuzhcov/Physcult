@@ -3,40 +3,43 @@ import style from './css/ChatPage.module.css';
 import leftArrow from '../../assets/SquareAltArrowLeft.png';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../store';
+import { RootState, useAppDispatch } from '../../store';
 import no_photo from '../../assets/no_avatar.png';
 import micro from '../../assets/icons/microf.png';
-// import heart from '../../assets/icons/heart.png';
+
 import pictures from '../../assets/pictures.png';
 import arrow_up from '../../assets/arrow_up.png';
 import io from 'socket.io-client';
 import { Message } from './types/Message';
+import { initChat } from './ChatSlice';
 
 function ChatPage() {
   const { id } = useParams();
   const users = useSelector((store: RootState) => store.auth.allUsers);
   const sender = useSelector((store: RootState) => store.auth.user?.id!);
+  const message = useSelector((store: RootState) => store.chat.chat);
   const [text, setText] = useState('');
   const [messages, setMessages] = useState<Message[]>([]);
   const navigate = useNavigate();
-  const [receivedPreviousMessages, setReceivedPreviousMessages] =
-    useState(false);
-  console.log(messages);
 
-  const socket = io();
+  
+
+  const dispatch = useAppDispatch();
+  const socket = useMemo(() => io(), []);
 
   const sendMessage = async () => {
-    const message: Message = {
+    const newMessage: Message = {
       content: text,
       sender_id: sender,
       recipient_id: Number(id),
     };
-    socket.emit('sendMessage', message);
+    socket.emit('sendMessage', newMessage);
     setText('');
+
+    
   };
-  console.log(id);
+
   useEffect(() => {
-    socket.emit('getPreviousMessages', { recipient_id: Number(id),sender_id:sender  });
 
     const handleMessage = (message: Message) => {
       setMessages((prevMessages) => [...prevMessages, message]);
@@ -46,29 +49,22 @@ function ChatPage() {
 
     return () => {
       socket.off('message', handleMessage);
-      socket.close();
+      // socket.close();
     };
   }, [id, sender, socket]);
 
   useEffect(() => {
-    if (!receivedPreviousMessages) {
-      socket.emit('getPreviousMessages', { recipient_id: Number(id) });
-    }
-  
-    const handlePreviousMessages = (previousMessages: Message[]) => {
-      console.log('Received previous messages:', previousMessages);
-      if (!receivedPreviousMessages) {
-        setMessages(previousMessages);
-        setReceivedPreviousMessages(true);
-      }
+    const fetchData = async () => {
+      await dispatch(initChat(Number(id)));
     };
-  
-    socket.on('previousMessages', handlePreviousMessages);
-  
-    return () => {
-      socket.off('previousMessages', handlePreviousMessages);
-    };
-  }, [id, receivedPreviousMessages]);
+    fetchData();
+  }, [dispatch, id]);
+
+
+  useEffect(() => {
+    // Обновляем состояние messages при изменении message из Redux
+    setMessages(message);
+  }, [message]);
 
   const user = useMemo(() => {
     return users.find((el) => el.id === Number(id));

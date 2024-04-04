@@ -5,10 +5,13 @@ initSubscription.get('/subscription/:id', async (req, res) => {
   try {
     const id = req.params.id;
 
-    const subscription = await Subscription.findAll({
-      where: { user_id: id },
-    });
-    res.json(subscription);
+    if(id){
+      const subscription = await Subscription.findAll({
+        where: { user_id: id },
+      });
+      res.json(subscription);
+
+    }
   } catch (error) {
     console.error(error);
   }

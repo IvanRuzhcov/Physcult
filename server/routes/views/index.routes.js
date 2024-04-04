@@ -14,7 +14,7 @@ const polarLastDataRouter = require('../polar/polarLastData.router')
 const publishingRouter = require('../polar/publishingAWorkout.router')
 const likeRouter = require('../api/like.router')
 const commentsRouter = require('../api/comments.router')
-
+const chatRouter = require('../socet/initChat.routes')
 
 routes.use('/register', registrationRoutes);
 routes.use('/authentication', authorizationRoutes);
@@ -24,6 +24,7 @@ routes.use('/api', imageRouter);
 routes.use('/', initPostRouter);
 routes.use('/', initSubscriptionRouter);
 routes.use('/', likeRouter);
+routes.use('/', chatRouter);
 routes.use('/comment', commentsRouter);
 routes.use('/polar', polarRouter);
 routes.use('/polar', initPolarRouter);

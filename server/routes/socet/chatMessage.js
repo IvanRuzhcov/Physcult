@@ -9,6 +9,7 @@ function setupSocketEvents(io) {
     socket.on('sendMessage', async ({ content, sender_id, recipient_id }) => {
       try {
         // Создаем новое сообщение в базе данных
+        console.log(sender_id);
         const message = await ChatMessage.create({
           content,
           sender_id,
@@ -18,28 +19,9 @@ function setupSocketEvents(io) {
 
         // Отправляем сообщение обратно клиенту
         io.emit('message', message);
+        
       } catch (error) {
         console.error('Error creating message:', error);
-      }
-    });
-
-    socket.on('getPreviousMessages', async ({ recipient_id, sender_id }) => {
-      try {
-        // Получаем предыдущие сообщения из базы данных
-        if (recipient_id && sender_id) {
-          const previousMessages = await ChatMessage.findAll({
-            where: {
-              [Op.or]: [
-                { sender_id: sender_id, recipient_id: recipient_id },
-                { sender_id: recipient_id, recipient_id: sender_id },
-              ],
-            },
-          });
-          // Отправляем предыдущие сообщения клиенту
-          socket.emit('previousMessages', previousMessages);
-        }
-      } catch (error) {
-        console.error('Error fetching previous messages:', error);
       }
     });
 

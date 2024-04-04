@@ -134,15 +134,19 @@
   background-color: #fd6d0d;
   color: #ffefcc;
   border-radius: 10px;
-  margin: 5px 5px 5px 0 ;
+  margin: 5px 5px 5px 0;
   padding: 10px;
-  text-align:left;
+  text-align: left;
+  overflow: hidden;
+  word-wrap: break-word;
 }
 
 .recipient {
   max-width: 260px;
   background-color: #f0f0f0;
   border-radius: 10px;
-  margin: 5px 0 5px 5px ;
+  margin: 5px 0 5px 5px;
   padding: 10px;
+  overflow: hidden;
+  word-wrap: break-word;
 }
