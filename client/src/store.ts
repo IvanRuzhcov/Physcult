@@ -3,12 +3,14 @@ import { useDispatch } from 'react-redux';
 import authSlice from './pages/PersonalPage/userAuthSlice';
 import deviceSlice from './pages/DevicePage/DeviceSlice';
 import userPageSlice from './pages/UserPage/UserPageSlice'
+import ChatSlice from './pages/ChatPage/ChatSlice';
 
 export const store = configureStore({
   reducer: {
     auth: authSlice,
     device: deviceSlice,
-    userData: userPageSlice
+    userData: userPageSlice,
+    chat:ChatSlice
     // Другие редьюсеры, если они у вас есть
   },
 });

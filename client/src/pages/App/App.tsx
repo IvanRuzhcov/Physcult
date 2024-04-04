@@ -29,6 +29,7 @@ import { initPolar } from '../DevicePage/DeviceSlice';
 import PolarPage from '../PolarPage/PolarPage';
 import { useSelector } from 'react-redux';
 import { initComment, initLike } from '../UserPage/UserPageSlice';
+import ChatPage from '../ChatPage/ChatPage';
 
 function App() {
   const user = useSelector((store: RootState) => store.auth.user);
@@ -69,6 +70,7 @@ function App() {
         <Route path="/settings/app information" element={<AppInfoPage />} />
         <Route path="/map" element={<Map />} />
         <Route path="/messenger" element={<Messenger />} />
+        <Route path="/messenger/:id" element={<ChatPage />} />
       </Routes>
     </>
   );
