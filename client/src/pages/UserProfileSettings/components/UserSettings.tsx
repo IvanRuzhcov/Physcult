@@ -9,7 +9,7 @@ import { RootState } from '../../../store';
 function UserSettings() {
   const user = useSelector((store: RootState) => store.auth.user);
   const navigate = useNavigate();
-  console.log(user);
+
 
   const handleRedirectSettingsProfil = () => {
     navigate('/settings/personal');

@@ -103,12 +103,19 @@ body {
   align-items: center;
   flex-direction: row;
   width: 100%;
+  margin-top: 10px;
 }
 .results {
-  margin-top: 15px;
+  width: 100%;
+  height: auto;
   text-align: left;
-  margin-left: 7px;
-  flex-grow: 2;
+  border-radius: 15px;
+  background: #f6f6f6;
+  margin: 0 auto;
+  padding: 9px 8px;
+}
+.results:not(:last-child) {
+  margin-right: 4px;
 }
 
 .results span {
@@ -164,6 +171,7 @@ body {
   display: flex;
   overflow-x: auto;
   margin-top: 10px;
+  align-items: flex-start; /* Выравнивание элементов по верхнему краю */
 }
 .post_photos::-webkit-scrollbar {
   display: none;
@@ -174,12 +182,20 @@ body {
   object-fit: cover;
   border-radius: 15px;
   image-rendering: optimizeQuality;
-  margin-left: 10px;
+}
+.post_photo {
+  flex-shrink: 0; /* Запрещаем сжатие дочерних элементов */
+  margin-right: 10px; /* Добавляем отступ между фотографиями */
 }
 
-.style.post_photo img:first-child {
-  margin-left: 0; /* Устанавливаем отрицательный отступ для первой картинки */
+.map_box {
+  flex-shrink: 0; 
+  width: 230px; /* Задаем фиксированную ширину */
+  height: 196px; /* Задаем фиксированную высоту */
+  overflow: hidden; /* Обрезаем лишнее содержимое */
 }
+
+
 .post_description {
   margin-top: 7px;
   margin-right: 20px;
@@ -218,6 +234,9 @@ body {
   line-height: 100%; /* 12px */
   letter-spacing: -0.12px;
   height: 100%;
+}
+.map_container {
+  overflow: hidden;
 }
 @media only screen and (min-width: 600px) and (max-width: 1024px) {
   .container_news_feed {

@@ -30,7 +30,7 @@ module.exports = {
       {
         user_id_post: 4,
         photo_post: [
-          'postImg/photo_post_shipulin_1.jpeg',
+          '/postImg/photo_post_shipulin_1.jpeg',
           '/postImg/map_malyshko.jpg'
         ],
         description:

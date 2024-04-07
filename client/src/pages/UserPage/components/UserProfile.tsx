@@ -1,23 +1,66 @@
-import { MouseEventHandler, memo } from 'react';
+import { MouseEventHandler, memo, useEffect, useState } from 'react';
 import points from '../../../assets/icons/png.png';
 import exit from '../../../assets/SquareAltArrowLeft.png';
 import no_photo from '../../../assets/no_avatar.png';
 import style from '../css/UserPage.module.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../../store';
+import { RootState, useAppDispatch } from '../../../store';
+import {
+  initSubscribers,
+  initSubscription,
+  subscribe,
+  unsubscribe,
+} from '../UserPageSlice';
 
-function UserProfile({handleModal}:{handleModal:MouseEventHandler<HTMLDivElement>}) {
+function UserProfile({
+  handleModal,
+}: {
+  handleModal: MouseEventHandler<HTMLDivElement>;
+}) {
+  const dispatch = useAppDispatch();
+  const [loading, setLoading] = useState(true);
+
   const { id } = useParams();
+  const subscriber = useSelector((store: RootState) => store.auth.user?.id);
+  useEffect(() => {
+    setLoading(true);
+    Promise.all([
+      dispatch(initSubscription(Number(id))),
+      dispatch(initSubscribers(Number(id))),
+    ])
+      .then(() => setLoading(false))
+      .catch((error) => console.error('Error fetching subscription:', error));
+  }, [id]);
 
-  const users = useSelector((store: RootState) => store.auth.allUsers);
+  const users = useSelector((store: RootState) => store.auth.allUsers); // Все юзеры
+
+  const subscription = useSelector(
+    (store: RootState) => store.userData.subscription
+  ); // пописки этого юзера
+  const subscribers = useSelector(
+    (store: RootState) => store.userData.subscribers
+  ); // подписчики этого юзера
+
+  const isSubscribed = subscribers.some((el) => el?.user_id === subscriber);
 
   const user = users.filter((el) => el.id === Number(id));
 
-  const subscribers = useSelector(
-    (store: RootState) => store.auth.subscription
-  );
   const naviget = useNavigate();
+
+  const handleUnsubscribe = () => {
+    const action = dispatch(
+      unsubscribe({ user_id: subscriber!, subscribe_id: Number(id) })
+    );
+    return action;
+  };
+
+  const handleSubscribe = () => {
+    const action = dispatch(
+      subscribe({ user_id: subscriber!, subscribe_id: Number(id) })
+    );
+    return action;
+  };
 
   return (
     <>
@@ -53,7 +96,7 @@ function UserProfile({handleModal}:{handleModal:MouseEventHandler<HTMLDivElement
           <div className={style.community_box}>
             <div className={style.community}>
               <div className={`${style.statistics}`}>
-                <div>{subscribers.length}</div>
+                <div>{subscription.length}</div>
                 <span>подписок</span>
               </div>
               <div className={`${style.statistics}`}>
@@ -62,9 +105,21 @@ function UserProfile({handleModal}:{handleModal:MouseEventHandler<HTMLDivElement
               </div>
             </div>
           </div>
-          <div className={style.btn_sub_container}>
-            <span>Подписаться</span>
-          </div>
+          {isSubscribed ? (
+            <div
+              className={style.btn_subscribers_container}
+              onClick={handleUnsubscribe}
+            >
+              <span>Отписаться</span>
+            </div>
+          ) : (
+            <div
+              className={style.btn_subscription_container}
+              onClick={handleSubscribe}
+            >
+              <span>Подписаться</span>
+            </div>
+          )}
         </div>
       </div>
     </>

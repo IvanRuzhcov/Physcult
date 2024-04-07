@@ -7,7 +7,6 @@ import { Subscription } from './types/Subscription';
 
 export const emailСonfirmationFetch = async (obj: RegisterData) => {
   try {
-    console.log(obj);
     const response = await fetch('/register/sendCode', {
       method: 'POST',
       headers: {
@@ -25,7 +24,6 @@ export const emailСonfirmationFetch = async (obj: RegisterData) => {
 
 export const userRegistationFetch = async (obj: Сonfirmation) => {
   try {
-    console.log(obj);
     const response = await fetch('/register/verifyCode', {
       method: 'POST',
       headers: {
@@ -80,10 +78,7 @@ export const logoutFetch = async (): Promise<void> => {
   });
 };
 
-
-
 export const updatUserPersonalDataFetch = async (obj: User): Promise<User> => {
-  console.log(obj.id);
   const response = await fetch(`/updata/${obj.id}`, {
     method: 'PUT',
     headers: { 'Content-type': 'application/json' },
@@ -102,13 +97,20 @@ export const initPostFeth = async (): Promise<Posts[]> => {
   const data = await response.json();
   return data;
 };
-export const initSubscriptionFeth = async (): Promise<Subscription[]> => {
-  const response = await fetch('/subscription');
+
+export const initUsersFeth = async (): Promise<User[]> => {
+  const response = await fetch('/users');
   const data = await response.json();
   return data;
 };
-export const initUsersFeth = async (): Promise<User[]> => {
-  const response = await fetch('/users');
+
+export const initSubscriptionFetch = async (obj:number) => {
+  const response = await fetch(`/subscription/${obj}`);
+  const data = await response.json();
+  return data;
+};
+export const initSubscribersFetch = async (obj:number) => {
+  const response = await fetch(`/subscribers/${obj}`);
   const data = await response.json();
   return data;
 };

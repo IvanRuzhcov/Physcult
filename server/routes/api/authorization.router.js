@@ -6,7 +6,6 @@ const configJWT = require('../../middlewares/configJWT');
 
 authorizationRoutes.post('/user', async (req, res) => {
   const { email, password } = req.body;
-  // console.log(req.body);
 
   try {
     if (!email.length || !password.length) {
@@ -62,6 +61,7 @@ authorizationRoutes.post('/user', async (req, res) => {
 
 authorizationRoutes.post('/logout', (req, res) => {
   res.clearCookie(configJWT.access.type, { path: '/' }).clearCookie(configJWT.refresh.type, { path: '/' });
+  
   res.json({ success: true });
 });
 

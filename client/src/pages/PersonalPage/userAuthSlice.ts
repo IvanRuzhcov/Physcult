@@ -5,15 +5,18 @@ import { RegisterData } from './types/RegisterData';
 import UserAuthState from './types/UserAuthState';
 import { Сonfirmation } from './types/Сonfirmation';
 import User from './types/User';
+import { initPolar } from '../DevicePage/DeviceSlice';
 
-const initialState: UserAuthState = {
+ export const initialState: UserAuthState = {
   user: undefined,
   allUsers: [],
   post: [],
   allPosts: [],
   subscription: [],
+  subscribers: [],
   authChecked: false,
 };
+
 export const emailСonfirmation = createAsyncThunk(
   'auth/emailСonfirmationFetch',
   async (data: RegisterData, { rejectWithValue }) => {
@@ -46,7 +49,7 @@ export const userRegistation = createAsyncThunk(
   'auth/userRegistation',
   async (data: Сonfirmation) => {
     const userData = await api.userRegistationFetch(data);
-   
+
     return userData;
   }
 );
@@ -64,12 +67,12 @@ export const login = createAsyncThunk(
       await Promise.all([
         dispatch(initUserPost()),
         dispatch(initPost()),
-        dispatch(initSubscription()),
         dispatch(initUsers()),
+        dispatch(initPolar()),
+
         // Другие асинхронные операции, которые вам нужны
       ]);
     }
-
     return response;
   }
 );
@@ -83,6 +86,7 @@ export const logoutUser = createAsyncThunk(
   'logout/logoutFetch',
   api.logoutFetch
 );
+
 
 export const updataUser = createAsyncThunk(
   'update/updatUserPersonalDataFetch',
@@ -98,7 +102,11 @@ export const initUserPost = createAsyncThunk(
 );
 export const initSubscription = createAsyncThunk(
   'initSubscription/initSubscriptionFeth',
-  () => api.initSubscriptionFeth()
+ async (id:number) => await api.initSubscriptionFetch(id)
+);
+export const initSubscribers = createAsyncThunk(
+  'initSubscribers/initSubscribersFetch', 
+  async (id:number) => await api.initSubscribersFetch(id)
 );
 export const initUsers = createAsyncThunk('user/initUsersFeth', () =>
   api.initUsersFeth()
@@ -134,7 +142,6 @@ const authSlice = createSlice({
       })
       .addCase(verification.fulfilled, (state, action) => {
         state.authChecked = true;
-        console.log(action);
         state.user = action.payload.isLoggedIn
           ? action.payload.user
           : undefined;
@@ -183,6 +190,13 @@ const authSlice = createSlice({
         state.subscription = action.payload;
       })
       .addCase(initSubscription.rejected, (state, action) => {
+        // Обработка ошибки в случае отклонения инициализации подписок
+        console.error('Init subscriptions failed:', action.payload);
+      })
+      .addCase(initSubscribers.fulfilled, (state, action) => {
+        state.subscribers = action.payload;
+      })
+      .addCase(initSubscribers.rejected, (state, action) => {
         // Обработка ошибки в случае отклонения инициализации подписок
         console.error('Init subscriptions failed:', action.payload);
       })

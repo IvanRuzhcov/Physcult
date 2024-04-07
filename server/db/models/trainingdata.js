@@ -26,6 +26,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    gpx:{
+      type: DataTypes.STRING,
+    }
   }, {
     sequelize,
     modelName: 'TrainingData',

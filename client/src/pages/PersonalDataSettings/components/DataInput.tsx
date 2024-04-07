@@ -1,4 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, {
+  useState,
+  useRef,
+  useEffect,
+  ChangeEvent,
+  RefObject,
+} from 'react';
 import style from '../css/PersonalDataSettings.module.css';
 
 const DateInput = ({
@@ -34,22 +40,27 @@ const DateInput = ({
   const monthInput = useRef(null);
   const yearInput = useRef(null);
 
-  const handleInputChange = (e: any, nextInput: any) => {
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement>,
+    nextInput: RefObject<HTMLInputElement>
+  ) => {
     const input = e.target;
     const value = input.value;
 
     if (value.length >= Number(input.maxLength)) {
-      nextInput.current.focus();
+      if (nextInput.current) {
+        nextInput.current.focus();
+      }
     }
 
     switch (input.name) {
       case 'day':
-        if (value === '' || (value >= 0 && value <= 31)) {
+        if (value === '' || (+value >= 0 && +value <= 31)) {
           setDay(value);
         }
         break;
       case 'month':
-        if (value === '' || (value >= 0 && value <= 12)) {
+        if (value === '' || (+value >= 0 && +value <= 12)) {
           setMonth(value);
         }
         break;
@@ -59,7 +70,6 @@ const DateInput = ({
       default:
         break;
     }
-    
   };
 
   return (

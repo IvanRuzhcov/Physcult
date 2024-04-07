@@ -8,7 +8,6 @@ import { RootState } from '../../../store';
 function UserInformationPage({setSelectedFile}:any) {
   const user = useSelector((store: RootState) => store.auth.user);
 
-  console.log(user?.avatar_img);
 
 
   const handleFileChange = (e: any) => {

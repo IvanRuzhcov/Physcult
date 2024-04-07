@@ -14,7 +14,6 @@ const confirmationCodes = new Map();
 
 registrationRoutes.post('/sendCode', async (req, res) => {
   const { email, password, repeatPassword } = req.body;
-  // console.log(req.body);
   let code = verificationCode();
 
   try {
@@ -54,7 +53,6 @@ registrationRoutes.post('/sendCode', async (req, res) => {
 
 registrationRoutes.post('/verifyCode', async (req, res) => {
   const { email, password, verificationCode } = req.body;
-  // console.log(req.body);
   const nick = generateSportsUsername();
   const storedVerificationCode = confirmationCodes.get(email);
   let user;

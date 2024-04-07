@@ -9,7 +9,6 @@ function MainNavbar() {
 
   useEffect(() => {
     const path = location.pathname;
-    console.log(path)
 
     if (path === '/main') {
       setActiveBtn('main');
