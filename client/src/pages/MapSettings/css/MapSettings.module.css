@@ -1,0 +1,55 @@
+.map_settings_container {
+	padding: 16px;
+	background-color: #fff;
+}
+
+.map_settings_header {
+	display: flex;
+	justify-content: flex-start;
+	gap: 130px;
+	align-items: center;
+	margin-bottom: 24px;
+	margin-top: 68px;
+}
+
+.map_settings_header_title {
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.map_settings_content {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.map_settings_section {
+	height: 68px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 8px;
+	background-color: #f6f6f6;
+}
+
+.map_settings_text_group {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 16px;
+}
+
+.chevron {
+	padding: 16px;
+}
+
+.map_settings_section_title {
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.map_settings_section_text {
+	font-size: 14px;
+	font-weight: 400;
+	color: rgba(71, 67, 67, 0.4);
+}

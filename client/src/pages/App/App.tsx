@@ -24,6 +24,8 @@ import {
   verification,
 } from '../PersonalPage/userAuthSlice';
 import UserPage from '../UserPage/UserPage';
+import MapSettings from '../MapSettings/MapSettings'
+import Timer from '../Timer/Timer'
 
 function App() {
   const dispatch = useAppDispatch();
@@ -54,7 +56,9 @@ function App() {
         <Route path="/settings/interface" element={<InterfacePage />} />
         <Route path="/settings/app information" element={<AppInfoPage />} />
         <Route path="/map" element={<Map />} />
+        <Route path="/map-settings" element={<MapSettings />}/>
         <Route path="/messenger" element={<Messenger />} />
+        <Route path="/timer" element={<Timer />} />
       </Routes>
     </>
   );

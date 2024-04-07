@@ -1,91 +1,101 @@
 .modal {
-    display: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.5); 
+	z-index: 9999;
+	transition: opacity 0.3s ease;
   }
   
-.modal_activ {
-    display: block;
-    z-index: 9999;
+  .modalContent {
+	background: rgba(255,255,255,0.5);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid #fff;
+    width: 350px;
+    height: 400px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
   }
-
-  @keyframes slideUp {
-    0% {
-      transform: translateY(100%);
-    }
-    50% {
-      transform: translateY(-8%);
-    }
-    65% {
-      transform: translateY(4%);
-    }
-    100% {
-      transform: translateY(0%);
-    }
-  }
-
-  .overlay {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(0.5px);
-    opacity: 1;
-    transform: translateY(0);
-  } 
   
-  .modal_content {
+  .closeButton {
+	position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+
+  .title {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 22px;
+    font-weight: 500;
+    color: #000;
+  }
+
+  .kind_of_sport {
+    position: absolute;
+    top: 40px;
     display: flex;
     flex-direction: column;
-    gap: 10px;  
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    background-color: white;
-    overflow: auto;
-    opacity: 1;
-    transform: translateY(0);
-    animation: slideUp 1.5s ease;
-    scroll-padding: 20px;
-    z-index: 9999;
+    align-items: center;
+    gap: 16px;
+    padding: 10px;
+    margin: 5px;
+    border-top: 1px solid #fff;
   }
-  
-  .title {
-      display: flex;
-      justify-content: flex-start;
-      gap: 20px;
-      margin-left: 20px;
-  }  
 
-.header {
+  .sport_item {
+    width: 320px;
+    height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 20px;
-    font-weight: 500;
-    margin-bottom: 30px;
-}
-
-.header_title {
-    margin-top: 10px;
-    margin-left: 20px;
-}
-
-.header_icon {
-    margin-top: 15px;
-    margin-right: 20px;
-}
-
-.text_item {
-    margin-top: 15px;
-}
-
-.divider {
-    border-top: 1px solid #ccc;
-    margin-bottom: 20px;
-    margin-left: 60px;
-    margin-right: 10px;
+    border-bottom: 1px solid #fff;
   }
+
+  .sport_icon {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fc9f48;
+    background: -webkit-linear-gradient(0deg, #fc9f48 0%, #fe130b 100%);
+    background: linear-gradient(0deg, #fc9f48 0%, #fe130b 100%);
+  }
+
+  .btn_icon_of {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+  }
+  
+  .closing {
+	opacity: 0;
+  }
+  
+  .divider {
+	  border-top: 1px solid #ccc;
+	  margin: 10px 0;
+	}

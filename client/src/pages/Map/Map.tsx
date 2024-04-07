@@ -8,34 +8,52 @@ import {
 	HeartPulse,
 	Music4,
 	ArrowLeft,
+	Play
 } from 'lucide-react'
-import styles from './css/Map.module.css'
-import 'mapbox-gl/dist/mapbox-gl.css';
-import KindOfSportModal from './modals/KindOfSportModal'
 import RouteModal from './modals/RouteModal'
 import PulseSensorModal from './modals/PulseSensorModal'
-import StopwatchModal from './modals/StopwatchModal'
+import KindOfSportModal from './modals/KindOfSportModal'
+import styles from './css/Map.module.css'
+import 'mapbox-gl/dist/mapbox-gl.css';
+import { useNavigate } from'react-router-dom'
 
 mapboxgl.accessToken =
 	'pk.eyJ1Ijoia29zdGEyMjIiLCJhIjoiY2xzYm8zdzBwMDRqdDJpbzFqYndreTR4dSJ9.9z2G7foqI3ENFW83Hcdj4A'
 
 export default function Map(): JSX.Element {
-	const [modalKind, setModalKind] = useState(false)
-	const [modalRoute, setModalRoute] = useState(false)
-	const [modalPulse, setModalPulse] = useState(false)
-  const [modalStop, setModalStop] = useState(false)
+	const[isRouteModalOpen, setIsRouteModalOpen] = useState(false)
+	const[isPulseModalOpen, setIsPulseModalOpen] = useState(false)
+	const[isSportModalOpen, setIsSportModalOpen] = useState(false)
+	const handleOpenRouteModal = () => {
+		setIsRouteModalOpen(true);
+	  };
+	  const handleCloseRouteModal = () => {
+		setIsRouteModalOpen(false);
+	  }
+	  const handleOpenPulseModal = () => {
+		setIsPulseModalOpen(true);
+	  };
+	  const handleClosePulseModal = () => {
+		setIsPulseModalOpen(false);
+	  }
+	  const handleOpenSportModal = () => {
+		setIsSportModalOpen(true);
+	  };
+	  const handleCloseSportModal = () => {
+		setIsSportModalOpen(false);
+	  }
 
-	const handleModalKind = () => {
-		setModalKind(!modalKind)
+
+	const navigate = useNavigate()
+
+	const handleRedirectMapSettings = () => {
+        navigate('/map-settings')
 	}
-	const handleModalRoute = () => {
-		setModalRoute(!modalRoute)
+	const handleRedirectNews = () => {
+        navigate('/news')
 	}
-	const handleModalPulse = () => {
-		setModalPulse(!modalPulse)
-	}
-  const handleModalStop = () => {
-		setModalStop(!modalStop)
+	const handleRedirectTimer = () => {
+        navigate('/timer')
 	}
 
 	const mapContainer = useRef<HTMLDivElement>(null)
@@ -60,17 +78,18 @@ export default function Map(): JSX.Element {
 		})
 	}, [lng, lat, zoom])
 
+
 	return (
 		<div className={styles.map_field}>
 			<div className={styles.header}>
-				<div className={styles.arrow_btn}>
-					<ArrowLeft color='#ff0606' size={25} />
+				<div className={styles.arrow_btn} onClick={handleRedirectNews}>
+					<span><ArrowLeft color='#ff0606' size={25} /></span>
 				</div>
 				<div className={styles.k_o_s}>
 					<span className={styles.kind_of_sport}>Велоспорт</span>
 				</div>
-				<div className={styles.settings_icon}>
-					<Settings color='#ff0606' size={25} />
+				<div className={styles.settings_icon} onClick={handleRedirectMapSettings}>
+					<span><Settings color='#ff0606' size={25} /></span>
 				</div>
 			</div>
 
@@ -78,34 +97,26 @@ export default function Map(): JSX.Element {
 
 			<div className={styles.footer}>
 				<div className={styles.btn_group}>
-					<span onClick={handleModalRoute}>
+					<span onClick={handleOpenRouteModal}>
 						<Route strokeWidth={1.5} size={48} />
 					</span>
-					<span onClick={handleModalKind}>
+					<span onClick={handleOpenSportModal}>
 						<Bike strokeWidth={1.5} color='#ff0606' size={48} />
 					</span>
-					<span onClick={handleModalPulse}>
+					<span onClick={handleOpenPulseModal}>
 						<HeartPulse strokeWidth={1.5} size={48} />
 					</span>
 					<span>
 						<Music4 strokeWidth={1.5} size={48} />
 					</span>
 				</div>
-				<div className={styles.container_red_round_button} onClick={handleModalStop}>
-					<button className={styles.red_round_button}>СТАРТ</button>
+				<div className={styles.container_red_round_button} onClick={handleRedirectTimer}>
+					<div className={styles.red_round_button}><Play size={38}/></div>
 				</div>
 			</div>
-			<KindOfSportModal
-				modalKind={modalKind}
-				handleModalKind={handleModalKind}
-			/>
-			<RouteModal modalRoute={modalRoute} handleModalRoute={handleModalRoute} />
-			<PulseSensorModal
-				modalPulse={modalPulse}
-				handleModalPulse={handleModalPulse}
-			/>
-      <StopwatchModal modalStop={modalStop}
-				handleModalStop={handleModalStop}/>
+			<RouteModal isRouteOpen={isRouteModalOpen} onRouteClose={handleCloseRouteModal}/>
+			<PulseSensorModal isPulseOpen={isPulseModalOpen} onPulseClose={handleClosePulseModal}/>
+			<KindOfSportModal isSportOpen={isSportModalOpen} onSportClose={handleCloseSportModal}/>
 		</div>
 	)
 }
