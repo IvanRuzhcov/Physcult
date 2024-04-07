@@ -25,6 +25,8 @@ import {
   verification,
 } from '../PersonalPage/userAuthSlice';
 import UserPage from '../UserPage/UserPage';
+import MapSettings from '../MapSettings/MapSettings'
+import Timer from '../Timer/Timer'
 import { initPolar } from '../DevicePage/DeviceSlice';
 import PolarPage from '../PolarPage/PolarPage';
 import { useSelector } from 'react-redux';
@@ -69,7 +71,9 @@ function App() {
         <Route path="/settings/interface" element={<InterfacePage />} />
         <Route path="/settings/app information" element={<AppInfoPage />} />
         <Route path="/map" element={<Map />} />
+        <Route path="/map-settings" element={<MapSettings />}/>
         <Route path="/messenger" element={<Messenger />} />
+        <Route path="/timer" element={<Timer />} />
         <Route path="/messenger/:id" element={<ChatPage />} />
       </Routes>
     </>

@@ -1,0 +1,101 @@
+.modal {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.5); 
+	z-index: 9999;
+	transition: opacity 0.3s ease;
+  }
+  
+  .modalContent {
+	background: rgba(255,255,255,0.5);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid #fff;
+    width: 350px;
+    height: 400px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+  }
+  
+  .closeButton {
+	position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+
+  .title {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 22px;
+    font-weight: 500;
+    color: #000;
+  }
+
+  .kind_of_sport {
+    position: absolute;
+    top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 10px;
+    margin: 5px;
+    border-top: 1px solid #fff;
+  }
+
+  .sport_item {
+    width: 320px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #fff;
+  }
+
+  .sport_icon {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fc9f48;
+    background: -webkit-linear-gradient(0deg, #fc9f48 0%, #fe130b 100%);
+    background: linear-gradient(0deg, #fc9f48 0%, #fe130b 100%);
+  }
+
+  .btn_icon_of {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+  }
+  
+  .closing {
+	opacity: 0;
+  }
+  
+  .divider {
+	  border-top: 1px solid #ccc;
+	  margin: 10px 0;
+	}
