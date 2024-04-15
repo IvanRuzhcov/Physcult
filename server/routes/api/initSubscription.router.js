@@ -3,30 +3,39 @@ const { Subscription, User } = require('../../db/models');
 
 initSubscription.get('/subscription/:id', async (req, res) => {
   try {
-    const id = req.params.id;
+    const id = parseInt(req.params.id); // Парсим строку в число
 
-    if(id){
+    if (!isNaN(id)) {
+      // Проверяем, что id является числом
       const subscription = await Subscription.findAll({
         where: { user_id: id },
       });
       res.json(subscription);
-
+    } else {
+      res.status(400).json({ error: 'Invalid user id' });
     }
   } catch (error) {
     console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
+
 initSubscription.get('/subscribers/:id', async (req, res) => {
   try {
-    const id = req.params.id;
-    if (id) {
+    const id = parseInt(req.params.id); // Парсим строку в число
+
+    if (!isNaN(id)) {
+      // Проверяем, что id является числом
       const subscription = await Subscription.findAll({
         where: { subscribe_id: id },
       });
       res.json(subscription);
+    } else {
+      res.status(400).json({ error: 'Invalid user id' });
     }
   } catch (error) {
     console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 
@@ -77,12 +86,10 @@ initSubscription.post('/subscribe', async (req, res) => {
       subscribe_id: subscribe_id,
     });
 
-    res
-      .status(201)
-      .json({
-        message: 'Вы успешно подписались на этого пользователя',
-        subscription: existingSubscription,
-      });
+    res.status(201).json({
+      message: 'Вы успешно подписались на этого пользователя',
+      subscription: existingSubscription,
+    });
   } catch (error) {
     console.error(error);
     res

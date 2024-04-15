@@ -5,12 +5,18 @@ import rightArrow from '../../assets/rightArrow.png';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../store';
+import { RootState, useAppDispatch } from '../../store';
 import DeviceModal from './component/DeviceModal';
+import { initPolar } from './DeviceSlice';
 
 function DevicePage() {
   const [newDev, setNewDev] = useState(false);
+  const dispatch = useAppDispatch();
 
+  useEffect(() => {
+    dispatch(initPolar());
+  });
+  
   const polarDev = useSelector((store: RootState) => store.device.polar);
 
   useEffect(() => {
@@ -40,18 +46,6 @@ function DevicePage() {
       </div>
       <div className={style.container}>
         <div className={style.synchronized}>
-          {/* <div className={style.device_box}>
-            <span>AppleWatch</span>
-            <div className={style.device_img}>
-              <img src={rightArrow} alt="" />
-            </div>
-          </div> */}
-          {/* <div className={style.device_box} >
-            <span>Garmin</span>
-            <div className={style.device_img}>
-              <img src={rightArrow} alt="" />
-            </div>
-          </div> */}
           {polarDev && (
             <>
               <div

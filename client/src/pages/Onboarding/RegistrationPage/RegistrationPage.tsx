@@ -56,7 +56,7 @@ export default function RegistrationPage(): JSX.Element {
       setRepeatPassword('');
       setVerificationCode('');
 
-      navigate('/settings/personal');
+      navigate('/settings');
     } else {
       setError(action.payload.message);
       console.error(action.payload.message);
