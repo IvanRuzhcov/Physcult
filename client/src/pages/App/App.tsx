@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import NewsFeed from '../NewsFeed/NewsFeed';
 import OnboardingPage from '../Onboarding/OnbordingPage/OnboardingPage';
 import AuthorizationPage from '../Onboarding/Authorization/AuthorizationPage';
@@ -17,17 +17,13 @@ import Map from '../Map/Map';
 import Messenger from '../Messenger/Messenger';
 import { RootState, useAppDispatch } from '../../store';
 import {
-  initPost,
-  initSubscribers,
-  initSubscription,
   initUserPost,
   initUsers,
   verification,
 } from '../PersonalPage/userAuthSlice';
 import UserPage from '../UserPage/UserPage';
-import MapSettings from '../MapSettings/MapSettings'
-import Timer from '../Timer/Timer'
-import { initPolar } from '../DevicePage/DeviceSlice';
+import MapSettings from '../MapSettings/MapSettings';
+import Timer from '../Timer/Timer';
 import PolarPage from '../PolarPage/PolarPage';
 import { useSelector } from 'react-redux';
 import { initComment, initLike } from '../UserPage/UserPageSlice';
@@ -37,26 +33,25 @@ function App() {
   const user = useSelector((store: RootState) => store.auth.user);
   const dispatch = useAppDispatch();
 
-
-  
-
   useEffect(() => {
     dispatch(verification());
     dispatch(initUserPost());
-    dispatch(initPost());
     dispatch(initUsers());
-    dispatch(initPolar());
-    dispatch(initSubscription(Number(user?.id)));
-    dispatch(initSubscribers(Number(user?.id)));
-    dispatch(initLike())
-    dispatch(initComment())
+    dispatch(initLike());
+    dispatch(initComment());
   }, [dispatch, user?.id]);
 
   return (
     <>
       <Routes>
-        <Route path="/" element={<OnboardingPage />} />
-        <Route path="/auth" element={<AuthorizationPage />} />
+        <Route
+          path="/"
+          element={user ? <Navigate to="/news" /> : <OnboardingPage />}
+        />
+        <Route
+          path="/auth"
+          element={user ? <Navigate to="/news" /> : <AuthorizationPage />}
+        />
         <Route path="/reg" element={<RegistrationPage />} />
         <Route path="/main" element={<MainPage />} />
         <Route path="/trials" element={<TrialsPage />} />
@@ -71,7 +66,7 @@ function App() {
         <Route path="/settings/interface" element={<InterfacePage />} />
         <Route path="/settings/app information" element={<AppInfoPage />} />
         <Route path="/map" element={<Map />} />
-        <Route path="/map-settings" element={<MapSettings />}/>
+        <Route path="/map-settings" element={<MapSettings />} />
         <Route path="/messenger" element={<Messenger />} />
         <Route path="/timer" element={<Timer />} />
         <Route path="/messenger/:id" element={<ChatPage />} />
