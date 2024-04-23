@@ -150,3 +150,9 @@
   overflow: hidden;
   word-wrap: break-word;
 }
+@media only screen and (min-width: 1025px) {
+  .container_data{
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}

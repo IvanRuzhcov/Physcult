@@ -55,6 +55,7 @@ export default function MainPage(): JSX.Element {
   return (
     <>
       <main className={styles.container}>
+        <div className={styles.adaptive_container}>
         <div className={styles.header_personal_info}>
           <div className={styles.profile_span}>
             <span>Главная</span>
@@ -201,6 +202,7 @@ export default function MainPage(): JSX.Element {
           </div>
         </div>
         <div className={styles.footer}></div>
+        </div>
         <NavBar />
       </main>
     </>

@@ -9,13 +9,13 @@ function ChatBody({ messages }: { messages: Message[] }) {
 
   const messagesListRef = useRef<HTMLDivElement>(null);
 
-  
   useEffect(() => {
     if (messagesListRef.current) {
       // Прокрутить вниз при добавлении нового сообщения
       messagesListRef.current.scrollTop = messagesListRef.current.scrollHeight;
     }
   }, [messages]);
+  
   return (
     <div className={style.chat_body} ref={messagesListRef}>
       {messages.map((message, index) => (

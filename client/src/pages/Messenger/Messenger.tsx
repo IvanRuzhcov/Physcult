@@ -1,29 +1,41 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import NavBar from '../Navbar/NavBar';
 import Search from './components/Search';
 import styles from './css/Messenger.module.css';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../store';
+import { RootState, useAppDispatch } from '../../store';
 import ChatNavBar from './components/ChatNavBar';
 import { useNavigate } from 'react-router-dom';
+import { initSubscribers, initSubscription } from '../PersonalPage/userAuthSlice';
 
 export default function Messenger(): JSX.Element {
+  const user = useSelector((store: RootState) => store.auth.user);
   const navigate = useNavigate();
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch(initSubscription(Number(user?.id)));
+    dispatch(initSubscribers(Number(user?.id)));
+  }, [dispatch, user?.id]);
+
+
   const subscriptions = useSelector(
     (store: RootState) => store.auth.subscription
   );
   const users = useSelector((store: RootState) => store.auth.allUsers);
 
-  const subscribedUsers = useMemo(() => {
-    return users.filter((user) =>
-      subscriptions.some(
-        (subscription) => subscription.subscribe_id === user.id
-      )
-    );
-  }, [users, subscriptions]);
+const subscribedUsers = useMemo(() => {
+  return users.filter((user) =>
+    Array.isArray(subscriptions) && subscriptions.some(
+      (subscription) => subscription.subscribe_id === user.id
+    )
+  );
+}, [users, subscriptions]);
+
 
   return (
     <div className={styles.container}>
+      <div className={styles.container_data}>
       <div className={styles.title}>
         <span className={styles.title_name}>Чат</span>
       </div>
@@ -31,7 +43,7 @@ export default function Messenger(): JSX.Element {
       <Search />
       <ChatNavBar />
 
-      <div className={styles.line}></div>
+      <div className={styles.line} ></div>
 
       <div className={styles.chat_container}>
         {subscribedUsers.map((chat) => {
@@ -63,6 +75,7 @@ export default function Messenger(): JSX.Element {
         </button> 
       </div> */}
 
+    </div>
       <NavBar />
     </div>
   );
