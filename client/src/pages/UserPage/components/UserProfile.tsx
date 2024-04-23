@@ -12,6 +12,7 @@ import {
   subscribe,
   unsubscribe,
 } from '../UserPageSlice';
+import { initPost } from '../../PersonalPage/userAuthSlice';
 
 function UserProfile({
   handleModal,
@@ -31,7 +32,12 @@ function UserProfile({
     ])
       .then(() => setLoading(false))
       .catch((error) => console.error('Error fetching subscription:', error));
-  }, [id]);
+  }, [dispatch, id]);
+
+
+  useEffect(() => {
+    dispatch(initPost());
+  }, [dispatch]);
 
   const users = useSelector((store: RootState) => store.auth.allUsers); // Все юзеры
 

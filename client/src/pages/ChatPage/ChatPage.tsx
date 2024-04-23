@@ -10,6 +10,7 @@ import { initChat } from './ChatSlice';
 import ChatInput from './component/ChatInput';
 import ChatBody from './component/ChatBody';
 import ChatHeader from './component/ChatHeader';
+import { initSubscribers, initSubscription } from '../PersonalPage/userAuthSlice';
 
 function ChatPage() {
   const { id } = useParams();
@@ -34,6 +35,7 @@ function ChatPage() {
     setText('');
   };
 
+
   useEffect(() => {
     const handleMessage = (message: Message) => {
       setMessages((prevMessages) => [...prevMessages, message]);
@@ -52,7 +54,6 @@ function ChatPage() {
       await dispatch(initChat(Number(id)));
     };
     fetchData();
-    
   }, [dispatch, id]);
 
   useEffect(() => {
@@ -64,13 +65,16 @@ function ChatPage() {
     return users.find((el) => el.id === Number(id));
   }, [users, id]);
 
+ 
   return (
     <div className={style.chat_container}>
-      <ChatHeader setMessages={setMessages} user={user!} />
-      <div className={style.line}></div>
-      <ChatBody messages={messages} />
+      <div className={style.container_data}>
+        <ChatHeader setMessages={setMessages} user={user!} />
+        <div className={style.line}></div>
+        <ChatBody messages={messages} />
 
-      <ChatInput text={text} setText={setText} sendMessage={sendMessage} />
+        <ChatInput text={text} setText={setText} sendMessage={sendMessage} />
+      </div>
     </div>
   );
 }

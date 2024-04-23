@@ -37,6 +37,8 @@ function UserPage() {
   return (
     <>
       <div className={style.profile}>
+      <div className={style.adaptive_container}>
+
         <div className={style.profile_feed}>
           <UserProfile 
           handleModal={handleModal}
@@ -78,6 +80,7 @@ function UserPage() {
             
           </div>
         </div>
+      </div>
       </div>
     </>
   );
