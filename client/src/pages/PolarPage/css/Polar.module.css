@@ -37,7 +37,7 @@
   border-radius: 10px;
   margin-left: 8px;
 }
-.container {
+.container_data {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -267,7 +267,7 @@
 .media_block_text {
   display: flex;
   align-items: center;
-  justify-content:flex-end;
+  justify-content: flex-end;
 }
 .media_block_text span {
   margin-left: 8px;
@@ -324,4 +324,17 @@
   top: 3px;
   width: 20px;
   height: 20px;
+}
+@media only screen and (min-width: 1025px) {
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .container_data {
+    margin: 0 auto;
+    max-width: 700px;
+  }
+ .map{
+  height: 400px;
+ }
 }

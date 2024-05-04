@@ -20,18 +20,21 @@ export default function AuthorizationPage(): JSX.Element {
   const handleAuth = async () => {
     try {
       const action = await dispatch(login({ email, password }));
-
+  
+      console.log('Action:', action); // Логируем действие, полученное от сервера
+  
       if (login.fulfilled.match(action) && action.payload.success) {
         setError('');
         setEmail('');
         setPassword('');
         navigate('/news');
       } else {
-        setError(action.payload.error);
-        console.error(action.payload.error);
+        setError(action.payload.error || 'Ошибка при авторизации'); // Если нет сообщения об ошибке, выводим общее сообщение
+        console.error(action.payload.error || 'Ошибка при авторизации'); // Логируем сообщение об ошибке
       }
     } catch (error) {
       console.error('Произошла ошибка при авторизации:', error);
+      setError('Произошла ошибка при авторизации');
       // Обработка других ошибок при необходимости
     }
   };

@@ -267,3 +267,13 @@
   margin-left: 30px;
   color: #ff0606;
 }
+@media only screen and (min-width: 1025px){
+  .adaptive_container{
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .modal_body{
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}

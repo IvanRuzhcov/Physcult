@@ -61,6 +61,7 @@ export const login = createAsyncThunk(
       throw new Error('Не все поля заполнены!');
     }
     const response = await api.authFetch(data);
+  
 
     // Ваши операции после успешной авторизации
     if (response.success) {

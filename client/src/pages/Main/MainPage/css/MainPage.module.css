@@ -455,5 +455,11 @@ main {
   width: 18px;
   height: 18px;
 }
+@media only screen and (min-width: 1025px) {
+ .adaptive_container{
+  max-width: 800px;
+  margin: 0 auto;
+ }
+}
 
 

@@ -28,7 +28,7 @@ function verifyRefreshToken(req, res, next) {
 
     next();
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.clearCookie(configJWT.access.type).clearCookie(configJWT.refresh.type);
     next();
   }

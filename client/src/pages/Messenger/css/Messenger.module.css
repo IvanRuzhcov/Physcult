@@ -208,3 +208,14 @@ button:hover .svg-wrapper {
   letter-spacing: -0.5px;
   text-align: left;
 }
+@media only screen and (min-width: 1025px) {
+.container_data{
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+.nav_btn_group{
+  justify-content: center;
+}
+
+}
