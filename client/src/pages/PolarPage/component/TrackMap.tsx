@@ -28,7 +28,7 @@ const TrackMap = ({ gpxData , mapId }:{gpxData:string , mapId:string}) => {
 
     const map = new mapboxgl.Map({
       container:mapId,
-      style: 'mapbox://styles/mapbox/outdoors-v12',
+      style: 'mapbox://styles/mapbox/standard',
       center: [30.32676, 59.93714167],
       zoom: 15,
     });

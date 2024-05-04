@@ -13,9 +13,8 @@ import {
 import RouteModal from './modals/RouteModal'
 import PulseSensorModal from './modals/PulseSensorModal'
 import KindOfSportModal from './modals/KindOfSportModal'
-import styles from './css/Map.module.css'
-import 'mapbox-gl/dist/mapbox-gl.css';
 import { useNavigate } from'react-router-dom'
+import styles from './css/Map.module.css'
 
 mapboxgl.accessToken =
 	'pk.eyJ1Ijoia29zdGEyMjIiLCJhIjoiY2xzYm8zdzBwMDRqdDJpbzFqYndreTR4dSJ9.9z2G7foqI3ENFW83Hcdj4A'
@@ -58,9 +57,10 @@ export default function Map(): JSX.Element {
 
 	const mapContainer = useRef<HTMLDivElement>(null)
 	const map = useRef<mapboxgl.Map | null>(null)
-	const [lng, setLng] = useState<number>(30.40)
-	const [lat, setLat] = useState<number>(59.9)
-	const [zoom, setZoom] = useState<number>(11)
+	const marker = useRef<mapboxgl.Marker | null>(null)
+	const [lng, setLng] = useState<number>(30.35)
+	const [lat, setLat] = useState<number>(59.97)
+	const [zoom, setZoom] = useState<number>(10)
 
 	useEffect(() => {
 		if (map.current) return
@@ -76,7 +76,23 @@ export default function Map(): JSX.Element {
 			setLat(map.current!.getCenter().lat)
 			setZoom(map.current!.getZoom())
 		})
-	}, [lng, lat, zoom])
+
+	
+		navigator.geolocation.getCurrentPosition((position) => {
+			const { longitude, latitude } = position.coords;
+			map.current!.setCenter([longitude, latitude]);
+			map.current!.setZoom(14); 
+
+			
+			marker.current = new mapboxgl.Marker()
+				.setLngLat([longitude, latitude])
+				.addTo(map.current!);
+		}, (error) => {
+			console.error('Ошибка при получении геолокации:', error);
+		});
+
+	}, [])
+
 
 
 	return (
