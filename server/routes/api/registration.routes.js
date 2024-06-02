@@ -65,7 +65,7 @@ registrationRoutes.post('/verifyCode', async (req, res) => {
       const users = User.findAll();
       const userNick = await User.findOne({ where: { nick } });
 
-      if (users.count <= 5) {
+      if (users.count <= 10) {
         if (!user && !userNick) {
           const hash = await bcrypt.hash(password, 10);
           user = await User.create({
