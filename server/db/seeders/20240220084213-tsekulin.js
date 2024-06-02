@@ -21,7 +21,7 @@ module.exports = {
         nick: 'tsekulin',
         gender: 'Мужской',
         telephone: '+71111111113',
-        email: 'tse@gmail.com',
+        email: 'Tsekulin@gmail.com',
         date_of_birth: '17.12.2000',
       },
     ]);

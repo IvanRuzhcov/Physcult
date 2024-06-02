@@ -23,7 +23,7 @@ module.exports = {
         nick: 'malyshko',
         gender: 'Мужской',
         telephone: '+71111111111',
-        email: 'mal@gmail.com',
+        email: 'Dimamalyshko@yandex.ru',
         date_of_birth: '17.12.2000',
       },
     ]);

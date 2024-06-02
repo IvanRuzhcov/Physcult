@@ -39,7 +39,7 @@ registrationRoutes.post('/sendCode', async (req, res) => {
         text: `Ваш код подтверждения: ${code}`,
       };
       confirmationCodes.set(email, code);
-      mailer(message, {confirmationCodes , code , email}); // отправка сообщения на почту
+      mailer(message, { confirmationCodes, code, email }); // отправка сообщения на почту
 
       return res
         .status(200)
@@ -62,37 +62,49 @@ registrationRoutes.post('/verifyCode', async (req, res) => {
       storedVerificationCode.toString() === verificationCode
     ) {
       user = await User.findOne({ where: { email } });
+      const users = User.findAll();
       const userNick = await User.findOne({ where: { nick } });
 
-      if (!user && !userNick) {
-        const hash = await bcrypt.hash(password, 10);
-        user = await User.create({
-          email,
-          password: hash,
-          nick: nick,
-        });
-        const { accessToken, refreshToken } = generateTokens({
-          user: { id: user.id, nick: user.nick, email: user.email },
-        });
+      if (users.count <= 5) {
+        if (!user && !userNick) {
+          const hash = await bcrypt.hash(password, 10);
+          user = await User.create({
+            email,
+            password: hash,
+            nick: nick,
+          });
+          const { accessToken, refreshToken } = generateTokens({
+            user: { id: user.id, nick: user.nick, email: user.email },
+          });
 
-        res.cookie('access', accessToken, {
-          maxAge: 1000 * 60 * 60 * 24 * 5,
-          httpOnly: true,
-        });
+          res.cookie('access', accessToken, {
+            maxAge: 1000 * 60 * 60 * 24 * 5,
+            httpOnly: true,
+          });
 
-        res.cookie('refresh', refreshToken, {
-          maxAge: 1000 * 60 * 60 * 24 * 30,
-          httpOnly: true,
-        });
+          res.cookie('refresh', refreshToken, {
+            maxAge: 1000 * 60 * 60 * 24 * 30,
+            httpOnly: true,
+          });
+
+          res
+            .status(200)
+            .json({ success: true, message: 'Регистрация успешна', user });
+        } else {
+          // Если код не совпадает, отправляем ошибку
+          res
+            .status(400)
+            .json({ success: false, message: 'Неверный код подтверждения' });
+        }
+      } else {
+        // Если код не совпадает, отправляем ошибку
+        res
+          .status(400)
+          .json({
+            success: false,
+            message: 'Максимальное количество зарегистрированных пользователей',
+          });
       }
-
-
-      res.status(200).json({ success: true, message: 'Регистрация успешна',user });
-    } else {
-      // Если код не совпадает, отправляем ошибку
-      res
-        .status(400)
-        .json({ success: false, message: 'Неверный код подтверждения' });
     }
   } catch (error) {
     console.error('Ошибка при проверке кода подтверждения:', error);
