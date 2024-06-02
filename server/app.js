@@ -28,6 +28,12 @@ setupSocketEvents(io)
 
 const PORT = process.env.PORT ?? 4002;
 
+app.use(express.static(path.join(__dirname, '../client/build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+}); 
+
 server.listen(PORT, () => {
   console.log(`Сервер тренируется на ${PORT} порту`);
 });
