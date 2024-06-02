@@ -44,7 +44,7 @@
   }
   
   .time_content {
-	font-family: "Manrope", sans-serif;
+	font-family: 'Inter', sans-serif;
 	font-optical-sizing: auto;
 	font-size: 85px;
 	font-weight: 400;
@@ -52,7 +52,7 @@
   }
   
   .speed_content {
-	font-family: "Manrope", sans-serif;
+	font-family: 'Inter', sans-serif;
 	font-optical-sizing: auto;
 	font-size: 85px;
 	font-weight: 400;
@@ -60,7 +60,7 @@
   }
   
   .distance_content {
-	font-family: "Manrope", sans-serif;
+	font-family: 'Inter', sans-serif;
 	font-optical-sizing: auto;
 	font-size: 85px;
 	font-weight: 400;
