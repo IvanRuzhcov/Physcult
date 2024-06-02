@@ -65,7 +65,6 @@ registrationRoutes.post('/verifyCode', async (req, res) => {
       const users = User.findAll();
       const userNick = await User.findOne({ where: { nick } });
 
-      if (users.count <= 10) {
         if (!user && !userNick) {
           const hash = await bcrypt.hash(password, 10);
           user = await User.create({
@@ -96,15 +95,6 @@ registrationRoutes.post('/verifyCode', async (req, res) => {
             .status(400)
             .json({ success: false, message: 'Неверный код подтверждения' });
         }
-      } else {
-        // Если код не совпадает, отправляем ошибку
-        res
-          .status(400)
-          .json({
-            success: false,
-            message: 'Максимальное количество зарегистрированных пользователей',
-          });
-      }
     }
   } catch (error) {
     console.error('Ошибка при проверке кода подтверждения:', error);
