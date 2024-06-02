@@ -58,8 +58,8 @@ export default function Map(): JSX.Element {
 	const mapContainer = useRef<HTMLDivElement>(null)
 	const map = useRef<mapboxgl.Map | null>(null)
 	const marker = useRef<mapboxgl.Marker | null>(null)
-	const [lng, setLng] = useState<number>(30.35)
-	const [lat, setLat] = useState<number>(59.97)
+	const [lng, setLng] = useState<number>(0)
+	const [lat, setLat] = useState<number>(0)
 	const [zoom, setZoom] = useState<number>(10)
 
 	useEffect(() => {

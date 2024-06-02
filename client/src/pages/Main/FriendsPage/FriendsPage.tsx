@@ -10,6 +10,7 @@ import guberniev from '../../../assets/guber.png';
 import gerbulova from '../../../assets/gerbulova.png';
 import NavBar from '../../Navbar/NavBar';
 import MainNavbar from '../MainPage/component/MainNavbar';
+import {Plus} from 'lucide-react'
 
 export default function FriendsPage(): JSX.Element {
  
@@ -34,60 +35,15 @@ export default function FriendsPage(): JSX.Element {
 
       <div className={styles.friend_conteiner}>
         <div className={styles.friend}>
-          <div className={styles.photo}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="50"
-              height="50"
-              viewBox="0 0 50 50"
-              fill="none"
-            >
-              <g filter="url(#filter0_b_429_4366)">
-                <rect
-                  width="50"
-                  height="50"
-                  rx="25"
-                  fill="#FF0606"
-                  fill-opacity="0.05"
-                />
-                <path
-                  d="M26.4 19.4C26.4 18.6268 25.7732 18 25 18C24.2268 18 23.6 18.6268 23.6 19.4L23.6 23.6H19.4C18.6268 23.6 18 24.2268 18 25C18 25.7732 18.6268 26.4 19.4 26.4H23.6V30.6C23.6 31.3732 24.2268 32 25 32C25.7732 32 26.4 31.3732 26.4 30.6L26.4 26.4H30.6C31.3732 26.4 32 25.7732 32 25C32 24.2268 31.3732 23.6 30.6 23.6H26.4V19.4Z"
-                  fill="#FF0606"
-                />
-              </g>
-              <defs>
-                <filter
-                  id="filter0_b_429_4366"
-                  x="-7"
-                  y="-7"
-                  width="64"
-                  height="64"
-                  filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
-                >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                  <feGaussianBlur in="BackgroundImageFix" stdDeviation="3.5" />
-                  <feComposite
-                    in2="SourceAlpha"
-                    operator="in"
-                    result="effect1_backgroundBlur_429_4366"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in="SourceGraphic"
-                    in2="effect1_backgroundBlur_429_4366"
-                    result="shape"
-                  />
-                </filter>
-              </defs>
-            </svg>
+          <div className={styles.svg_add}>
+          <Plus size={30} color="#ff0606" />
           </div>
-          <div className={styles.name_friend}>
+          <div className={styles.add_friend}>
             <p className={styles.name}>Пригласить друзей</p>
           </div>
-          <div className={styles.btn_sub}>
-            <button>Пригласить</button>
-          </div>
+          
+            <button className={styles.btn_subscription}>Пригласить</button>
+          
         </div>
 
         <div className={styles.friend}>
@@ -98,9 +54,9 @@ export default function FriendsPage(): JSX.Element {
             <p className={styles.name}>Вероника Степанова</p>
             <p className={styles.nik_name}>@stepanova</p>
           </div>
-          <div className={styles.btn_sub}>
-            <button>Подписаться</button>
-          </div>
+          
+            <button className={styles.btn_subscription}>Подписаться</button>
+          
         </div>
 
         <div className={styles.friend}>
@@ -111,9 +67,9 @@ export default function FriendsPage(): JSX.Element {
             <p className={styles.name}>Дмитрий Малышко</p>
             <p className={styles.nik_name}>@malyshko</p>
           </div>
-          <div className={styles.btn_sub}>
-            <button>Подписаться</button>
-          </div>
+          
+            <button className={styles.btn_subscription}>Подписаться</button>
+          
         </div>
 
         <div className={styles.friend}>
@@ -124,9 +80,9 @@ export default function FriendsPage(): JSX.Element {
             <p className={styles.name}>Алексей Лекарев</p>
             <p className={styles.nik_name}>@lekarev</p>
           </div>
-          <div className={styles.btn_sub}>
-            <button>Подписаться</button>
-          </div>
+          
+            <button className={styles.btn_subscription}>Подписаться</button>
+         
         </div>
 
         <div className={styles.friend}>
@@ -137,9 +93,9 @@ export default function FriendsPage(): JSX.Element {
             <p className={styles.name}>Анатолий Цекулин</p>
             <p className={styles.nik_name}>@tsekulin</p>
           </div>
-          <div className={styles.btn_sub}>
-            <button>Подписаться</button>
-          </div>
+          
+            <button className={styles.btn_subscription}>Подписаться</button>
+          
         </div>
 
         <div className={styles.friend}>
@@ -150,9 +106,9 @@ export default function FriendsPage(): JSX.Element {
             <p className={styles.name}>Александр Легков</p>
             <p className={styles.nik_name}>@legkov</p>
           </div>
-          <div className={styles.btn_sub}>
-            <button>Подписаться</button>
-          </div>
+          
+            <button className={styles.btn_subscription}>Подписаться</button>
+          
         </div>
 
         <div className={styles.friend}>
@@ -163,9 +119,9 @@ export default function FriendsPage(): JSX.Element {
             <p className={styles.name}>Алексей Бланин</p>
             <p className={styles.nik_name}>@blanin</p>
           </div>
-          <div className={styles.btn_sub}>
-            <button>Подписаться</button>
-          </div>
+          
+            <button className={styles.btn_subscription}>Подписаться</button>
+          
         </div>
 
         <div className={styles.friend}>
@@ -176,9 +132,9 @@ export default function FriendsPage(): JSX.Element {
             <p className={styles.name}>Антон Шипулин</p>
             <p className={styles.nik_name}>@shipulin</p>
           </div>
-          <div className={styles.btn_sub}>
-            <button>Подписаться</button>
-          </div>
+          
+            <button className={styles.btn_subscription}>Подписаться</button>
+          
         </div>
 
         <div className={styles.friend}>
@@ -189,9 +145,9 @@ export default function FriendsPage(): JSX.Element {
             <p className={styles.name}>Дмитрий Губерниев</p>
             <p className={styles.nik_name}>@guberniev</p>
           </div>
-          <div className={styles.btn_sub}>
-            <button>Подписаться</button>
-          </div>
+          
+            <button className={styles.btn_subscription}>Подписаться</button>
+          
         </div>
 
         <div className={styles.friend}>
@@ -202,9 +158,9 @@ export default function FriendsPage(): JSX.Element {
             <p className={styles.name}>Наталья Гербулова</p>
             <p className={styles.nik_name}>@gerbulova</p>
           </div>
-          <div className={styles.btn_sub}>
-            <button>Подписаться</button>
-          </div>
+          
+            <button className={styles.btn_subscription}>Подписаться</button>
+          
         </div>
       </div>
       <div className={styles.footer}></div>

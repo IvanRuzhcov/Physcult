@@ -8,6 +8,7 @@ import { RootState } from '../../store';
 import UserProfile from './components/UserProfile';
 import {useParams } from 'react-router-dom';
 import UserProfileNavbar from './components/UserProfileNavbar';
+import {Share2, CircleX} from 'lucide-react'
 
 function UserPage() {
   const [activeBtn, setActiveBtn] = useState('publications');
@@ -69,13 +70,17 @@ function UserPage() {
         <div className={style.modal_body}>
           <div className={style.contact_methods}>
           
-            <div className={style.contact_method}>
-              {/* <img src={repost} alt="" /> */}
-              <span>Поделиться</span>
+            <div className={style.share_method}>
+              <button className={style.share_btn}>
+                <Share2 size={20}  color="#fff"/>
+                  <span className={style.block_btn_text}>Поделиться</span>
+              </button>
             </div>
             <div className={style.to_block}>
-              {/* <img src={to_block} alt="" /> */}
-              <span>Заборкировать</span>
+              <button className={style.block_btn}>
+                 <CircleX size={20}  color="#fff"/>
+                  <span className={style.block_btn_text}>Заблокировать</span>
+              </button>
             </div>
             
           </div>
