@@ -155,7 +155,7 @@ input:hover {
   background-color: hsl(326, 94%, 75%, 30%);
 }
 
-.photo {
+.photo img {
   width: 50px;
   height: 50px;
 }
@@ -205,9 +205,27 @@ input:hover {
   border: none;
   width: 100px;
   height: 34px;
-  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: #f2f2f2;
   color: #000;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: -0.5px;
+  border-radius: 12px;
+}
+.btn_subscription_container {
+  border: none;
+  width: 100px;
+  height: 34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  color: #fff;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;

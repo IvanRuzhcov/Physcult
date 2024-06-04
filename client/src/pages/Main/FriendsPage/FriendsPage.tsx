@@ -1,19 +1,52 @@
 import styles from './css/FriendsPage.module.css';
-import stepanova from '../../../assets/stepan.png';
-import malyshko from '../../../assets/malyshk.png';
-import lekar from '../../../assets/lekar.png';
-import tsekulin from '../../../assets/tolik.png';
-import legkov from '../../../assets/legkov.png';
-import blanin from '../../../assets/blanin1.png';
-import shipulin from '../../../assets/shipulin.png';
-import guberniev from '../../../assets/guber.png';
-import gerbulova from '../../../assets/gerbulova.png';
 import NavBar from '../../Navbar/NavBar';
 import MainNavbar from '../MainPage/component/MainNavbar';
-import {Plus} from 'lucide-react'
+import { Plus } from 'lucide-react';
+import { useSelector } from 'react-redux';
+import { RootState, useAppDispatch } from '../../../store';
+import {
+  initSubscribers,
+  initSubscription,
+  subscribe,
+  unsubscribe,
+} from '../../UserPage/UserPageSlice';
+import { useEffect } from 'react';
 
 export default function FriendsPage(): JSX.Element {
- 
+  const users = useSelector((store: RootState) => store.auth.allUsers);
+  const user = useSelector((store: RootState) => store.auth.user);
+  const subscriber = useSelector((store: RootState) => store.auth.user?.id);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(initSubscription(Number(user?.id)));
+    dispatch(initSubscribers(Number(user?.id)));
+  }, [dispatch]);
+
+  const subscribers = useSelector(
+    (store: RootState) => store.userData.subscribers
+  ); // подписчики этого юзера
+
+  console.log(subscribers);
+
+  const isSubscribed = (customerId: number | undefined) =>
+    Array.isArray(subscribers) &&
+    subscribers.some((el) => el?.user_id === customerId);
+
+  const handleUnsubscribe = (id: number | undefined) => {
+    const action = dispatch(
+      unsubscribe({ user_id: subscriber!, subscribe_id: Number(id) })
+    );
+    return action;
+  };
+
+  const handleSubscribe = (id: number | undefined) => {
+    const action = dispatch(
+      subscribe({ user_id: subscriber!, subscribe_id: Number(id) })
+    );
+    return action;
+  };
+
   return (
     <main className={styles.conteiner}>
       <div className={styles.head}>
@@ -36,132 +69,46 @@ export default function FriendsPage(): JSX.Element {
       <div className={styles.friend_conteiner}>
         <div className={styles.friend}>
           <div className={styles.svg_add}>
-          <Plus size={30} color="#ff0606" />
+            <Plus size={30} color="#ff0606" />
           </div>
           <div className={styles.add_friend}>
             <p className={styles.name}>Пригласить друзей</p>
           </div>
-          
-            <button className={styles.btn_subscription}>Пригласить</button>
-          
+
+          <button className={styles.btn_subscription}>Пригласить</button>
         </div>
 
-        <div className={styles.friend}>
-          <div className={styles.photo}>
-            <img src={stepanova} alt="" />
-          </div>
-          <div className={styles.name_friend}>
-            <p className={styles.name}>Вероника Степанова</p>
-            <p className={styles.nik_name}>@stepanova</p>
-          </div>
-          
-            <button className={styles.btn_subscription}>Подписаться</button>
-          
-        </div>
+        {users
+          .filter((el) => el.id !== user!.id)
+          .map((customer) => {
+            return (
+              <div className={styles.friend} key={customer.id}>
+                <div className={styles.photo}>
+                  <img src={customer.avatar_img} alt="" />
+                </div>
+                <div className={styles.name_friend}>
+                  <p className={styles.name}>{customer.name}</p>
+                  <p className={styles.nik_name}>@{customer.nick}</p>
+                </div>
 
-        <div className={styles.friend}>
-          <div className={styles.photo}>
-            <img src={malyshko} alt="" />
-          </div>
-          <div className={styles.name_friend}>
-            <p className={styles.name}>Дмитрий Малышко</p>
-            <p className={styles.nik_name}>@malyshko</p>
-          </div>
-          
-            <button className={styles.btn_subscription}>Подписаться</button>
-          
-        </div>
-
-        <div className={styles.friend}>
-          <div className={styles.photo}>
-            <img src={lekar} alt="" />
-          </div>
-          <div className={styles.name_friend}>
-            <p className={styles.name}>Алексей Лекарев</p>
-            <p className={styles.nik_name}>@lekarev</p>
-          </div>
-          
-            <button className={styles.btn_subscription}>Подписаться</button>
-         
-        </div>
-
-        <div className={styles.friend}>
-          <div className={styles.photo}>
-            <img src={tsekulin} alt="" />
-          </div>
-          <div className={styles.name_friend}>
-            <p className={styles.name}>Анатолий Цекулин</p>
-            <p className={styles.nik_name}>@tsekulin</p>
-          </div>
-          
-            <button className={styles.btn_subscription}>Подписаться</button>
-          
-        </div>
-
-        <div className={styles.friend}>
-          <div className={styles.photo}>
-            <img src={legkov} alt="" />
-          </div>
-          <div className={styles.name_friend}>
-            <p className={styles.name}>Александр Легков</p>
-            <p className={styles.nik_name}>@legkov</p>
-          </div>
-          
-            <button className={styles.btn_subscription}>Подписаться</button>
-          
-        </div>
-
-        <div className={styles.friend}>
-          <div className={styles.photo}>
-            <img src={blanin} alt="" />
-          </div>
-          <div className={styles.name_friend}>
-            <p className={styles.name}>Алексей Бланин</p>
-            <p className={styles.nik_name}>@blanin</p>
-          </div>
-          
-            <button className={styles.btn_subscription}>Подписаться</button>
-          
-        </div>
-
-        <div className={styles.friend}>
-          <div className={styles.photo}>
-            <img src={shipulin} alt="" />
-          </div>
-          <div className={styles.name_friend}>
-            <p className={styles.name}>Антон Шипулин</p>
-            <p className={styles.nik_name}>@shipulin</p>
-          </div>
-          
-            <button className={styles.btn_subscription}>Подписаться</button>
-          
-        </div>
-
-        <div className={styles.friend}>
-          <div className={styles.photo}>
-            <img src={guberniev} alt="" />
-          </div>
-          <div className={styles.name_friend}>
-            <p className={styles.name}>Дмитрий Губерниев</p>
-            <p className={styles.nik_name}>@guberniev</p>
-          </div>
-          
-            <button className={styles.btn_subscription}>Подписаться</button>
-          
-        </div>
-
-        <div className={styles.friend}>
-          <div className={styles.photo}>
-            <img src={gerbulova} alt="" />
-          </div>
-          <div className={styles.name_friend}>
-            <p className={styles.name}>Наталья Гербулова</p>
-            <p className={styles.nik_name}>@gerbulova</p>
-          </div>
-          
-            <button className={styles.btn_subscription}>Подписаться</button>
-          
-        </div>
+                {isSubscribed(customer.id) ? (
+                  <div
+                    className={styles.btn_subscription}
+                    onClick={() => handleUnsubscribe(customer.id)}
+                  >
+                    <span>Отписаться</span>
+                  </div>
+                ) : (
+                  <div
+                    className={styles.btn_subscription_container}
+                    onClick={() => handleSubscribe(customer.id)}
+                  >
+                    <span>Подписаться</span>
+                  </div>
+                )}
+              </div>
+            );
+          })}
       </div>
       <div className={styles.footer}></div>
       <NavBar />
