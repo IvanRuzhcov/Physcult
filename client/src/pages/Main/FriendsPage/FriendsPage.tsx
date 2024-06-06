@@ -11,40 +11,55 @@ import {
   unsubscribe,
 } from '../../UserPage/UserPageSlice';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function FriendsPage(): JSX.Element {
+  const navigate = useNavigate();
   const users = useSelector((store: RootState) => store.auth.allUsers);
   const user = useSelector((store: RootState) => store.auth.user);
   const subscriber = useSelector((store: RootState) => store.auth.user?.id);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(initSubscription(Number(user?.id)));
-    dispatch(initSubscribers(Number(user?.id)));
-  }, [dispatch]);
+    if (user?.id) {
+      dispatch(initSubscription(Number(user.id)));
+      dispatch(initSubscribers(Number(user.id)));
+    }
+  }, [dispatch, user?.id]);
 
-  const subscribers = useSelector(
-    (store: RootState) => store.userData.subscribers
+  const subscription = useSelector(
+    (store: RootState) => store.userData.subscription
   ); // подписчики этого юзера
 
-  console.log(subscribers);
+  console.log(subscription);
 
   const isSubscribed = (customerId: number | undefined) =>
-    Array.isArray(subscribers) &&
-    subscribers.some((el) => el?.user_id === customerId);
+    Array.isArray(subscription) &&
+    subscription.some((el) => el.subscribe_id === customerId);
+  // проверка на то что подписан или нет
 
-  const handleUnsubscribe = (id: number | undefined) => {
-    const action = dispatch(
-      unsubscribe({ user_id: subscriber!, subscribe_id: Number(id) })
-    );
-    return action;
+  const handleUnsubscribe = async (id: number | undefined) => {
+    if (id !== undefined) {
+      await dispatch(unsubscribe({ user_id: subscriber!, subscribe_id: id }));
+      // Refresh subscription list
+      await dispatch(initSubscription(Number(user?.id)));
+    }
   };
+  // отписка
 
-  const handleSubscribe = (id: number | undefined) => {
-    const action = dispatch(
-      subscribe({ user_id: subscriber!, subscribe_id: Number(id) })
-    );
-    return action;
+  const handleSubscribe = async (id: number | undefined) => {
+    if (id !== undefined) {
+      await dispatch(subscribe({ user_id: subscriber!, subscribe_id: id }));
+      // Refresh subscription list
+      await dispatch(initSubscription(Number(user?.id)));
+    }
+  };
+  // подписка
+
+  const hendlePost = (id: number | undefined) => {
+    if (id !== user?.id) {
+      navigate(`/profile/${id}`);
+    }
   };
 
   return (
@@ -77,13 +92,15 @@ export default function FriendsPage(): JSX.Element {
 
           <button className={styles.btn_subscription}>Пригласить</button>
         </div>
-
         {users
           .filter((el) => el.id !== user!.id)
           .map((customer) => {
             return (
               <div className={styles.friend} key={customer.id}>
-                <div className={styles.photo}>
+                <div
+                  className={styles.photo}
+                  onClick={() => hendlePost(customer.id)}
+                >
                   <img src={customer.avatar_img} alt="" />
                 </div>
                 <div className={styles.name_friend}>

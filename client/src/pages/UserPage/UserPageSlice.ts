@@ -80,6 +80,7 @@ const userPageSlice = createSlice({
         );
       })
       .addCase(subscribe.fulfilled, (state, action) => {
+        console.log(action.meta.arg)
         state.subscribers.push(action.meta.arg);
       })
       .addCase(initLike.fulfilled, (state, action) => {
