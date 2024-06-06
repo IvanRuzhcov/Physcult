@@ -1,6 +1,7 @@
 import styles from './css/FriendsPage.module.css';
 import NavBar from '../../Navbar/NavBar';
 import MainNavbar from '../MainPage/component/MainNavbar';
+import no_photo from '../../../assets/no_avatar.png';
 import { Plus } from 'lucide-react';
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../../../store';
@@ -10,7 +11,7 @@ import {
   subscribe,
   unsubscribe,
 } from '../../UserPage/UserPageSlice';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function FriendsPage(): JSX.Element {
@@ -20,6 +21,9 @@ export default function FriendsPage(): JSX.Element {
   const subscriber = useSelector((store: RootState) => store.auth.user?.id);
   const dispatch = useAppDispatch();
 
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredUsers, setFilteredUsers] = useState(users);
+
   useEffect(() => {
     if (user?.id) {
       dispatch(initSubscription(Number(user.id)));
@@ -27,11 +31,20 @@ export default function FriendsPage(): JSX.Element {
     }
   }, [dispatch, user?.id]);
 
+  useEffect(() => {
+    setFilteredUsers(
+      users.filter((el) => 
+        (el.name?.toLowerCase().includes(searchQuery.toLowerCase()) || 
+        el.nick?.toLowerCase().includes(searchQuery.toLowerCase()))
+      )
+    );
+  }, [searchQuery, users]);
+
   const subscription = useSelector(
     (store: RootState) => store.userData.subscription
   ); // подписчики этого юзера
 
-  console.log(subscription);
+  console.log(users);
 
   const isSubscribed = (customerId: number | undefined) =>
     Array.isArray(subscription) &&
@@ -77,7 +90,13 @@ export default function FriendsPage(): JSX.Element {
               <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
             </g>
           </svg>
-          <input placeholder="Поиск" type="search" className={styles.f_input} />
+          <input
+            placeholder="Поиск"
+            type="search"
+            className={styles.f_input}
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
         </div>
       </div>
 
@@ -92,7 +111,7 @@ export default function FriendsPage(): JSX.Element {
 
           <button className={styles.btn_subscription}>Пригласить</button>
         </div>
-        {users
+        {filteredUsers
           .filter((el) => el.id !== user!.id)
           .map((customer) => {
             return (
@@ -101,7 +120,7 @@ export default function FriendsPage(): JSX.Element {
                   className={styles.photo}
                   onClick={() => hendlePost(customer.id)}
                 >
-                  <img src={customer.avatar_img} alt="" />
+                  <img src={customer.avatar_img || no_photo} alt="" />
                 </div>
                 <div className={styles.name_friend}>
                   <p className={styles.name}>{customer.name}</p>
