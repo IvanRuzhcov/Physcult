@@ -1,17 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import style from './css/NavBar.module.css';
-import offFire from '../../assets/icons/offFire.png';
-import Fire from '../../assets/icons/Fire.png';
-import offEarth from '../../assets/icons/offEarth.png';
-import earth from '../../assets/icons/Earth.png';
-import play from '../../assets/icons/play.png';
-import offPlay from '../../assets/icons/offplay.png';
-import offChat from '../../assets/icons/offChat.png';
-import chat from '../../assets/icons/chat.png';
-import offUserRounded from '../../assets/icons/offUserRounded.png';
-import userRounded from '../../assets/icons/userRounded.png';
 import logo from '../../assets/logo.png';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { Flame, Users, MapPinned, MessageSquareText, User } from 'lucide-react';
+import style from './css/NavBar.module.css';
 
 function NavBar() {
   const navigate = useNavigate();
@@ -58,30 +49,32 @@ function NavBar() {
           <img src={logo} alt="" />
         </div>
         <div className={style.icons} onClick={handleNews}>
-          <img src={activePage === 'fire' ? Fire : offFire} alt="" />
+        { activePage === 'fire' ?<Flame size={38} strokeWidth={2} color="#ff0606"/>:
+        <Flame size={38} strokeWidth={1.75} color="#778c96"/>}
           <span>Новости</span>
         </div>
 
         <div className={style.icons} onClick={handleMain}>
-          <img src={activePage === 'main' ? earth : offEarth} alt="" />
+          {activePage === 'main' ? <Users size={38} strokeWidth={2} color="#ff0606"/>:
+          <Users size={38} strokeWidth={1.75} color="#778c96"/>}
           <span>Главная</span>
         </div>
 
         <div className={`${style.icons} ${style.icons_play}`}  onClick={handlePlay} >
-          <img src={activePage === 'play' ? play : offPlay} alt="" />
+          {activePage === 'play' ?<MapPinned size={38} strokeWidth={2} color="#ff0606"/>:
+          <MapPinned size={38} strokeWidth={1.75} color="#778c96"/>}
           <span>Тренировка</span>
         </div>
 
         <div className={style.icons} onClick={handleChat}>
-          <img src={activePage === 'chat' ? chat : offChat} alt="" />
+          {activePage === 'chat' ?<MessageSquareText size={38} strokeWidth={2} color="#ff0606"/>:
+          <MessageSquareText size={38} strokeWidth={1.75} color="#778c96"/>}
           <span>Сообщения </span>
         </div>
 
         <div className={style.icons} onClick={handleProfile}>
-          <img
-            src={activePage === 'user' ? userRounded : offUserRounded}
-            alt=""
-          />
+          {activePage === 'user' ?<User size={38} strokeWidth={2} color="#ff0606"/>:
+          <User size={38} strokeWidth={1.75} color="#778c96"/>}
           <span>Профиль</span>
         </div>
       </div>

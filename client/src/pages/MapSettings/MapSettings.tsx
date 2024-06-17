@@ -12,7 +12,9 @@ export default function MapSettings(): JSX.Element {
 	return (
 		<div className={styles.map_settings_container}>
 			<div className={styles.map_settings_header}>
-				<span onClick={handleRedirectMap}><ChevronLeft size={24} /></span>
+				<div className={styles.icon_header} onClick={handleRedirectMap}>
+					<ChevronLeft size={24} />
+				</div>
 				<span className={styles.map_settings_header_title}>Настройки</span>
 			</div>
 			<div className={styles.map_settings_content}>
