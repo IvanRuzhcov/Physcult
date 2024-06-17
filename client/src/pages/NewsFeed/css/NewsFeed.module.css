@@ -190,9 +190,9 @@ body {
 
 .map_box {
   flex-shrink: 0; 
-  width: 230px; /* Задаем фиксированную ширину */
-  height: 196px; /* Задаем фиксированную высоту */
-  overflow: hidden; /* Обрезаем лишнее содержимое */
+  width: 230px; 
+  height: 196px; 
+  overflow: hidden; 
 }
 
 
@@ -207,15 +207,16 @@ body {
   font-size: 10px;
   font-style: normal;
   font-weight: 300;
-  line-height: 150%; /* 15px */
+  line-height: 150%; 
   letter-spacing: -0.1px;
 }
 .post_feedback {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  gap: 5px;
   margin-left: 9px;
-  margin-top: 8px;
+  margin-top: 8px; 
 }
 .post_feedback_box {
   display: flex;

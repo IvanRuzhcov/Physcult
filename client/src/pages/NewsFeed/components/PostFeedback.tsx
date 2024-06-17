@@ -1,9 +1,7 @@
 import React, { memo, useState } from 'react';
 import style from '../css/NewsFeed.module.css';
-import likee from '../../../assets/like.png';
 import like_activ from '../../../assets/like_activ.png';
-import coments from '../../../assets/comments.png';
-import back from '../../../assets/back.png';
+import { LogOut, MessageSquareMore, Heart } from 'lucide-react';
 import { Posts } from '../../PersonalPage/types/Post';
 import { RootState, useAppDispatch } from '../../../store';
 import { likeUser, removeLike } from '../../UserPage/UserPageSlice';
@@ -39,23 +37,26 @@ const PostFeedback = ({ id }: Posts) => {
       <div className={style.post_feedback_box}>
         {!userLick ? (
           <div onClick={handleLike}>
-            <img src={likee} alt="" />
+            {/* <img src={likee} alt="" /> */}
+            <Heart size={24} strokeWidth={1.75} color="#000"/>
           </div>
         ) : (
           <div onClick={handleRemoveLike}>
-            <img src={like_activ} alt="" />
+             <img src={like_activ} alt="" />
+            {/* <Heart size={24} strokeWidth={1.5} color="#red"/> */}
           </div>
         )}
         <span>{likePost.length}</span>
       </div>
       <div className={style.post_feedback_box}>
         <div>
-          <img src={coments} alt="" />
+          <MessageSquareMore size={24} strokeWidth={1.75} color="#000"/>
         </div>
         <span>0</span>
       </div>
       <div className={style.post_feedback_box}>
-        <img src={back} alt="" />
+        <LogOut size={24} strokeWidth={1.75} color="#000"/>
+        
       </div>
     </div>
   );

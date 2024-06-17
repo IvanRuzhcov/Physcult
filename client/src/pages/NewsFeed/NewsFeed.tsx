@@ -30,7 +30,7 @@ function NewsFeed() {
     <>
       <div className={style.container}>
         <div className={style.container_news_feed}>
-          <History />
+          {/* <History /> */}
           <div className={style.posts_feed}>
             {post.map((el) => {
               // Проверяем, что subscription является массивом

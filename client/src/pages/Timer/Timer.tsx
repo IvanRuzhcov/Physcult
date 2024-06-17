@@ -46,7 +46,9 @@ export default function Timer(): JSX.Element{
   return (
 	<div className={styles.timer_block}>
 		<div className={styles.timer_header} onClick={handleRedirectMap}>
-			<span><ArrowLeft color='#ff0606' size={25} /></span>
+			<div className={styles.timer_icon_header}>
+				 <ArrowLeft color='#000' size={25} />
+			</div>
 		</div>
 		<div className={styles.timer_content}>
 			<div className={styles.time_block}>
