@@ -12,7 +12,7 @@ function OwnProfile() {
   const user = useSelector((store: RootState) => store.auth.user);
   const subscription = useSelector((store: RootState) => store.auth.subscription);
   const subscribers = useSelector((store: RootState) => store.auth.subscribers);
-  
+  console.log(subscription);
 
  
   const naviget = useNavigate();
