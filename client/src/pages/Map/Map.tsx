@@ -99,29 +99,29 @@ export default function Map(): JSX.Element {
 		<main className={styles.container}>
 			<header className={styles.header}>
 					<div className={styles.back_btn} onClick={handleRedirectNews}>
-						  <ArrowLeft strokeWidth={2.5} color='#778c96' size={25} />
+						  <ArrowLeft strokeWidth={2.5} color='#fff' size={25} />
 					</div>
 				  <div className={styles.kind_of_sport}>
 					    <span>Велоспорт</span>
 				  </div>
 				  <div className={styles.settings} onClick={handleRedirectMapSettings}>
-					    <Settings strokeWidth={2.5} color='#778c96' size={25} />
+					    <Settings strokeWidth={2.5} color='#fff' size={25} />
 				  </div>
 			</header>
 			<div ref={mapContainer} className={styles.map_container}  id="map"/>
 			<footer className={styles.footer}>
 				<div className={styles.btn_group}>
 					  <div onClick={handleOpenRouteModal}>
-						    <Route strokeWidth={1.5} color='#778c96' size={48} />
+						    <Route strokeWidth={1.5} color='#fff' size={48} />
 					  </div>
 					  <div onClick={handleOpenSportModal}>
 						    <Bike strokeWidth={1.5} color='#ff0606' size={48} />
 					  </div>
 					  <div onClick={handleOpenPulseModal}>
-						    <HeartPulse strokeWidth={1.5} color='#778c96' size={48} />
+						    <HeartPulse strokeWidth={1.5} color='#fff' size={48} />
 					  </div>
 					  <div>
-						    <Music4 strokeWidth={1.5} color='#778c96' size={48} />
+						    <Music4 strokeWidth={1.5} color='#fff' size={48} />
 					  </div>
 				</div>
 				<div className={styles.container_red_round_button} onClick={handleRedirectTimer}>

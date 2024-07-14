@@ -60,9 +60,7 @@
 .kind_of_sport {
   font-size: 22px;
   font-weight: 500;
-  letter-spacing: 0.75px;
-  /* -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #778c96; */
+  letter-spacing: -0.5px;
   color: #ff0606;
 }
 

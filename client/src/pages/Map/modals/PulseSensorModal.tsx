@@ -22,13 +22,19 @@ export default function PulseModal({ isPulseOpen, onPulseClose}: PulseModalProps
     <>
       {isPulseOpen && (
         <div className={`${styles.modal} ${isAnimating ? styles.closing : ''}`}>
-          <div className={styles.modalContent}>
-            <span className={styles.closeButton} onClick={handleClose}>
-            <CircleX />
-            </span>
-            <span className={styles.title}>Датчик пульса</span>
+          <div className={styles.modal_pulse_container}>
+            <header className={styles.modal_pulse_header}>
+               <div className={styles.pulse_header_title}>
+                 <span>Датчик пульса</span>
+               </div>
+               <div onClick={handleClose}>
+                  <CircleX />
+               </div>
+            </header>
+            <div className={styles.divider_header}></div>
+
             <div className={styles.info}>
-              <span className={styles.info_header}>ДОСТУПНЫЕ ДАТЧИКИ</span>
+              <span className={styles.info_header}>Доступные датчики</span>
               <div className={styles.spinner}>
                    <div></div>   
                    <div></div>    
@@ -41,7 +47,7 @@ export default function PulseModal({ isPulseOpen, onPulseClose}: PulseModalProps
                    <div></div>    
                    <div></div>    
                </div>
-            <span className={styles.info_text}>Выберите датчик, для сопряжения с телефоном.</span>
+            <p className={styles.info_text}>Выберите датчик, для сопряжения с телефоном.</p>
             </div>
           </div>
         </div>
