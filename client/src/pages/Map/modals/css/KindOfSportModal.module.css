@@ -3,63 +3,59 @@
 	justify-content: center;
 	align-items: center;
 	position: fixed;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
+	inset: 0;
 	background-color: rgba(0, 0, 0, 0.5); 
-	z-index: 9999;
+	z-index: 99;
 	transition: opacity 0.3s ease;
   }
+
+ .closing {
+  opacity: 0;
+ }
   
-  .modalContent {
-	background: #fff;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    width: 370px;
-    height: 400px;
-    border-radius: 15px;
+  .modal_container {
+    padding: 20px;
+    background: rgba(255,255,255,0.5);
+    -webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(7px);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 16px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow-y: scroll;
   }
-  
-  .closeButton {
-	position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-  }
 
-  .title {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 22px;
-    font-weight: 500;
-    color: #000;
-  }
-
-  .kind_of_sport {
-    position: absolute;
-    top: 40px;
+  .modal_content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
-    padding: 15px;
-    margin: 5px;
-    border-top: 1px solid #c9c9c9;
+    gap: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    color: #000;
+  }
+
+  .modal_header{
+    width: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+  }
+
+  .header_title{
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.5px;
   }
 
   .sport_item {
     width: 320px;
-    height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #c9c9c9;
   }
 
   .sport_icon {
@@ -75,9 +71,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: #ff0606;
-    background: -webkit-linear-gradient(0deg, #ff0606 0%, #f45e4c 100%);
-    background: linear-gradient(0deg, #ff0606 0%, #f45e4c 100%);
+    background: transparent; 
   }
 
   .btn_icon_of {
@@ -87,14 +81,18 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #fff;
-  }
-  
-  .closing {
-	opacity: 0;
+    background: transparent;
+    box-shadow: rgba(255, 255, 255, 0.25) 0px 0px 0px 2px;
   }
   
   .divider {
-	  border-top: 1px solid #ccc;
-	  margin: 10px 0;
+    width: 100%;
+	  border-top: 1px solid rgba(255, 255, 255, 0.075);
 	}
+
+  .divider_header{
+    width: 100%;
+	  border-top: 1px solid rgba(255, 255, 255, 0.075);
+    margin-top: 12px;
+    padding-bottom: 8px;
+  }

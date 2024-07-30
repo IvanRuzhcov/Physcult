@@ -6,7 +6,6 @@
 .map_settings_header {
 	display: flex;
 	justify-content: flex-start;
-	gap: 130px;
 	align-items: center;
 	margin-bottom: 24px;
 	padding-top: 20px;
@@ -20,11 +19,13 @@
 	height: 28px;
 	background-color: #f3f3f3;
 	border-radius: 6px;
+	margin-right: 30%;
 }
 
 .map_settings_header_title {
 	font-size: 18px;
 	font-weight: 600;
+	letter-spacing: -0.5px;
 }
 
 .map_settings_content {
@@ -34,7 +35,7 @@
 }
 
 .map_settings_section {
-	height: 68px;
+	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;

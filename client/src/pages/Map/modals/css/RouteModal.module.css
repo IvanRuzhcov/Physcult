@@ -3,73 +3,67 @@
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 9999;
+  z-index: 99;
   transition: opacity 0.3s ease; 
-}
-
-.modalContent {
-  background: #fff;
- -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  width: 370px;
-  height: 210px;
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.closeButton {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-}
-
-.title {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 22px;
-  font-weight: 500;
-  color: #000;
-}
-
-.info {
-  position: absolute;
-  top: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  padding: 10px;
-  margin: 5px;
-  border-top: 1px solid #c9c9c9;
-}
-
-.info_header {
-  font-size: 20px;
-  font-weight: 500;
-  color: #000;
-}
-
-.info_text {
-  font-size: 18px;
-  line-height: 18px;
-  font-weight: 400;
-  color: #000;
 }
 
 .closing {
   opacity: 0;
 }
 
-.divider {
-    border-top: 1px solid rgb(14, 13, 13);
-    margin: 10px 0;
-  }
+.modal_route_container {
+  padding: 15px;
+  background: rgba(255,255,255,0.5);
+  -webkit-backdrop-filter: blur(7px);
+   backdrop-filter: blur(7px);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 16px;
+  width: 370px;
+  height: 210px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal_route_header{
+  width: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.route_header_title {
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.info_header {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+}
+
+.info_text {
+  line-height: 1.4;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.75);
+    text-align: center;
+}
+
+.divider_header{
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.075);
+  margin-top: 12px;
+  padding-bottom: 8px;
+}

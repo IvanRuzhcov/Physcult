@@ -1,5 +1,5 @@
 import React from 'react'
-import { ChevronRight, ChevronLeft } from 'lucide-react'
+import { ChevronRight, ArrowLeft } from 'lucide-react'
 import { useNavigate } from'react-router-dom'
 import styles from './css/MapSettings.module.css'
 
@@ -11,14 +11,14 @@ export default function MapSettings(): JSX.Element {
 	}
 	return (
 		<div className={styles.map_settings_container}>
-			<div className={styles.map_settings_header}>
-				<div className={styles.icon_header} onClick={handleRedirectMap}>
-					<ChevronLeft size={24} />
-				</div>
-				<span className={styles.map_settings_header_title}>Настройки</span>
-			</div>
+			<header className={styles.map_settings_header}>
+				   <div className={styles.icon_header} onClick={handleRedirectMap}>
+					   <ArrowLeft strokeWidth={2} color='#000' size={24} />
+				   </div>
+				   <span className={styles.map_settings_header_title}>Настройки</span>
+			</header>
 			<div className={styles.map_settings_content}>
-				<div className={styles.map_settings_section}>
+				<section className={styles.map_settings_section}>
 					<div className={styles.map_settings_text_group}>
 						<span className={styles.map_settings_section_title}>
 							Настройка экрана
@@ -28,8 +28,8 @@ export default function MapSettings(): JSX.Element {
 					<div className={styles.chevron}>
 						<ChevronRight size={18} />
 					</div>
-				</div>
-				<div className={styles.map_settings_section}>
+				</section>
+				<section className={styles.map_settings_section}>
 					<div className={styles.map_settings_text_group}>
 						<span className={styles.map_settings_section_title}>
 							Добавить вручную
@@ -41,8 +41,8 @@ export default function MapSettings(): JSX.Element {
 					<div className={styles.chevron}>
 						<ChevronRight size={18} />
 					</div>
-				</div>
-				<div className={styles.map_settings_section}>
+				</section>
+				<section className={styles.map_settings_section}>
 					<div className={styles.map_settings_text_group}>
 						<span className={styles.map_settings_section_title}>
 							Датчик пульса
@@ -54,8 +54,8 @@ export default function MapSettings(): JSX.Element {
 					<div className={styles.chevron}>
 						<ChevronRight size={18} />
 					</div>
-				</div>
-				<div className={styles.map_settings_section}>
+				</section>
+				<section className={styles.map_settings_section}>
 					<div className={styles.map_settings_text_group}>
 						<span className={styles.map_settings_section_title}>Автопауза</span>
 						<span className={styles.map_settings_section_text}>Включено</span>
@@ -63,7 +63,7 @@ export default function MapSettings(): JSX.Element {
 					<div className={styles.chevron}>
 						<ChevronRight size={18} />
 					</div>
-				</div>
+				</section>
 			</div>
 		</div>
 	)

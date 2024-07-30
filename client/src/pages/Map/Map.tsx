@@ -66,7 +66,7 @@ export default function Map(): JSX.Element {
 		if (map.current) return
 		map.current = new mapboxgl.Map({
 			container: mapContainer.current!,
-			style: 'mapbox://styles/mapbox/standard',
+			style: 'mapbox://styles/mapbox/satellite-streets-v12',
 			center: [lng, lat],
 			zoom: zoom,
 		})
@@ -96,45 +96,45 @@ export default function Map(): JSX.Element {
 
 
 	return (
-		<div className={styles.map_field}>
-			<div className={styles.header}>
-				<div className={styles.arrow_btn} onClick={handleRedirectNews}>
-					<div className={styles.icon_header}>
-						<ArrowLeft color='#000' size={25} />
+		<main className={styles.container}>
+			<header className={styles.header}>
+					<div className={styles.back_btn} onClick={handleRedirectNews}>
+						  <ArrowLeft strokeWidth={2.5} color='#fff' size={25} />
 					</div>
-				</div>
-				<div className={styles.k_o_s}>
-					<span className={styles.kind_of_sport}>Велоспорт</span>
-				</div>
-				<div className={styles.settings_icon} onClick={handleRedirectMapSettings}>
-					<span><Settings color='#000' size={25} /></span>
-				</div>
-			</div>
-
-			<div ref={mapContainer} className={styles.map_container} />
-
-			<div className={styles.footer}>
+				  <div className={styles.kind_of_sport}>
+					    <span>Велоспорт</span>
+				  </div>
+				  <div className={styles.settings} onClick={handleRedirectMapSettings}>
+					    <Settings strokeWidth={2.5} color='#fff' size={25} />
+				  </div>
+			</header>
+			<div ref={mapContainer} className={styles.map_container}  id="map"/>
+			<footer className={styles.footer}>
 				<div className={styles.btn_group}>
-					<span onClick={handleOpenRouteModal}>
-						<Route strokeWidth={1.5} color='#778c96' size={48} />
-					</span>
-					<span onClick={handleOpenSportModal}>
-						<Bike strokeWidth={1.5} color='#ff0606' size={48} />
-					</span>
-					<span onClick={handleOpenPulseModal}>
-						<HeartPulse strokeWidth={1.5} color='#778c96' size={48} />
-					</span>
-					<span>
-						<Music4 strokeWidth={1.5} color='#778c96' size={48} />
-					</span>
+					  <div onClick={handleOpenRouteModal}>
+						    <Route strokeWidth={1.5} color='#fff' size={48} />
+					  </div>
+					  <div onClick={handleOpenSportModal}>
+						    <Bike strokeWidth={1.5} color='#ff0606' size={48} />
+					  </div>
+					  <div onClick={handleOpenPulseModal}>
+						    <HeartPulse strokeWidth={1.5} color='#fff' size={48} />
+					  </div>
+					  <div>
+						    <Music4 strokeWidth={1.5} color='#fff' size={48} />
+					  </div>
 				</div>
 				<div className={styles.container_red_round_button} onClick={handleRedirectTimer}>
-					<div className={styles.red_round_button}><Play size={38}/></div>
+					  <div className={styles.red_round_button}>
+							  <Play size={38}/>
+						</div>
 				</div>
-			</div>
+			</footer>
 			<RouteModal isRouteOpen={isRouteModalOpen} onRouteClose={handleCloseRouteModal}/>
 			<PulseSensorModal isPulseOpen={isPulseModalOpen} onPulseClose={handleClosePulseModal}/>
 			<KindOfSportModal isSportOpen={isSportModalOpen} onSportClose={handleCloseSportModal}/>
-		</div>
+		</main>
 	)
 }
+
+
